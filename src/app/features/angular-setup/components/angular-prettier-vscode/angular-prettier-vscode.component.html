@@ -1,0 +1,775 @@
+<!-- prettier-setup.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #e91e8c, #f7941d);
+          box-shadow: 0 8px 24px rgba(233, 30, 140, 0.3);
+        "
+      >
+        ✨
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          <span class="text-[#e91e8c]">Prettier</span> Setup Guide
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Angular + VS Code — Code Formatting from Installation to Configuration
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-10">
+      <!-- ================================================================ -->
+      <!-- WHAT IS PRETTIER -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #e91e8c, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(233, 30, 140, 0.1);
+              color: #e91e8c;
+              border: 1px solid rgba(233, 30, 140, 0.25);
+            "
+          >
+            What is Prettier?
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #e91e8c, transparent)"
+          ></div>
+        </div>
+
+        <div class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+          <div class="px-6 py-5 flex flex-col gap-4">
+            <p class="text-sm text-slate-400 leading-relaxed font-light">
+              Prettier is a <strong class="text-slate-200">code formatter</strong> — it
+              automatically rewrites your code to look consistent every time you save. It does not
+              find bugs (that is ESLint's job), it just makes your code clean and uniform.
+            </p>
+
+            <!-- Before / After comparison -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Before -->
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+                  style="background: #0f1117; color: #dd4c39"
+                >
+                  ✗ Before Prettier
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+                  style="color: #7a8499"
+                >
+const user=&#123;name:'John',
+age:30,active:true&#125;
+function greet(
+  name:string)&#123;
+  return 'Hello '+name&#125;</pre
+                >
+              </div>
+              <!-- After -->
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+                  style="background: #0f1117; color: #3ecf8e"
+                >
+                  ✓ After Prettier
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+                ><span style="color:#89ddff;">const</span> user = &#123;
+  name: <span style="color:#c3e88d;">'John'</span>,
+  age: <span style="color:#f78c6c;">30</span>,
+  active: <span style="color:#89ddff;">true</span>,
+&#125;;
+<span style="color:#89ddff;">function</span> <span style="color:#82aaff;">greet</span>(name: <span style="color:#ffcb6b;">string</span>) &#123;
+  <span style="color:#89ddff;">return</span> <span style="color:#c3e88d;">'Hello '</span> + name;
+&#125;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- ESLINT VS PRETTIER -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #9b6dff, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(155, 109, 255, 0.1);
+              color: #9b6dff;
+              border: 1px solid rgba(155, 109, 255, 0.25);
+            "
+          >
+            ESLint vs Prettier
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #9b6dff, transparent)"
+          ></div>
+        </div>
+
+        <div class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+          <div class="rounded-xl overflow-hidden border border-[#1e2230] m-4">
+            <div
+              class="grid grid-cols-3 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span></span>
+              <span style="color: #9b6dff">ESLint</span>
+              <span style="color: #e91e8c">Prettier</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-3 px-4 py-3 text-sm items-center">
+                <span class="font-semibold text-slate-300">Purpose</span>
+                <span class="text-slate-400">Finds code quality issues</span>
+                <span class="text-slate-400">Formats code appearance</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-sm items-center">
+                <span class="font-semibold text-slate-300">Catches</span>
+                <span class="text-slate-400">Unused vars, bad patterns</span>
+                <span class="text-slate-400">Spacing, quotes, indentation</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-sm items-center">
+                <span class="font-semibold text-slate-300">Output</span>
+                <span class="text-slate-400">Errors &amp; warnings</span>
+                <span class="text-slate-400">Rewrites your code</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-sm items-center">
+                <span class="font-semibold text-slate-300">Works on</span>
+                <span class="text-slate-400">TypeScript logic</span>
+                <span class="text-slate-400">TS, HTML, CSS, JSON</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 mx-4 mb-4 text-sm"
+            style="
+              background: rgba(62, 207, 142, 0.07);
+              border: 1px solid rgba(62, 207, 142, 0.2);
+              color: #6ee7b7;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >They work together — <strong>ESLint catches bugs</strong>,
+              <strong>Prettier handles style</strong>.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- INSTALLATION -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #f7941d, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(247, 148, 29, 0.1);
+              color: #f7941d;
+              border: 1px solid rgba(247, 148, 29, 0.25);
+            "
+          >
+            Installation
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #f7941d, transparent)"
+          ></div>
+        </div>
+
+        <div class="flex flex-col gap-7">
+          <!-- Step 1 -->
+          <div
+            class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+              >
+                01
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Install the VS Code Extension</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Press
+                <kbd
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Ctrl+Shift+X</kbd
+                >
+                to open the Extensions panel. Search for
+                <strong>Prettier - Code Formatter</strong> and install the one by Prettier.
+              </p>
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+                  style="background: #0f1117; color: #546e7a"
+                >
+                  Extension ID
+                </div>
+                <pre
+                  class="px-4 py-3 font-mono text-sm"
+                ><span style="color:#82aaff;">esbenp.prettier-vscode</span>  <span style="color:#546e7a;">(Prettier)</span></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+              >
+                02
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Install Prettier in Your Angular Project</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Run this in your project terminal:
+              </p>
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >bash</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#3ecf8e;">npm install</span> --save-dev prettier</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+              >
+                03
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Create a .prettierrc Config File</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Create a file called
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >.prettierrc</code
+                >
+                in your project root:
+              </p>
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >.prettierrc</span
+                  >
+                </div>
+                <pre class="px-4 py-4 font-mono text-sm leading-relaxed">&#123;
+  <span style="color:#c3e88d;">"singleQuote"</span><span style="color:#89ddff;">:</span> <span style="color:#89ddff;">true</span>,
+  <span style="color:#c3e88d;">"semi"</span><span style="color:#89ddff;">:</span> <span style="color:#89ddff;">true</span>,
+  <span style="color:#c3e88d;">"tabWidth"</span><span style="color:#89ddff;">:</span> <span style="color:#f78c6c;">2</span>,
+  <span style="color:#c3e88d;">"printWidth"</span><span style="color:#89ddff;">:</span> <span style="color:#f78c6c;">100</span>,
+  <span style="color:#c3e88d;">"trailingComma"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"es5"</span>
+&#125;</pre>
+              </div>
+
+              <p class="text-sm text-slate-400 font-light">What each option does:</p>
+              <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+                <div
+                  class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117; color: #546e7a"
+                >
+                  <span>Option</span>
+                  <span>Effect</span>
+                </div>
+                <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+                  <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                    <span class="font-mono" style="color: #c3e88d">singleQuote</span>
+                    <span class="text-slate-400"
+                      >uses <code class="font-mono">'</code> instead of
+                      <code class="font-mono">"</code></span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                    <span class="font-mono" style="color: #c3e88d">semi</span>
+                    <span class="text-slate-400">adds semicolons at end of lines</span>
+                  </div>
+                  <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                    <span class="font-mono" style="color: #c3e88d">tabWidth</span>
+                    <span class="text-slate-400">2 spaces indentation (Angular default)</span>
+                  </div>
+                  <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                    <span class="font-mono" style="color: #c3e88d">printWidth</span>
+                    <span class="text-slate-400">wraps lines longer than 100 characters</span>
+                  </div>
+                  <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                    <span class="font-mono" style="color: #c3e88d">trailingComma</span>
+                    <span class="text-slate-400">adds trailing commas where valid in ES5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div
+            class="fade-up d6 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+              >
+                04
+              </div>
+              <span class="font-semibold text-base tracking-tight">Update Your settings.json</span>
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Press
+                <kbd
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Ctrl+Shift+P</kbd
+                >, type <strong>Open User Settings JSON</strong>, and press Enter. Your
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >settings.json</code
+                >
+                should look like this:
+              </p>
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >settings.json</span
+                  >
+                </div>
+                <pre class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto">&#123;
+  <span style="color:#c3e88d;">"[html]"</span><span style="color:#89ddff;">:</span> &#123;
+    <span style="color:#c3e88d;">"editor.defaultFormatter"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"esbenp.prettier-vscode"</span>
+  &#125;,
+  <span style="color:#c3e88d;">"[typescript]"</span><span style="color:#89ddff;">:</span> &#123;
+    <span style="color:#c3e88d;">"editor.defaultFormatter"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"esbenp.prettier-vscode"</span>
+  &#125;,
+  <span style="color:#c3e88d;">"[javascript]"</span><span style="color:#89ddff;">:</span> &#123;
+    <span style="color:#c3e88d;">"editor.defaultFormatter"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"esbenp.prettier-vscode"</span>
+  &#125;,
+  <span style="color:#c3e88d;">"editor.formatOnSave"</span><span style="color:#89ddff;">:</span> <span style="color:#89ddff;">true</span>,
+  <span style="color:#c3e88d;">"security.workspace.trust.untrustedFiles"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"open"</span>,
+  <span style="color:#c3e88d;">"javascript.updateImportsOnFileMove.enabled"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"always"</span>,
+  <span style="color:#c3e88d;">"typescript.updateImportsOnFileMove.enabled"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"always"</span>,
+  <span style="color:#c3e88d;">"explorer.confirmDelete"</span><span style="color:#89ddff;">:</span> <span style="color:#89ddff;">false</span>,
+  <span style="color:#c3e88d;">"git.autofetch"</span><span style="color:#89ddff;">:</span> <span style="color:#89ddff;">true</span>,
+  <span style="color:#c3e88d;">"editor.codeActionsOnSave"</span><span style="color:#89ddff;">:</span> &#123;
+    <span style="color:#c3e88d;">"source.fixAll.eslint"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"explicit"</span>
+  &#125;,
+  <span style="color:#c3e88d;">"eslint.validate"</span><span style="color:#89ddff;">:</span> [
+    <span style="color:#c3e88d;">"javascript"</span>,
+    <span style="color:#c3e88d;">"typescript"</span>,
+    <span style="color:#c3e88d;">"html"</span>
+  ]
+&#125;</pre>
+              </div>
+              <div
+                class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+                style="
+                  background: rgba(155, 109, 255, 0.07);
+                  border: 1px solid rgba(155, 109, 255, 0.2);
+                  color: #c4b5fd;
+                "
+              >
+                <span class="flex-shrink-0">💡</span>
+                <span
+                  >The key additions are
+                  <code
+                    class="font-mono text-xs px-1 rounded"
+                    style="background: rgba(155, 109, 255, 0.1); color: #c4b5fd"
+                    >[typescript]</code
+                  >
+                  and
+                  <code
+                    class="font-mono text-xs px-1 rounded"
+                    style="background: rgba(155, 109, 255, 0.1); color: #c4b5fd"
+                    >[javascript]</code
+                  >
+                  blocks — these tell VS Code to use Prettier for
+                  <code class="font-mono text-xs">.ts</code> and
+                  <code class="font-mono text-xs">.js</code> files, not just
+                  <code class="font-mono text-xs">.html</code>.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div
+            class="fade-up d7 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+              >
+                05
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Avoid ESLint + Prettier Conflicts</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Since ESLint also has some formatting rules, they can conflict with Prettier.
+                Install this package to turn off ESLint rules that Prettier already handles:
+              </p>
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >bash</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#3ecf8e;">npm install</span> --save-dev eslint-config-prettier</pre>
+              </div>
+
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Then add
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >prettier</code
+                >
+                as the last item in your
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >eslint.config.js</code
+                >
+                extends:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >eslint.config.js</span
+                  >
+                </div>
+                <pre class="px-4 py-4 font-mono text-sm leading-relaxed">extends: [
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
+  angular.configs.tsRecommended,
+  <span style="color:#c3e88d;">"prettier"</span>   <span style="color:#546e7a;">// add this last</span>
+]</pre>
+              </div>
+
+              <div
+                class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+                style="
+                  background: rgba(221, 76, 57, 0.07);
+                  border: 1px solid rgba(221, 76, 57, 0.2);
+                  color: #fca5a5;
+                "
+              >
+                <span class="flex-shrink-0">⚠️</span>
+                <span
+                  ><code
+                    class="font-mono text-xs px-1 rounded"
+                    style="background: rgba(221, 76, 57, 0.1); color: #fca5a5"
+                    >prettier</code
+                  >
+                  must always be <strong>last</strong> in the extends array so it overrides any
+                  conflicting formatting rules.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- TESTING -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #3ecf8e, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(62, 207, 142, 0.1);
+              color: #3ecf8e;
+              border: 1px solid rgba(62, 207, 142, 0.25);
+            "
+          >
+            Testing Prettier Works
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #3ecf8e, transparent)"
+          ></div>
+        </div>
+
+        <div class="flex flex-col gap-7">
+          <!-- Test 1 -->
+          <div
+            class="fade-up d8 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+              >
+                T1
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Mess Up Formatting and Save</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Open any
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >.ts</code
+                >
+                file and type something with bad formatting:
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div
+                  class="rounded-xl overflow-hidden border border-[#1e2230]"
+                  style="background: #0a0c10"
+                >
+                  <div
+                    class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+                    style="background: #0f1117; color: #dd4c39"
+                  >
+                    ✗ Before save
+                  </div>
+                  <pre class="px-4 py-4 font-mono text-sm" style="color: #7a8499">
+const x=&#123;a:1,b:2,c:3&#125;</pre
+                  >
+                </div>
+                <div
+                  class="rounded-xl overflow-hidden border border-[#1e2230]"
+                  style="background: #0a0c10"
+                >
+                  <div
+                    class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+                    style="background: #0f1117; color: #3ecf8e"
+                  >
+                    ✓ After Ctrl+S
+                  </div>
+                  <pre
+                    class="px-4 py-4 font-mono text-sm"
+                  ><span style="color:#89ddff;">const</span> x = &#123; a: <span style="color:#f78c6c;">1</span>, b: <span style="color:#f78c6c;">2</span>, c: <span style="color:#f78c6c;">3</span> &#125;;</pre>
+                </div>
+              </div>
+
+              <div
+                class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+                style="
+                  background: rgba(91, 138, 240, 0.07);
+                  border: 1px solid rgba(91, 138, 240, 0.2);
+                  color: #8ba8e8;
+                "
+              >
+                <span class="flex-shrink-0">💡</span>
+                <span
+                  >If nothing happens, check that the file language is set to
+                  <strong>TypeScript</strong> (bottom-right of VS Code status bar).</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Test 2 -->
+          <div
+            class="fade-up d9 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+              >
+                T2
+              </div>
+              <span class="font-semibold text-base tracking-tight">Format Manually</span>
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                You can also format any file manually without saving:
+              </p>
+              <div class="flex items-center gap-3">
+                <kbd
+                  class="font-mono text-sm px-3 py-2 rounded-lg font-bold"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Shift + Alt + F</kbd
+                >
+              </div>
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Or run Prettier across your entire project from the terminal:
+              </p>
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >bash</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#3ecf8e;">npx prettier</span> --write .</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

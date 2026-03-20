@@ -1,0 +1,436 @@
+<!-- db-connect.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #336791, #5b8af0);
+          box-shadow: 0 8px 24px rgba(51, 103, 145, 0.3);
+        "
+      >
+        🔌
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Connect <span class="text-[#5b8af0]">Database</span> in IntelliJ
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Connect PostgreSQL to your Spring Boot project
+        </p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col gap-7">
+      <!-- Step 1 -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            01
+          </div>
+          <span class="font-semibold text-base tracking-tight">Click the Database Icon</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            In IntelliJ IDEA, locate and click the
+            <strong>Database</strong> icon on the right panel to open the Database tool window.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            02
+          </div>
+          <span class="font-semibold text-base tracking-tight">Click +</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            In the Database panel, click the <strong>+</strong> button to add a new data source.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            03
+          </div>
+          <span class="font-semibold text-base tracking-tight">Click Data Source → PostgreSQL</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            From the dropdown, click <strong>Data Source</strong>, search for PostgreSQL and select
+            it.
+          </p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(62, 207, 142, 0.1);
+                color: #3ecf8e;
+                border: 1px solid rgba(62, 207, 142, 0.2);
+              "
+              >Data Source</span
+            >
+            <span class="text-slate-500">→</span>
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(62, 207, 142, 0.1);
+                color: #3ecf8e;
+                border: 1px solid rgba(62, 207, 142, 0.2);
+              "
+              >PostgreSQL</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            04
+          </div>
+          <span class="font-semibold text-base tracking-tight">Enter Connection Details</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            A new window will pop up. Fill in the connection fields:
+          </p>
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Field</span>
+              <span>Value</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Port</span>
+                <span class="font-mono text-xs" style="color: #c3e88d">5436</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">User</span>
+                <span class="font-mono text-xs" style="color: #c3e88d">postgres</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Password</span>
+                <span class="font-mono text-xs" style="color: #c3e88d">password</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Database</span>
+                <span class="font-mono text-xs" style="color: #c3e88d">reserba</span>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <img
+              src="images/spring-boot-database-connect-intellij-04.jpg"
+              alt="Enter connection details"
+              class="w-full object-cover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=\'flex items-center justify-center gap-2 py-10 text-slate-600 text-sm font-mono\' style=\'background:#0a0c10\'>🖼️ &nbsp; spring-boot-database-connect-intellij-01.jpg</div>'
+              "
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div
+        class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            05
+          </div>
+          <span class="font-semibold text-base tracking-tight">Click Test</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Click the <strong>Test</strong> button to verify the connection. You should see a
+            success message if Docker is running and the credentials are correct.
+          </p>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(62, 207, 142, 0.07);
+              border: 1px solid rgba(62, 207, 142, 0.2);
+              color: #6ee7b7;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >Make sure Docker Desktop is running and the PostgreSQL container is up before
+              testing.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div
+        class="fade-up d6 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(109,179,63,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(109, 179, 63, 0.15); color: #6db33f"
+          >
+            06
+          </div>
+          <span class="font-semibold text-base tracking-tight">Click Apply</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Click <strong>Apply</strong> to save the data source configuration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div
+        class="fade-up d7 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            07
+          </div>
+          <span class="font-semibold text-base tracking-tight">Data Source will show</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            The new PostgreSQL data source will now appear in the Database panel on the right side
+            of IntelliJ.
+          </p>
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <img
+              src="images/spring-boot-database-connect-intellij-07.jpg"
+              alt="Data source showing in IntelliJ"
+              class="w-full object-cover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=\'flex items-center justify-center gap-2 py-10 text-slate-600 text-sm font-mono\' style=\'background:#0a0c10\'>🖼️ &nbsp; spring-boot-database-connect-intellij-07.jpg</div>'
+              "
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 8 -->
+      <div
+        class="fade-up d8 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            08
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Add database properties in application.properties</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Add the following datasource properties to your
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >src/main/resources/application.properties</code
+            >
+            file.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >application.properties</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#82aaff;">spring.datasource.url</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">jdbc:postgresql://localhost:5435/reserba</span>
+
+<span style="color:#82aaff;">spring.datasource.username</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">postgres</span>
+
+<span style="color:#82aaff;">spring.datasource.password</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">password</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 9 -->
+      <div
+        class="fade-up d9 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            09
+          </div>
+          <span class="font-semibold text-base tracking-tight">Add dependencies in pom.xml</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Add the PostgreSQL driver and Spring Data JPA dependencies to your
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >pom.xml</code
+            >
+            file.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">pom.xml</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#89ddff;">&lt;</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">org.postgresql</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">postgresql</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">scope</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">runtime</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">scope</span><span style="color:#89ddff;">&gt;</span>
+<span style="color:#89ddff;">&lt;/</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span>
+
+<span style="color:#89ddff;">&lt;</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">org.springframework.boot</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">spring-boot-starter-data-jpa</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span>
+<span style="color:#89ddff;">&lt;/</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 10 -->
+      <div
+        class="fade-up d10 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            10
+          </div>
+          <span class="font-semibold text-base tracking-tight">Refresh Maven Dependencies</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Click <strong>Maven</strong> on the right panel, then click
+            <strong>Reload All Maven Projects</strong> to download and apply the new dependencies.
+          </p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(221, 76, 57, 0.1);
+                color: #dd4c39;
+                border: 1px solid rgba(221, 76, 57, 0.2);
+              "
+              >Maven</span
+            >
+            <span class="text-slate-500">→</span>
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(221, 76, 57, 0.1);
+                color: #dd4c39;
+                border: 1px solid rgba(221, 76, 57, 0.2);
+              "
+              >Reload All Maven Projects</span
+            >
+          </div>
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <img
+              src="images/spring-boot-database-connect-intellij-10.jpg"
+              alt="Reload Maven Projects"
+              class="w-full object-cover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=\'flex items-center justify-center gap-2 py-10 text-slate-600 text-sm font-mono\' style=\'background:#0a0c10\'>🖼️ &nbsp; spring-boot-database-connect-intellij-10.jpg</div>'
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

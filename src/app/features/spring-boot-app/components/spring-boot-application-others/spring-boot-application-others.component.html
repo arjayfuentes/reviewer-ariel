@@ -1,0 +1,660 @@
+<!-- app-models.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #f7941d, #9b6dff);
+          box-shadow: 0 8px 24px rgba(247, 148, 29, 0.3);
+        "
+      >
+        📦
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Models, DTOs <span class="text-[#f7941d]">&amp; More</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Entity, DTO, Mapper, Exception handling &amp; Config
+        </p>
+        <a
+          href="https://github.com/arjayfuentes/reserba-backend"
+          target="_blank"
+          class="inline-flex items-center gap-2 mt-2 text-xs font-mono transition-colors duration-200"
+          style="color: #546e7a"
+          onmouseenter="this.style.color = '#c3e88d'"
+          onmouseleave="this.style.color = '#546e7a'"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+          arjayfuentes/reserba-backend
+        </a>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="flex flex-col gap-7">
+      <!-- Item Model -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(109,179,63,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(109, 179, 63, 0.15); color: #6db33f"
+          >
+            01
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">Item Entity</span>
+            <span class="font-mono text-xs" style="color: #546e7a">com.rjproj.reserba.model</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(109, 179, 63, 0.1);
+              color: #6db33f;
+              border: 1px solid rgba(109, 179, 63, 0.2);
+            "
+            >&#64;Entity</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            JPA entity mapped to the
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >item</code
+            >
+            table. Uses Lombok annotations to reduce boilerplate.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >Item.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.model;</span>
+
+<span style="color:#c792ea;">import</span> jakarta.persistence.*;
+<span style="color:#c792ea;">import</span> lombok.AllArgsConstructor;
+<span style="color:#c792ea;">import</span> lombok.Builder;
+<span style="color:#c792ea;">import</span> lombok.Data;
+<span style="color:#c792ea;">import</span> lombok.NoArgsConstructor;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;Entity</span>
+<span style="color:#c792ea;">&#64;Table</span>(name=<span style="color:#c3e88d;">"item"</span>)
+<span style="color:#c792ea;">&#64;Data</span>
+<span style="color:#c792ea;">&#64;Builder</span>
+<span style="color:#c792ea;">&#64;NoArgsConstructor</span>
+<span style="color:#c792ea;">&#64;AllArgsConstructor</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">Item</span> &#123;
+
+    <span style="color:#c792ea;">&#64;Id</span>
+    <span style="color:#c792ea;">&#64;GeneratedValue</span>(strategy= <span style="color:#ffcb6b;">GenerationType</span>.UUID)
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">UUID</span> id;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">String</span> name;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">String</span> description;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">BigDecimal</span> price;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">String</span> imageUrl;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">String</span> category;
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ItemDto -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            02
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">ItemDto</span>
+            <span class="font-mono text-xs" style="color: #546e7a">com.rjproj.reserba.dto</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(91, 138, 240, 0.1);
+              color: #5b8af0;
+              border: 1px solid rgba(91, 138, 240, 0.2);
+            "
+            >record</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Java record used as the Data Transfer Object. Immutable by default — no need for
+            getters, setters or constructors.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemDto.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.dto;</span>
+
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+
+<span style="color:#89ddff;">public record</span> <span style="color:#ffcb6b;">ItemDto</span>(
+        <span style="color:#ffcb6b;">String</span> id,
+        <span style="color:#ffcb6b;">String</span> name,
+        <span style="color:#ffcb6b;">String</span> description,
+        <span style="color:#ffcb6b;">BigDecimal</span> price,
+        <span style="color:#ffcb6b;">String</span> imageUrl,
+        <span style="color:#ffcb6b;">String</span> category
+) &#123;&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ItemMapper -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            03
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">ItemMapper</span>
+            <span class="font-mono text-xs" style="color: #546e7a">com.rjproj.reserba.mapper</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(247, 148, 29, 0.1);
+              color: #f7941d;
+              border: 1px solid rgba(247, 148, 29, 0.2);
+            "
+            >&#64;Component</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Converts between
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >Item</code
+            >
+            entity and
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >ItemDto</code
+            >. Handles UUID string conversion and null checks.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemMapper.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.mapper;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> org.springframework.stereotype.Component;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;Component</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemMapper</span> &#123;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">mapToDto</span>(<span style="color:#ffcb6b;">Item</span> item) &#123;
+        <span style="color:#89ddff;">return new</span> <span style="color:#ffcb6b;">ItemDto</span>(
+                item.<span style="color:#82aaff;">getId</span>().<span style="color:#82aaff;">toString</span>(),
+                item.<span style="color:#82aaff;">getName</span>(),
+                item.<span style="color:#82aaff;">getDescription</span>(),
+                item.<span style="color:#82aaff;">getPrice</span>(),
+                item.<span style="color:#82aaff;">getImageUrl</span>(),
+                item.<span style="color:#82aaff;">getCategory</span>()
+        );
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">Item</span> <span style="color:#82aaff;">mapToEntity</span>(<span style="color:#ffcb6b;">ItemDto</span> dto) &#123;
+        <span style="color:#ffcb6b;">Item</span> item = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+
+        <span style="color:#546e7a;">// Convert String ID back to UUID if it exists</span>
+        <span style="color:#89ddff;">if</span> (dto.<span style="color:#82aaff;">id</span>() != <span style="color:#89ddff;">null</span> &amp;&amp; !dto.<span style="color:#82aaff;">id</span>().<span style="color:#82aaff;">isEmpty</span>()) &#123;
+            item.<span style="color:#82aaff;">setId</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">fromString</span>(dto.<span style="color:#82aaff;">id</span>()));
+        &#125;
+
+        item.<span style="color:#82aaff;">setName</span>(dto.<span style="color:#82aaff;">name</span>());
+        item.<span style="color:#82aaff;">setDescription</span>(dto.<span style="color:#82aaff;">description</span>());
+        item.<span style="color:#82aaff;">setPrice</span>(dto.<span style="color:#82aaff;">price</span>());
+        item.<span style="color:#82aaff;">setImageUrl</span>(dto.<span style="color:#82aaff;">imageUrl</span>());
+        item.<span style="color:#82aaff;">setCategory</span>(dto.<span style="color:#82aaff;">category</span>());
+
+        <span style="color:#89ddff;">return</span> item;
+    &#125;
+
+    <span style="color:#89ddff;">public void</span> <span style="color:#82aaff;">updateEntityFromDto</span>(<span style="color:#ffcb6b;">ItemDto</span> dto, <span style="color:#ffcb6b;">Item</span> entity) &#123;
+        <span style="color:#89ddff;">if</span> (dto == <span style="color:#89ddff;">null</span> || entity == <span style="color:#89ddff;">null</span>) <span style="color:#89ddff;">return</span>;
+
+        <span style="color:#546e7a;">// Map ID only if the entity doesn't have one yet</span>
+        <span style="color:#89ddff;">if</span> (entity.<span style="color:#82aaff;">getId</span>() == <span style="color:#89ddff;">null</span> &amp;&amp; dto.<span style="color:#82aaff;">id</span>() != <span style="color:#89ddff;">null</span> &amp;&amp; !dto.<span style="color:#82aaff;">id</span>().<span style="color:#82aaff;">isEmpty</span>()) &#123;
+            entity.<span style="color:#82aaff;">setId</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">fromString</span>(dto.<span style="color:#82aaff;">id</span>()));
+        &#125;
+
+        entity.<span style="color:#82aaff;">setName</span>(dto.<span style="color:#82aaff;">name</span>());
+        entity.<span style="color:#82aaff;">setDescription</span>(dto.<span style="color:#82aaff;">description</span>());
+        entity.<span style="color:#82aaff;">setPrice</span>(dto.<span style="color:#82aaff;">price</span>());
+        entity.<span style="color:#82aaff;">setImageUrl</span>(dto.<span style="color:#82aaff;">imageUrl</span>());
+        entity.<span style="color:#82aaff;">setCategory</span>(dto.<span style="color:#82aaff;">category</span>());
+    &#125;
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ItemNotFoundException -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            04
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">ItemNotFoundException</span>
+            <span class="font-mono text-xs" style="color: #546e7a"
+              >com.rjproj.reserba.exception</span
+            >
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(221, 76, 57, 0.1);
+              color: #dd4c39;
+              border: 1px solid rgba(221, 76, 57, 0.2);
+            "
+            >&#64;ResponseStatus</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Custom exception that returns
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(221, 76, 57, 0.1); color: #dd4c39"
+              >404 NOT_FOUND</code
+            >
+            when an item is not found by ID.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemNotFoundException.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.exception;</span>
+
+<span style="color:#c792ea;">import</span> org.springframework.http.HttpStatus;
+<span style="color:#c792ea;">import</span> org.springframework.web.bind.annotation.ResponseStatus;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;ResponseStatus</span>(<span style="color:#ffcb6b;">HttpStatus</span>.NOT_FOUND)
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemNotFoundException</span> <span style="color:#89ddff;">extends</span> <span style="color:#ffcb6b;">RuntimeException</span> &#123;
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(<span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#89ddff;">super</span>(<span style="color:#c3e88d;">"Item not found with id: "</span> + id);
+    &#125;
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- GlobalExceptionHandler + ErrorResponse -->
+      <div
+        class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            05
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight"
+              >GlobalExceptionHandler &amp; ErrorResponse</span
+            >
+            <span class="font-mono text-xs" style="color: #546e7a"
+              >com.rjproj.reserba.exception / dto</span
+            >
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(155, 109, 255, 0.1);
+              color: #9b6dff;
+              border: 1px solid rgba(155, 109, 255, 0.2);
+            "
+            >&#64;ControllerAdvice</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Centralized exception handling. Catches
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >ItemNotFoundException</code
+            >
+            and returns a structured
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >ErrorResponse</code
+            >.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >GlobalExceptionHandler.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.exception;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ErrorResponse;
+<span style="color:#c792ea;">import</span> org.springframework.http.HttpStatus;
+<span style="color:#c792ea;">import</span> org.springframework.http.ResponseEntity;
+<span style="color:#c792ea;">import</span> org.springframework.web.bind.annotation.ControllerAdvice;
+<span style="color:#c792ea;">import</span> org.springframework.web.bind.annotation.ExceptionHandler;
+<span style="color:#c792ea;">import</span> java.time.LocalDateTime;
+
+<span style="color:#c792ea;">&#64;ControllerAdvice</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">GlobalExceptionHandler</span> &#123;
+
+    <span style="color:#546e7a;">// This handles your custom ItemNotFoundException</span>
+    <span style="color:#c792ea;">&#64;ExceptionHandler</span>(<span style="color:#ffcb6b;">ItemNotFoundException</span>.class)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ErrorResponse</span>&gt; <span style="color:#82aaff;">handleItemNotFound</span>(<span style="color:#ffcb6b;">ItemNotFoundException</span> ex) &#123;
+        <span style="color:#ffcb6b;">ErrorResponse</span> error = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ErrorResponse</span>(
+                <span style="color:#ffcb6b;">HttpStatus</span>.NOT_FOUND.<span style="color:#82aaff;">value</span>(),
+                ex.<span style="color:#82aaff;">getMessage</span>(),
+                <span style="color:#ffcb6b;">LocalDateTime</span>.<span style="color:#82aaff;">now</span>()
+        );
+        <span style="color:#89ddff;">return new</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;&gt;(error, <span style="color:#ffcb6b;">HttpStatus</span>.NOT_FOUND);
+    &#125;
+&#125;</pre>
+          </div>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ErrorResponse.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.dto;</span>
+
+<span style="color:#c792ea;">import</span> java.time.LocalDateTime;
+
+<span style="color:#89ddff;">public record</span> <span style="color:#ffcb6b;">ErrorResponse</span>(
+        <span style="color:#89ddff;">int</span> status,
+        <span style="color:#ffcb6b;">String</span> message,
+        <span style="color:#ffcb6b;">LocalDateTime</span> timestamp
+) &#123;&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ItemConfig -->
+      <div
+        class="fade-up d6 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            06
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">ItemConfig</span>
+            <span class="font-mono text-xs" style="color: #546e7a">com.rjproj.reserba.config</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(62, 207, 142, 0.1);
+              color: #3ecf8e;
+              border: 1px solid rgba(62, 207, 142, 0.2);
+            "
+            >&#64;ConfigurationProperties</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Binds properties prefixed with
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >itemconfig</code
+            >
+            from
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >application.properties</code
+            >
+            into a typed bean.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemConfig.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.config;</span>
+
+<span style="color:#c792ea;">import</span> lombok.*;
+<span style="color:#c792ea;">import</span> org.springframework.boot.context.properties.ConfigurationProperties;
+<span style="color:#c792ea;">import</span> org.springframework.boot.context.properties.bind.ConstructorBinding;
+<span style="color:#c792ea;">import</span> org.springframework.context.annotation.Configuration;
+
+<span style="color:#c792ea;">&#64;Configuration</span>
+<span style="color:#c792ea;">&#64;ConfigurationProperties</span>(prefix = <span style="color:#c3e88d;">"itemconfig"</span>)
+<span style="color:#c792ea;">&#64;RequiredArgsConstructor</span>
+<span style="color:#c792ea;">&#64;Data</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemConfig</span> &#123;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">String</span> name;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">String</span> value;
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- application.properties -->
+      <div
+        class="fade-up d7 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            07
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">application.properties</span>
+            <span class="font-mono text-xs" style="color: #546e7a">src/main/resources</span>
+          </div>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            All application configuration — datasource, Flyway, JPA and custom config properties.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >application.properties</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#82aaff;">spring.application.name</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">reserba</span>
+
+<span style="color:#82aaff;">itemconfig.name</span><span style="color:#89ddff;"> = </span><span style="color:#c3e88d;">item</span>
+<span style="color:#82aaff;">itemconfig.value</span><span style="color:#89ddff;"> = </span><span style="color:#c3e88d;">milk</span>
+
+<span style="color:#82aaff;">spring.datasource.url</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">jdbc:postgresql://localhost:5436/reserba</span>
+<span style="color:#82aaff;">spring.datasource.username</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">postgres</span>
+<span style="color:#82aaff;">spring.datasource.password</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">password</span>
+
+<span style="color:#546e7a;"># This tells Hibernate not to interfere with Flyway</span>
+<span style="color:#82aaff;">spring.jpa.hibernate.ddl-auto</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">validate</span>
+
+<span style="color:#546e7a;"># Optional: specifically tell Flyway where to look</span>
+<span style="color:#82aaff;">spring.flyway.locations</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">classpath:db/migration</span>
+
+<span style="color:#546e7a;"># Force JPA to wait for Flyway</span>
+<span style="color:#82aaff;">spring.flyway.enabled</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">true</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

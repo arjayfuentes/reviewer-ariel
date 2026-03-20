@@ -1,0 +1,398 @@
+<!-- springboot-setup.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #6db33f, #3ecf8e);
+          box-shadow: 0 8px 24px rgba(109, 179, 63, 0.3);
+        "
+      >
+        🍃
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Creating a <span class="text-[#6db33f]">Spring Boot</span> App
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Step-by-step setup guide using IntelliJ IDEA
+        </p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col gap-7">
+      <!-- Step 1 -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(109,179,63,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(109, 179, 63, 0.15); color: #6db33f"
+          >
+            01
+          </div>
+          <span class="font-semibold text-base tracking-tight">Open New Project</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            In IntelliJ IDEA, navigate to the menu and open the new project dialog.
+          </p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(109, 179, 63, 0.1);
+                color: #6db33f;
+                border: 1px solid rgba(109, 179, 63, 0.2);
+              "
+              >File</span
+            >
+            <span class="text-slate-500">→</span>
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(109, 179, 63, 0.1);
+                color: #6db33f;
+                border: 1px solid rgba(109, 179, 63, 0.2);
+              "
+              >New</span
+            >
+            <span class="text-slate-500">→</span>
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(109, 179, 63, 0.1);
+                color: #6db33f;
+                border: 1px solid rgba(109, 179, 63, 0.2);
+              "
+              >Project</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            02
+          </div>
+          <span class="font-semibold text-base tracking-tight">Choose Spring Boot Generator</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            On the left panel under <strong>Generators</strong>, select
+            <strong>Spring Boot</strong>.
+          </p>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(91, 138, 240, 0.07);
+              border: 1px solid rgba(91, 138, 240, 0.2);
+              color: #8ba8e8;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >If you don't see Spring Boot, make sure the <strong>Spring Boot</strong> plugin is
+              installed in IntelliJ IDEA.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3, 4, 5, 6 — Project Settings -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            03
+          </div>
+          <span class="font-semibold text-base tracking-tight">Configure Project Settings</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Fill in the basic project configuration fields.
+          </p>
+
+          <!-- Settings table -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Field</span>
+              <span>Value</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Name</span>
+                <span style="color: #f7941d" class="font-mono text-xs">your-project-name</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Location</span>
+                <span style="color: #f7941d" class="font-mono text-xs">choose folder path</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Language</span>
+                <span style="color: #c3e88d" class="font-mono text-xs">Java</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Build System</span>
+                <span style="color: #c3e88d" class="font-mono text-xs">Gradle - Groovy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7 — Group, Artifact, Package -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            04
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Add Group, Artifact &amp; Package</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Fill in the project identity fields used by the build system.
+          </p>
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Field</span>
+              <span>Example</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Group</span>
+                <span style="color: #c792ea" class="font-mono text-xs">com.example</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Artifact</span>
+                <span style="color: #c792ea" class="font-mono text-xs">my-app</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Package Name</span>
+                <span style="color: #c792ea" class="font-mono text-xs">com.example.myapp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 8 — JDK, Java, Packaging -->
+      <div
+        class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            05
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Choose JDK, Java Version &amp; Packaging</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Select the runtime and packaging settings for your project.
+          </p>
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Field</span>
+              <span>Recommended</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">JDK</span>
+                <span style="color: #3ecf8e" class="font-mono text-xs">17 or 21</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Java Version</span>
+                <span style="color: #3ecf8e" class="font-mono text-xs">17 or 21</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm">
+                <span class="text-slate-400">Packaging</span>
+                <span style="color: #3ecf8e" class="font-mono text-xs">Jar</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(62, 207, 142, 0.07);
+              border: 1px solid rgba(62, 207, 142, 0.2);
+              color: #6ee7b7;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span>Then click <strong>Next</strong> to proceed to the dependencies screen.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 10 — Dependencies -->
+      <div
+        class="fade-up d6 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            06
+          </div>
+          <span class="font-semibold text-base tracking-tight">Add Dependencies</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Search and add the following dependencies using the search bar.
+          </p>
+
+          <!-- Dependencies list -->
+          <div
+            class="rounded-xl border border-[#1e2230] overflow-hidden"
+            style="background: #0a0c10"
+          >
+            <div
+              class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+              style="background: #0f1117; color: #546e7a"
+            >
+              Dependencies
+            </div>
+            <div class="divide-y divide-[#1e2230]">
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #6db33f"></span>
+                <span class="text-sm text-slate-300 font-mono">Lombok</span>
+                <span class="ml-auto text-xs text-slate-500">reduces boilerplate code</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #5b8af0"></span>
+                <span class="text-sm text-slate-300 font-mono">Spring Web</span>
+                <span class="ml-auto text-xs text-slate-500">REST API support</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #f7941d"></span>
+                <span class="text-sm text-slate-300 font-mono">Spring Data JPA</span>
+                <span class="ml-auto text-xs text-slate-500">database ORM layer</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #336791"></span>
+                <span class="text-sm text-slate-300 font-mono">PostgreSQL Driver</span>
+                <span class="ml-auto text-xs text-slate-500">postgres db connector</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #dd4c39"></span>
+                <span class="text-sm text-slate-300 font-mono">Spring Security</span>
+                <span class="ml-auto text-xs text-slate-500">auth &amp; authorization</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #3ecf8e"></span>
+                <span class="text-sm text-slate-300 font-mono">Spring Boot DevTools</span>
+                <span class="ml-auto text-xs text-slate-500">hot reload on save</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #c792ea"></span>
+                <span class="text-sm text-slate-300 font-mono">Flyway Migration</span>
+                <span class="ml-auto text-xs text-slate-500">db version control</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(221, 76, 57, 0.07);
+              border: 1px solid rgba(221, 76, 57, 0.2);
+              color: #fca5a5;
+            "
+          >
+            <span class="flex-shrink-0">🔍</span>
+            <span
+              >Use the <strong>search bar</strong> in the dependencies panel to find and add each
+              one.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 11 — Create -->
+      <div
+        class="fade-up d7 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(109,179,63,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(109, 179, 63, 0.15); color: #6db33f"
+          >
+            07
+          </div>
+          <span class="font-semibold text-base tracking-tight">Click Create</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Click the <strong>Create</strong> button to generate your Spring Boot project. IntelliJ
+            will scaffold the project and download all dependencies automatically.
+          </p>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(109, 179, 63, 0.07);
+              border: 1px solid rgba(109, 179, 63, 0.2);
+              color: #86efac;
+            "
+          >
+            <span class="flex-shrink-0">✅</span>
+            <span
+              >Your Spring Boot project is ready! You'll see the project structure with
+              <strong>src/main/java</strong> and <strong>build.gradle</strong> generated.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

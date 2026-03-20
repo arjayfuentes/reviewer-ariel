@@ -1,0 +1,297 @@
+<!-- vscode-plugins.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #007acc, #5b8af0);
+          box-shadow: 0 8px 24px rgba(0, 122, 204, 0.3);
+        "
+      >
+        🧩
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          <span class="text-[#5b8af0]">VS Code</span> Plugins
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Essential extensions for Angular development
+        </p>
+      </div>
+    </div>
+
+    <!-- Plugins -->
+    <div class="flex flex-col gap-7">
+      <!-- Plugin 1 — Angular Language Service -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            01
+          </div>
+          <div>
+            <span class="font-semibold text-base tracking-tight block"
+              >Angular Language Service</span
+            >
+            <span class="font-mono text-xs" style="color: #546e7a">angular.ng-template</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg flex-shrink-0"
+            style="
+              background: rgba(221, 76, 57, 0.1);
+              color: #dd4c39;
+              border: 1px solid rgba(221, 76, 57, 0.2);
+            "
+            >Critical</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            This is the <strong class="text-slate-200">most critical plugin</strong>. It provides
+            IntelliSense, error checking, and navigation inside your Angular templates (HTML files),
+            allowing you to see component variables and methods as you type.
+          </p>
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            The official Angular extension — gives you autocomplete, go-to-definition, and error
+            checking in templates.
+          </p>
+
+          <!-- Feature pills -->
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(221, 76, 57, 0.08);
+                color: #dd4c39;
+                border: 1px solid rgba(221, 76, 57, 0.15);
+              "
+              >IntelliSense</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(221, 76, 57, 0.08);
+                color: #dd4c39;
+                border: 1px solid rgba(221, 76, 57, 0.15);
+              "
+              >Error checking</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(221, 76, 57, 0.08);
+                color: #dd4c39;
+                border: 1px solid rgba(221, 76, 57, 0.15);
+              "
+              >Go-to-definition</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(221, 76, 57, 0.08);
+                color: #dd4c39;
+                border: 1px solid rgba(221, 76, 57, 0.15);
+              "
+              >Autocomplete</span
+            >
+          </div>
+
+          <!-- Image -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <img
+              src="images/vscodeplugin-01.jpg"
+              alt="Angular Language Service extension in VS Code"
+              class="w-full object-cover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=\'flex items-center justify-center gap-2 py-10 text-slate-600 text-sm font-mono\' style=\'background:#0a0c10\'>🖼️ &nbsp; vscodeplugin-01.jpg</div>'
+              "
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Plugin 2 — ESLint -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            02
+          </div>
+          <div>
+            <span class="font-semibold text-base tracking-tight block">ESLint</span>
+            <span class="font-mono text-xs" style="color: #546e7a">dbaeumer.vscode-eslint</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg flex-shrink-0"
+            style="
+              background: rgba(155, 109, 255, 0.1);
+              color: #9b6dff;
+              border: 1px solid rgba(155, 109, 255, 0.2);
+            "
+            >Linter</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            This is the <strong class="text-slate-200">industry standard for linting</strong>. It
+            identifies logical errors and enforces coding patterns.
+          </p>
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            The standard linter for Angular projects — Angular CLI now scaffolds with ESLint by
+            default.
+          </p>
+
+          <!-- Feature pills -->
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(155, 109, 255, 0.08);
+                color: #9b6dff;
+                border: 1px solid rgba(155, 109, 255, 0.15);
+              "
+              >Logical errors</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(155, 109, 255, 0.08);
+                color: #9b6dff;
+                border: 1px solid rgba(155, 109, 255, 0.15);
+              "
+              >Coding patterns</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(155, 109, 255, 0.08);
+                color: #9b6dff;
+                border: 1px solid rgba(155, 109, 255, 0.15);
+              "
+              >Unused variables</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(155, 109, 255, 0.08);
+                color: #9b6dff;
+                border: 1px solid rgba(155, 109, 255, 0.15);
+              "
+              >Angular CLI default</span
+            >
+          </div>
+
+          <!-- Image -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <img
+              src="images/vscodeplugin-02.jpg"
+              alt="ESLint extension in VS Code"
+              class="w-full object-cover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=\'flex items-center justify-center gap-2 py-10 text-slate-600 text-sm font-mono\' style=\'background:#0a0c10\'>🖼️ &nbsp; vscodeplugin-02.jpg</div>'
+              "
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Plugin 3 — Prettier -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(233,30,140,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(233, 30, 140, 0.15); color: #e91e8c"
+          >
+            03
+          </div>
+          <div>
+            <span class="font-semibold text-base tracking-tight block"
+              >Prettier — Code Formatter</span
+            >
+            <span class="font-mono text-xs" style="color: #546e7a">esbenp.prettier-vscode</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg flex-shrink-0"
+            style="
+              background: rgba(233, 30, 140, 0.1);
+              color: #e91e8c;
+              border: 1px solid rgba(233, 30, 140, 0.2);
+            "
+            >Formatter</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Prettier is a <strong class="text-slate-200">code formatter</strong> — it automatically
+            rewrites your code to look consistent every time you save. It doesn't find bugs (that's
+            ESLint's job), it just makes your code look clean and uniform.
+          </p>
+
+          <!-- Feature pills -->
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(233, 30, 140, 0.08);
+                color: #e91e8c;
+                border: 1px solid rgba(233, 30, 140, 0.15);
+              "
+              >Auto-format on save</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(233, 30, 140, 0.08);
+                color: #e91e8c;
+                border: 1px solid rgba(233, 30, 140, 0.15);
+              "
+              >Consistent style</span
+            >
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(233, 30, 140, 0.08);
+                color: #e91e8c;
+                border: 1px solid rgba(233, 30, 140, 0.15);
+              "
+              >TS, HTML, CSS, JSON</span
+            >
+          </div>
+
+          <!-- Image -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <img
+              src="images/vscodeplugin-03.jpg"
+              alt="Prettier extension in VS Code"
+              class="w-full object-cover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=\'flex items-center justify-center gap-2 py-10 text-slate-600 text-sm font-mono\' style=\'background:#0a0c10\'>🖼️ &nbsp; vscodeplugin-03.jpg</div>'
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,790 @@
+<!-- app-layers.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #6db33f, #5b8af0);
+          box-shadow: 0 8px 24px rgba(109, 179, 63, 0.3);
+        "
+      >
+        🏗️
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Spring Boot <span class="text-[#6db33f]">App Layers</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Controller → Service → Repository architecture
+        </p>
+        <a
+          href="https://github.com/arjayfuentes/reserba-backend"
+          target="_blank"
+          class="inline-flex items-center gap-2 mt-2 text-xs font-mono transition-colors duration-200"
+          style="color: #546e7a"
+          onmouseenter="this.style.color = '#c3e88d'"
+          onmouseleave="this.style.color = '#546e7a'"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+          arjayfuentes/reserba-backend
+        </a>
+      </div>
+    </div>
+
+    <!-- Architecture Flow -->
+    <div class="flex items-center justify-center gap-3 mb-7 flex-wrap">
+      <div
+        class="flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono text-sm font-bold"
+        style="
+          background: rgba(221, 76, 57, 0.15);
+          color: #dd4c39;
+          border: 1px solid rgba(221, 76, 57, 0.25);
+        "
+      >
+        🌐 Controller
+      </div>
+      <span class="text-slate-600 text-lg">→</span>
+      <div
+        class="flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono text-sm font-bold"
+        style="
+          background: rgba(91, 138, 240, 0.15);
+          color: #5b8af0;
+          border: 1px solid rgba(91, 138, 240, 0.25);
+        "
+      >
+        ⚙️ Service
+      </div>
+      <span class="text-slate-600 text-lg">→</span>
+      <div
+        class="flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono text-sm font-bold"
+        style="
+          background: rgba(62, 207, 142, 0.15);
+          color: #3ecf8e;
+          border: 1px solid rgba(62, 207, 142, 0.25);
+        "
+      >
+        🗄️ Repository
+      </div>
+      <span class="text-slate-600 text-lg">→</span>
+      <div
+        class="flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono text-sm font-bold"
+        style="
+          background: rgba(51, 103, 145, 0.15);
+          color: #5b8af0;
+          border: 1px solid rgba(51, 103, 145, 0.3);
+        "
+      >
+        🐘 Database
+      </div>
+    </div>
+
+    <!-- Layers -->
+    <div class="flex flex-col gap-7">
+      <!-- Controller -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            01
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">Controller Layer</span>
+            <span class="font-mono text-xs" style="color: #546e7a"
+              >com.rjproj.reserba.controller</span
+            >
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(221, 76, 57, 0.1);
+              color: #dd4c39;
+              border: 1px solid rgba(221, 76, 57, 0.2);
+            "
+            >&#64;RestController</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Handles HTTP requests and maps them to service calls. Responsible for request/response
+            only — no business logic here.
+          </p>
+
+          <!-- Endpoints table -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-3 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Method</span>
+              <span>Endpoint</span>
+              <span>Description</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400">/api/v1/items</span>
+                <span class="text-slate-500">get all items</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400">/api/v1/items/&#123;id&#125;</span>
+                <span class="text-slate-500">get item by id</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(91, 138, 240, 0.1); color: #5b8af0"
+                  >POST</span
+                >
+                <span class="font-mono text-slate-400">/api/v1/items</span>
+                <span class="text-slate-500">create item</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >PUT</span
+                >
+                <span class="font-mono text-slate-400">/api/v1/items/&#123;id&#125;</span>
+                <span class="text-slate-500">update item</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(221, 76, 57, 0.1); color: #dd4c39"
+                  >DELETE</span
+                >
+                <span class="font-mono text-slate-400">/api/v1/items/&#123;id&#125;</span>
+                <span class="text-slate-500">delete item</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400">/filter</span>
+                <span class="text-slate-500">filter by categories</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400">/categories</span>
+                <span class="text-slate-500">get all categories</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400"
+                  >/categories/&#123;category&#125;/price-sum</span
+                >
+                <span class="text-slate-500">price sum by category</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400">/categories/price-summary</span>
+                <span class="text-slate-500">all categories price sum</span>
+              </div>
+              <div class="grid grid-cols-3 px-4 py-3 text-xs items-center">
+                <span
+                  class="font-mono px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >GET</span
+                >
+                <span class="font-mono text-slate-400">/search?name=&amp;...</span>
+                <span class="text-slate-500">search by name/price/category</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code snippet -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemController.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.controller;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.config.ItemConfig;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.service.ItemService;
+<span style="color:#c792ea;">import</span> lombok.RequiredArgsConstructor;
+<span style="color:#c792ea;">import</span> org.springframework.http.HttpStatus;
+<span style="color:#c792ea;">import</span> org.springframework.http.ResponseEntity;
+<span style="color:#c792ea;">import</span> org.springframework.web.bind.annotation.*;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.Map;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;RestController</span>
+<span style="color:#c792ea;">&#64;RequestMapping</span>(<span style="color:#c3e88d;">"/api/v1/items"</span>)
+<span style="color:#c792ea;">&#64;RequiredArgsConstructor</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemController</span> &#123;
+
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemService</span> itemService;
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemConfig</span> itemConfig;
+
+    <span style="color:#c792ea;">&#64;GetMapping</span>(path=<span style="color:#c3e88d;">"/hello"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">String</span> <span style="color:#82aaff;">helloWorld</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#c3e88d;">"Hello World Reserba "</span> + itemConfig.<span style="color:#82aaff;">getName</span>() + <span style="color:#c3e88d;">" "</span> + itemConfig.<span style="color:#82aaff;">getValue</span>();
+    &#125;
+
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/&#123;id&#125;"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">getItem</span>(<span style="color:#c792ea;">&#64;PathVariable</span>(value=<span style="color:#c3e88d;">"id"</span>) <span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getItem</span>(id));
+    &#125;
+
+    <span style="color:#c792ea;">&#64;GetMapping</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt;&gt; <span style="color:#82aaff;">getItems</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getItems</span>());
+    &#125;
+
+    <span style="color:#c792ea;">&#64;PostMapping</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">saveItem</span>(<span style="color:#c792ea;">&#64;RequestBody</span> <span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">status</span>(<span style="color:#ffcb6b;">HttpStatus</span>.CREATED).<span style="color:#82aaff;">body</span>(itemService.<span style="color:#82aaff;">saveItem</span>(itemDto));
+    &#125;
+
+    <span style="color:#c792ea;">&#64;PutMapping</span>(<span style="color:#c3e88d;">"/&#123;id&#125;"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">updateItem</span>(<span style="color:#c792ea;">&#64;PathVariable</span>(value=<span style="color:#c3e88d;">"id"</span>) <span style="color:#ffcb6b;">UUID</span> id, <span style="color:#c792ea;">&#64;RequestBody</span> <span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">updateItem</span>(id, itemDto));
+    &#125;
+
+    <span style="color:#c792ea;">&#64;DeleteMapping</span>(<span style="color:#c3e88d;">"/&#123;id&#125;"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">Void</span>&gt; <span style="color:#82aaff;">deleteItem</span>(<span style="color:#c792ea;">&#64;PathVariable</span>(value=<span style="color:#c3e88d;">"id"</span>) <span style="color:#ffcb6b;">UUID</span> id) &#123;
+        itemService.<span style="color:#82aaff;">deleteItem</span>(id);
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">noContent</span>().<span style="color:#82aaff;">build</span>();
+    &#125;
+
+    <span style="color:#546e7a;">// --------------------- NON CRUD -------------------------</span>
+    <span style="color:#546e7a;">// Returns items filtered by one or more categories</span>
+    <span style="color:#546e7a;">// Uses GET with repeated query params: ?category=Electronics&amp;category=Clothing</span>
+    <span style="color:#546e7a;">// Changed from POST /filterItemsByCategories — no verbs in URLs, GET is correct for filtering</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/filter"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt;&gt; <span style="color:#82aaff;">filterByCategories</span>(
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; categories
+    ) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">filterItemsByCategories</span>(categories));
+    &#125;
+
+    <span style="color:#546e7a;">// Returns a distinct list of all category names</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/categories</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/categories"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt;&gt; <span style="color:#82aaff;">getCategories</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getCategories</span>());
+    &#125;
+
+    <span style="color:#546e7a;">// Returns the total price sum for a single category</span>
+    <span style="color:#546e7a;">// Changed from /getSumPriceOfCategory — no verbs, kebab-case, resource-style URL</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/categories/&#123;category&#125;/price-sum</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/categories/&#123;category&#125;/price-sum"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">BigDecimal</span>&gt; <span style="color:#82aaff;">getSumPriceOfCategory</span>(
+            <span style="color:#c792ea;">&#64;PathVariable</span>(name = <span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">String</span> category
+    ) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getSumPriceOfCategory</span>(category));
+    &#125;
+
+    <span style="color:#546e7a;">// Returns a map of every category and its total price sum</span>
+    <span style="color:#546e7a;">// Changed from /getSumPriceOfCategories — no verbs, kebab-case, resource-style URL</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/categories/price-summary</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/categories/price-summary"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">Map</span>&lt;<span style="color:#ffcb6b;">String</span>, <span style="color:#ffcb6b;">BigDecimal</span>&gt;&gt; <span style="color:#82aaff;">getSumPriceOfCategories</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getSumPriceOfCategories</span>());
+    &#125;
+
+    <span style="color:#546e7a;">// Search items by name keyword (case-insensitive, partial match)</span>
+    <span style="color:#546e7a;">// Merged into /search — having a separate /searchItemByName endpoint is redundant</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/search?name=mouse</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/search?name=mouse&amp;category=Electronics&amp;minPrice=10.00</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/search"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt;&gt; <span style="color:#82aaff;">searchItems</span>(
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"name"</span>, required = <span style="color:#89ddff;">false</span>) <span style="color:#ffcb6b;">String</span> name,
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"minPrice"</span>, defaultValue = <span style="color:#c3e88d;">"0"</span>) <span style="color:#ffcb6b;">BigDecimal</span> minPrice,
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"category"</span>, required = <span style="color:#89ddff;">false</span>) <span style="color:#ffcb6b;">String</span> category
+    ) &#123;
+        <span style="color:#546e7a;">// If a name is provided, delegate to name search</span>
+        <span style="color:#546e7a;">// Otherwise delegate to price+category search</span>
+        <span style="color:#89ddff;">if</span> (name != <span style="color:#89ddff;">null</span> &amp;&amp; !name.<span style="color:#82aaff;">isEmpty</span>()) &#123;
+            <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">searchItemByName</span>(name));
+        &#125;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">searchItems</span>(minPrice, category));
+    &#125;
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            02
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">Service Layer</span>
+            <span class="font-mono text-xs" style="color: #546e7a">com.rjproj.reserba.service</span>
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(91, 138, 240, 0.1);
+              color: #5b8af0;
+              border: 1px solid rgba(91, 138, 240, 0.2);
+            "
+            >&#64;Service</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Contains all business logic. Calls the repository to fetch or persist data, applies
+            transformations via the mapper, and throws exceptions when needed.
+          </p>
+
+          <!-- Methods table -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Method</span>
+              <span>Description</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">getItem(id)</span>
+                <span class="text-slate-500">find by id or throw</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">getItems()</span>
+                <span class="text-slate-500">return all items as DTOs</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">saveItem(dto)</span>
+                <span class="text-slate-500">map to entity and save</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">updateItem(id, dto)</span>
+                <span class="text-slate-500">find, update fields, save</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">deleteItem(id)</span>
+                <span class="text-slate-500">find or throw, then delete</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">filterItemsByCategories(list)</span>
+                <span class="text-slate-500">stream filter by category</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">getSumPriceOfCategory(cat)</span>
+                <span class="text-slate-500">reduce prices by category</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">getSumPriceOfCategories()</span>
+                <span class="text-slate-500">group by category, sum prices</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">searchItemByName(name)</span>
+                <span class="text-slate-500">partial match, case-insensitive</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">searchItems(price, category)</span>
+                <span class="text-slate-500">filter by price &amp; category</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code snippet -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemService.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.service;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.exception.ItemNotFoundException;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.mapper.ItemMapper;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.repository.ItemRepository;
+<span style="color:#c792ea;">import</span> lombok.RequiredArgsConstructor;
+<span style="color:#c792ea;">import</span> org.jspecify.annotations.Nullable;
+<span style="color:#c792ea;">import</span> org.springframework.stereotype.Service;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.Map;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+<span style="color:#c792ea;">import</span> java.util.stream.Collectors;
+
+<span style="color:#c792ea;">&#64;Service</span>
+<span style="color:#c792ea;">&#64;RequiredArgsConstructor</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemService</span> &#123;
+
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemRepository</span> itemRepository;
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemMapper</span> itemMapper;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">getItem</span>(<span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#ffcb6b;">Item</span> item = itemRepository.<span style="color:#82aaff;">findById</span>(id)
+                .<span style="color:#82aaff;">orElseThrow</span>(() -&gt; <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(id));
+
+        <span style="color:#89ddff;">return</span> itemMapper.<span style="color:#82aaff;">mapToDto</span>(item);
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">getItems</span>() &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>)
+                .<span style="color:#82aaff;">toList</span>();
+
+<span style="color:#546e7a;">//        return items.stream()</span>
+<span style="color:#546e7a;">//                .map(item -> itemMapper.mapToDto(item))</span>
+<span style="color:#546e7a;">//                .toList();</span>
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">saveItem</span>(<span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#ffcb6b;">Item</span> newItem = itemMapper.<span style="color:#82aaff;">mapToEntity</span>(itemDto);
+
+        <span style="color:#ffcb6b;">Item</span> savedItem = itemRepository.<span style="color:#82aaff;">save</span>(newItem);
+
+        <span style="color:#89ddff;">return</span> itemMapper.<span style="color:#82aaff;">mapToDto</span>(savedItem);
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">updateItem</span>(<span style="color:#ffcb6b;">UUID</span> id, <span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#ffcb6b;">Item</span> existingItem = itemRepository.<span style="color:#82aaff;">findById</span>(id)
+                .<span style="color:#82aaff;">orElseThrow</span>(() -&gt; <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(id));
+
+        itemMapper.<span style="color:#82aaff;">updateEntityFromDto</span>(itemDto, existingItem);
+
+        <span style="color:#ffcb6b;">Item</span> updatedItem = itemRepository.<span style="color:#82aaff;">save</span>(existingItem);
+
+        <span style="color:#89ddff;">return</span> itemMapper.<span style="color:#82aaff;">mapToDto</span>(updatedItem);
+    &#125;
+
+    <span style="color:#89ddff;">public void</span> <span style="color:#82aaff;">deleteItem</span>(<span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#ffcb6b;">Item</span> item = itemRepository.<span style="color:#82aaff;">findById</span>(id)
+                .<span style="color:#82aaff;">orElseThrow</span>(() -&gt; <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(id));
+
+        itemRepository.<span style="color:#82aaff;">delete</span>(item);
+    &#125;
+
+    <span style="color:#546e7a;">// --------------------- NON CRUD -------------------------</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">filterItemsByCategories</span>(<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; categories) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">filter</span>(item -&gt; categories.<span style="color:#82aaff;">contains</span>(item.<span style="color:#82aaff;">getCategory</span>()))
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>).<span style="color:#82aaff;">toList</span>();
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; <span style="color:#82aaff;">getCategories</span>() &#123;
+        <span style="color:#89ddff;">return</span> itemRepository.<span style="color:#82aaff;">findAllCategories</span>();
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">BigDecimal</span> <span style="color:#82aaff;">getSumPriceOfCategory</span>(<span style="color:#ffcb6b;">String</span> category) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">filter</span>(item -&gt; category.<span style="color:#82aaff;">equals</span>(item.<span style="color:#82aaff;">getCategory</span>()))
+                .<span style="color:#82aaff;">map</span>(<span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getPrice</span>)
+                .<span style="color:#82aaff;">reduce</span>(<span style="color:#ffcb6b;">BigDecimal</span>.ZERO, <span style="color:#ffcb6b;">BigDecimal</span>::<span style="color:#82aaff;">add</span>);
+<span style="color:#546e7a;">//        return items.stream()</span>
+<span style="color:#546e7a;">//                .filter(item -> category.equals(item.getCategory()))</span>
+<span style="color:#546e7a;">//                .mapToDouble(Item::getPrice)</span>
+<span style="color:#546e7a;">//                .sum();</span>
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">Map</span>&lt;<span style="color:#ffcb6b;">String</span>, <span style="color:#ffcb6b;">BigDecimal</span>&gt; <span style="color:#82aaff;">getSumPriceOfCategories</span>() &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+        <span style="color:#ffcb6b;">Map</span>&lt;<span style="color:#ffcb6b;">String</span>, <span style="color:#ffcb6b;">BigDecimal</span>&gt; totals = items.stream()
+                .<span style="color:#82aaff;">collect</span>(<span style="color:#ffcb6b;">Collectors</span>.<span style="color:#82aaff;">groupingBy</span>(
+                        <span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getCategory</span>,
+                        <span style="color:#ffcb6b;">Collectors</span>.<span style="color:#82aaff;">reducing</span>(
+                                <span style="color:#ffcb6b;">BigDecimal</span>.ZERO,
+                                <span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getPrice</span>,
+                                <span style="color:#ffcb6b;">BigDecimal</span>::<span style="color:#82aaff;">add</span>
+                        )
+                        <span style="color:#546e7a;">// Collectors.summingDouble(Product::getPrice)  // if double</span>
+                ));
+        <span style="color:#89ddff;">return</span> totals;
+    &#125;
+
+    <span style="color:#546e7a;">// ---------------------</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">searchItemByName</span>(<span style="color:#ffcb6b;">String</span> name) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findByNameContainingIgnoreCase</span>(name);
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>).<span style="color:#82aaff;">toList</span>();
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">searchItems</span>(<span style="color:#ffcb6b;">BigDecimal</span> price, <span style="color:#ffcb6b;">String</span> category) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findByCategoryAndPriceLessThanEqual</span>(category, price);
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>).<span style="color:#82aaff;">toList</span>();
+    &#125;
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repository -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            03
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-base tracking-tight">Repository Layer</span>
+            <span class="font-mono text-xs" style="color: #546e7a"
+              >com.rjproj.reserba.repository</span
+            >
+          </div>
+          <span
+            class="ml-auto font-mono text-xs px-2.5 py-1 rounded-lg"
+            style="
+              background: rgba(62, 207, 142, 0.1);
+              color: #3ecf8e;
+              border: 1px solid rgba(62, 207, 142, 0.2);
+            "
+            >&#64;Repository</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Extends
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >JpaRepository</code
+            >
+            to get built-in CRUD methods. Custom queries use derived method names or
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >&#64;Query</code
+            >
+            with JPQL.
+          </p>
+
+          <!-- Methods table -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Method</span>
+              <span>Type</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">findAll()</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(91, 138, 240, 0.1); color: #5b8af0"
+                  >inherited</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">findById(id)</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(91, 138, 240, 0.1); color: #5b8af0"
+                  >inherited</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">save(entity)</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(91, 138, 240, 0.1); color: #5b8af0"
+                  >inherited</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">delete(entity)</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(91, 138, 240, 0.1); color: #5b8af0"
+                  >inherited</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff"
+                  >findByCategoryAndPriceLessThanEqual()</span
+                >
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >derived</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff"
+                  >findByNameContainingIgnoreCase()</span
+                >
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >derived</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">findAllCategories()</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >&#64;Query</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">findByNameAndCategory()</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >&#64;Query</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-xs items-center">
+                <span class="font-mono" style="color: #82aaff">searchItems(name, category)</span>
+                <span
+                  class="text-xs px-2 py-0.5 rounded w-fit"
+                  style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                  >&#64;Query</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Code snippet -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >ItemRepository.java</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a;">package com.rjproj.reserba.repository;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> org.springframework.data.jpa.repository.JpaRepository;
+<span style="color:#c792ea;">import</span> org.springframework.data.jpa.repository.Query;
+<span style="color:#c792ea;">import</span> org.springframework.data.repository.query.Param;
+<span style="color:#c792ea;">import</span> org.springframework.stereotype.Repository;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;Repository</span>
+<span style="color:#89ddff;">public interface</span> <span style="color:#ffcb6b;">ItemRepository</span> <span style="color:#89ddff;">extends</span> <span style="color:#ffcb6b;">JpaRepository</span>&lt;<span style="color:#ffcb6b;">Item</span>, <span style="color:#ffcb6b;">UUID</span>&gt; &#123;
+
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">findByCategoryAndPriceLessThanEqual</span>(<span style="color:#ffcb6b;">String</span> category, <span style="color:#ffcb6b;">BigDecimal</span> price);
+
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">findByNameContainingIgnoreCase</span>(<span style="color:#ffcb6b;">String</span> name);
+
+    <span style="color:#546e7a;">// JPQL version</span>
+    <span style="color:#c792ea;">&#64;Query</span>(<span style="color:#c3e88d;">"SELECT DISTINCT i.category FROM Item i WHERE i.category IS NOT NULL"</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; <span style="color:#82aaff;">findAllCategories</span>();
+
+    <span style="color:#546e7a;">// Native query version — uses actual table name and column name instead of entity/field</span>
+    <span style="color:#c792ea;">&#64;Query</span>(value = <span style="color:#c3e88d;">"SELECT DISTINCT category FROM item WHERE category IS NOT NULL"</span>, nativeQuery = <span style="color:#89ddff;">true</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; <span style="color:#82aaff;">findAllCategoriesNative</span>();
+
+    <span style="color:#c792ea;">&#64;Query</span>(<span style="color:#c3e88d;">"SELECT i FROM Item i WHERE "</span> +
+            <span style="color:#c3e88d;">"LOWER(i.name) LIKE LOWER(CONCAT('%', :name, '%')) "</span> +
+            <span style="color:#c3e88d;">"AND i.category = :category"</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">findByNameAndCategory</span>(<span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"name"</span>) <span style="color:#ffcb6b;">String</span> name, <span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">String</span> category);
+
+    <span style="color:#c792ea;">&#64;Query</span>(<span style="color:#c3e88d;">"SELECT i FROM Item i WHERE "</span> +
+            <span style="color:#c3e88d;">"(:name IS NULL OR LOWER(i.name) LIKE LOWER(CONCAT('%', :name, '%'))) "</span> +
+            <span style="color:#c3e88d;">"AND (:category IS NULL OR i.category = :category)"</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">searchItems</span>(<span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"name"</span>) <span style="color:#ffcb6b;">String</span> name, <span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">String</span> category);
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

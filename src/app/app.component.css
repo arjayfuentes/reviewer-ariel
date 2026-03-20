@@ -1,0 +1,84 @@
+:host {
+  display: block;
+}
+
+.menubar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.menubar-wrapper .p-menubar {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.page-content {
+  padding-top: 60px; /* offset for the fixed menubar height */
+}
+
+
+:host {
+  display: block;
+}
+
+.menubar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.menubar-wrapper :deep(.p-menubar) {
+  background-color: #1e3a5f;
+  border-radius: 0;
+  border: none;
+  padding: 0.5rem 1.5rem;
+}
+
+.menubar-wrapper :deep(.p-menubar-item-link) {
+  color: #ffffff !important;
+}
+
+.menubar-wrapper :deep(.p-menubar-item-link:hover) {
+  background-color: #2a4f80 !important;
+  color: #ffffff !important;
+  border-radius: 6px;
+}
+
+.menubar-wrapper :deep(.p-menubar-item.p-focus > .p-menubar-item-link),
+.menubar-wrapper :deep(.p-menubar-item-link.p-menubar-item-link-active) {
+  background-color: #2a4f80 !important;
+  color: #ffffff !important;
+  border-radius: 6px;
+}
+
+.menubar-wrapper :deep(.p-menubar-item-icon) {
+  color: #ffffff !important;
+}
+
+.page-content {
+  padding-top: 60px;
+}
+
+:host {
+  display: block;
+}
+
+.menubar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.page-content {
+  padding-top: 60px;
+  margin:0px;
+}

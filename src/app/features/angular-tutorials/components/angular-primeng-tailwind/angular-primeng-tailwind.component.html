@@ -1,0 +1,501 @@
+<!-- primeng-tailwind-setup.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #6366f1, #3ecf8e);
+          box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+        "
+      >
+        🧩
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Installing <span class="text-[#6366f1]">PrimeNG</span> +
+          <span class="text-[#3ecf8e]">Tailwind</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">Complete setup guide for Angular 19</p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col gap-5">
+      <!-- Step 1 -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(99,102,241,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(99, 102, 241, 0.15); color: #6366f1"
+          >
+            01
+          </div>
+          <span class="font-semibold text-base tracking-tight">Install PrimeNG v19</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Install PrimeNG matching your Angular version. Always match the major version number.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="cmd">npm install</span> primeng&#64;19</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            02
+          </div>
+          <span class="font-semibold text-base tracking-tight">Install PrimeNG themes package</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            PrimeNG 19 uses a separate themes package. This provides presets like
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >Aura</code
+            >,
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >Lara</code
+            >, and
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >Nora</code
+            >.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="cmd">npm install</span> &#64;primeuix/themes</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            03
+          </div>
+          <span class="font-semibold text-base tracking-tight">Install Tailwind v3</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Install Tailwind CSS v3 with its required peer dependencies. Use
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >tailwindcss&#64;3</code
+            >
+            specifically — v4 has compatibility issues with Angular.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="cmd">npm install -D</span> tailwindcss&#64;3 postcss autoprefixer</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            04
+          </div>
+          <span class="font-semibold text-base tracking-tight">Generate Tailwind config</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Generate the Tailwind config file in your project root. This creates
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >tailwind.config.js</code
+            >.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="cmd">npx tailwindcss</span> init</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div
+        class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            05
+          </div>
+          <span class="font-semibold text-base tracking-tight">Update tailwind.config.js</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Configure content paths and disable preflight to prevent conflicts with PrimeNG styles.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >tailwind.config.js</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="cm">/** &#64;type &#123;import('tailwindcss').Config&#125; */</span>
+<span class="kw">module</span>.exports = &#123;
+  content<span class="op">:</span> [
+    <span class="str">"./src/**/*.&#123;html,ts&#125;"</span>,
+    <span class="str">"./node_modules/primeng/**/*.&#123;js,ts&#125;"</span>
+  ],
+  corePlugins<span class="op">:</span> &#123;
+    preflight<span class="op">:</span> <span class="kw">false</span>,  <span class="cm">// ✅ prevents conflicts with PrimeNG</span>
+  &#125;,
+  theme<span class="op">:</span> &#123;
+    extend<span class="op">:</span> &#123;&#125;,
+  &#125;,
+  plugins<span class="op">:</span> [],
+&#125;</pre>
+          </div>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(155, 109, 255, 0.07);
+              border: 1px solid rgba(155, 109, 255, 0.2);
+              color: #b89dff;
+            "
+          >
+            <span class="flex-shrink-0">⚠️</span>
+            <span
+              ><strong>preflight: false</strong> is critical — without it, Tailwind's CSS reset will
+              strip PrimeNG's default component styles.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div
+        class="fade-up d6 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            06
+          </div>
+          <span class="font-semibold text-base tracking-tight">Update src/styles.css</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Add the Tailwind directives to your global stylesheet.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >src/styles.css</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="cm">/* Tailwind directives */</span>
+<span class="kw">&#64;tailwind</span> base;
+<span class="kw">&#64;tailwind</span> components;
+<span class="kw">&#64;tailwind</span> utilities;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div
+        class="fade-up d7 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            07
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Configure PrimeNG in app.config.ts</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Register PrimeNG with the Aura theme preset and enable HTTP client and animations.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >app.config.ts</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="kw">import</span> &#123; <span class="cls">ApplicationConfig</span>, provideZoneChangeDetection &#125; <span class="kw">from</span> <span class="str">'&#64;angular/core'</span>;
+<span class="kw">import</span> &#123; <span class="fn">provideRouter</span> &#125; <span class="kw">from</span> <span class="str">'&#64;angular/router'</span>;
+<span class="kw">import</span> &#123; routes &#125; <span class="kw">from</span> <span class="str">'./app.routes'</span>;
+<span class="kw">import</span> &#123; <span class="fn">provideHttpClient</span> &#125; <span class="kw">from</span> <span class="str">'&#64;angular/common/http'</span>;
+<span class="kw">import</span> &#123; <span class="fn">providePrimeNG</span> &#125; <span class="kw">from</span> <span class="str">'primeng/config'</span>;
+<span class="kw">import</span> <span class="cls">Aura</span> <span class="kw">from</span> <span class="str">'&#64;primeuix/themes/aura'</span>;
+
+<span class="kw">export const</span> appConfig<span class="op">:</span> <span class="cls">ApplicationConfig</span> <span class="op">=</span> &#123;
+  providers<span class="op">:</span> [
+    <span class="fn">provideHttpClient</span>(),
+    <span class="fn">provideZoneChangeDetection</span>(&#123; eventCoalescing<span class="op">:</span> <span class="kw">true</span> &#125;),
+    <span class="fn">provideRouter</span>(routes),
+    <span class="fn">providePrimeNG</span>(&#123;
+      theme<span class="op">:</span> &#123;
+        preset<span class="op">:</span> <span class="cls">Aura</span>,
+        options<span class="op">:</span> &#123;
+          darkModeSelector<span class="op">:</span> <span class="str">'.dark'</span>
+        &#125;
+      &#125;
+    &#125;)
+  ]
+&#125;;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 8 -->
+      <div
+        class="fade-up d8 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            08
+          </div>
+          <span class="font-semibold text-base tracking-tight">Test in app.component.ts</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Import ButtonModule and add a test template to verify both PrimeNG and Tailwind are
+            working correctly.
+          </p>
+
+          <!-- app.component.ts -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >app.component.ts</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="kw">import</span> &#123; <span class="cls">Component</span> &#125; <span class="kw">from</span> <span class="str">'&#64;angular/core'</span>;
+<span class="kw">import</span> &#123; <span class="cls">RouterOutlet</span> &#125; <span class="kw">from</span> <span class="str">'&#64;angular/router'</span>;
+<span class="kw">import</span> &#123; <span class="cls">ButtonModule</span> &#125; <span class="kw">from</span> <span class="str">'primeng/button'</span>;
+
+<span class="fn">&#64;Component</span>(&#123;
+  selector<span class="op">:</span> <span class="str">'app-root'</span>,
+  imports<span class="op">:</span> [<span class="cls">RouterOutlet</span>, <span class="cls">ButtonModule</span>],
+  templateUrl<span class="op">:</span> <span class="str">'./app.component.html'</span>,
+  styleUrl<span class="op">:</span> <span class="str">'./app.component.css'</span>
+&#125;)
+<span class="kw">export class</span> <span class="cls">AppComponent</span> &#123;
+  title <span class="op">=</span> <span class="str">'reserba-ui'</span>;
+&#125;</pre>
+          </div>
+
+          <!-- app.component.html -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >app.component.html</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span class="op">&lt;div</span> <span class="cls">class</span>=<span class="str">"flex items-center justify-center min-h-screen bg-gray-100"</span><span class="op">&gt;</span>
+  <span class="op">&lt;div</span> <span class="cls">class</span>=<span class="str">"p-8 bg-white rounded-xl shadow-md"</span><span class="op">&gt;</span>
+    <span class="op">&lt;h1</span> <span class="cls">class</span>=<span class="str">"text-2xl font-bold mb-4 text-gray-700"</span><span class="op">&gt;</span>PrimeNG + Tailwind<span class="op">&lt;/h1&gt;</span>
+    <span class="op">&lt;p-button</span> label=<span class="str">"Click Me!"</span> <span class="op">/&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+<span class="op">&lt;/div&gt;</span></pre>
+          </div>
+
+          <!-- Success note -->
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(62, 207, 142, 0.07);
+              border: 1px solid rgba(62, 207, 142, 0.2);
+              color: #6ee7b7;
+            "
+          >
+            <span class="flex-shrink-0">✅</span>
+            <span
+              >If you see a centered white card with a styled PrimeNG button — both are working
+              correctly!</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

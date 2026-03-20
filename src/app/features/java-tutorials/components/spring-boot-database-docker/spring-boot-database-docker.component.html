@@ -1,0 +1,233 @@
+<!-- postgres-docker.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-14 pb-8 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #336791, #5b8af0);
+          box-shadow: 0 8px 24px rgba(51, 103, 145, 0.3);
+        "
+      >
+        🐘
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          <span class="text-[#5b8af0]">PostgreSQL</span> using Docker Compose
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Set up a PostgreSQL database locally with Docker
+        </p>
+        <span
+          class="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
+          style="
+            background: rgba(51, 103, 145, 0.15);
+            border: 1px solid rgba(91, 138, 240, 0.25);
+            color: #5b8af0;
+          "
+        >
+          🐳 Docker Guide
+        </span>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col gap-7">
+      <!-- Step 1 -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            01
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Create a docker-compose.yml file</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Create a
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >docker-compose.yml</code
+            >
+            file in the root of your project. The PostgreSQL port to use is
+            <strong>5436</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            02
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Add the Docker Compose configuration</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Paste the following configuration into your
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >docker-compose.yml</code
+            >
+            file.
+          </p>
+          <!-- Code block -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >docker-compose.yml</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#c792ea;">services</span><span style="color:#89ddff;">:</span>
+  <span style="color:#c792ea;">db</span><span style="color:#89ddff;">:</span>
+    <span style="color:#82aaff;">image</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">postgres:latest</span>
+    <span style="color:#82aaff;">container_name</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">reserba-postgres</span>
+    <span style="color:#82aaff;">environment</span><span style="color:#89ddff;">:</span>
+      <span style="color:#82aaff;">POSTGRES_USER</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">postgres</span>
+      <span style="color:#82aaff;">POSTGRES_PASSWORD</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">password</span>
+      <span style="color:#82aaff;">POSTGRES_DB</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">reserba</span>
+    <span style="color:#82aaff;">ports</span><span style="color:#89ddff;">:</span>
+      <span style="color:#89ddff;">-</span> <span style="color:#c3e88d;">"5436:5432"</span>
+    <span style="color:#82aaff;">volumes</span><span style="color:#89ddff;">:</span>
+      <span style="color:#89ddff;">-</span> <span style="color:#c3e88d;">postgres_data:/var/lib/postgresql/data</span>
+
+<span style="color:#c792ea;">volumes</span><span style="color:#89ddff;">:</span>
+  <span style="color:#82aaff;">postgres_data</span><span style="color:#89ddff;">:</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            03
+          </div>
+          <span class="font-semibold text-base tracking-tight">Turn on Docker Desktop</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Make sure <strong>Docker Desktop</strong> is running before executing any Docker
+            commands. You should see the Docker icon active in your system tray.
+          </p>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(62, 207, 142, 0.07);
+              border: 1px solid rgba(62, 207, 142, 0.2);
+              color: #6ee7b7;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >If Docker Desktop is not installed, download it from <strong>docker.com</strong> and
+              install it first.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            04
+          </div>
+          <span class="font-semibold text-base tracking-tight">Run Docker Compose</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            In your terminal, navigate to the folder where
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >docker-compose.yml</code
+            >
+            is located and run the command below.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#3ecf8e;">docker-compose</span> up -d</pre>
+          </div>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(91, 138, 240, 0.07);
+              border: 1px solid rgba(91, 138, 240, 0.2);
+              color: #8ba8e8;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >The <strong>-d</strong> flag runs the container in detached mode (in the background).
+              PostgreSQL will be available on <strong>localhost:5436</strong>.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

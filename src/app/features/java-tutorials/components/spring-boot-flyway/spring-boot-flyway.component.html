@@ -1,0 +1,292 @@
+<!-- flyway-setup.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #cc0000, #f7941d);
+          box-shadow: 0 8px 24px rgba(204, 0, 0, 0.3);
+        "
+      >
+        🛫
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Using <span class="text-[#f7941d]">Flyway</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Database version control with Flyway migrations
+        </p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col gap-7">
+      <!-- Step 1 -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            01
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Add Flyway dependencies in pom.xml</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Add the Flyway Spring Boot starter and PostgreSQL-specific Flyway dependency to your
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >pom.xml</code
+            >.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">pom.xml</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#89ddff;">&lt;</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">org.springframework.boot</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">spring-boot-starter-flyway</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span>
+<span style="color:#89ddff;">&lt;/</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span>
+
+<span style="color:#89ddff;">&lt;</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">org.flywaydb</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">groupId</span><span style="color:#89ddff;">&gt;</span>
+  <span style="color:#89ddff;">&lt;</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span><span style="color:#c3e88d;">flyway-database-postgresql</span><span style="color:#89ddff;">&lt;/</span><span style="color:#82aaff;">artifactId</span><span style="color:#89ddff;">&gt;</span>
+<span style="color:#89ddff;">&lt;/</span><span style="color:#c792ea;">dependency</span><span style="color:#89ddff;">&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            02
+          </div>
+          <span class="font-semibold text-base tracking-tight">Reload Maven Projects</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            After adding the dependencies, reload Maven to download them.
+          </p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(91, 138, 240, 0.1);
+                color: #5b8af0;
+                border: 1px solid rgba(91, 138, 240, 0.2);
+              "
+              >Maven</span
+            >
+            <span class="text-slate-500">→</span>
+            <span
+              class="font-mono text-xs px-3 py-1.5 rounded-lg"
+              style="
+                background: rgba(91, 138, 240, 0.1);
+                color: #5b8af0;
+                border: 1px solid rgba(91, 138, 240, 0.2);
+              "
+              >Reload All Maven Projects</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            03
+          </div>
+          <span class="font-semibold text-base tracking-tight">Create a migration SQL file</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Under
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >resources/db/migration</code
+            >
+            create a SQL file following Flyway's naming convention:
+          </p>
+
+          <!-- File naming -->
+          <div
+            class="rounded-xl border border-[#1e2230] px-4 py-4 font-mono text-sm leading-8"
+            style="background: #0a0c10"
+          >
+            <div><span style="color: #f7941d">📁 resources/</span></div>
+            <div>
+              <span class="text-slate-600">└──</span>
+              <span style="color: #f7941d">📁 db/</span>
+            </div>
+            <div>
+              <span class="text-slate-600">&nbsp;&nbsp;&nbsp;&nbsp;└──</span>
+              <span style="color: #f7941d">📁 migration/</span>
+            </div>
+            <div>
+              <span class="text-slate-600"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──</span
+              >
+              <span style="color: #3ecf8e">V1__create_item_table.sql</span>
+              <span
+                class="text-xs px-1.5 py-0.5 rounded ml-2"
+                style="
+                  background: rgba(62, 207, 142, 0.1);
+                  color: #3ecf8e;
+                  border: 1px solid rgba(62, 207, 142, 0.25);
+                "
+                >new</span
+              >
+            </div>
+          </div>
+
+          <!-- SQL code -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >V1__create_item_table.sql</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#c792ea;">CREATE TABLE</span> item (
+  id           <span style="color:#ffcb6b;">UUID</span> <span style="color:#c792ea;">PRIMARY KEY</span>,
+  name         <span style="color:#ffcb6b;">VARCHAR</span>(255) <span style="color:#c792ea;">NOT NULL</span>,
+  description  <span style="color:#ffcb6b;">TEXT</span>,
+  price        <span style="color:#ffcb6b;">NUMERIC</span>(19, 2),
+  image_url    <span style="color:#ffcb6b;">VARCHAR</span>(500),
+  category     <span style="color:#ffcb6b;">VARCHAR</span>(100)
+);
+
+<span style="color:#546e7a; font-style:italic;">-- Optional: Add some starting data</span>
+<span style="color:#c792ea;">INSERT INTO</span> item (id, name, description, price, category)
+<span style="color:#c792ea;">VALUES</span> (<span style="color:#82aaff;">gen_random_uuid</span>(), <span style="color:#c3e88d;">'Milk'</span>, <span style="color:#c3e88d;">'Fresh whole milk'</span>, <span style="color:#f78c6c;">3.50</span>, <span style="color:#c3e88d;">'Dairy'</span>);</pre>
+          </div>
+
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(62, 207, 142, 0.07);
+              border: 1px solid rgba(62, 207, 142, 0.2);
+              color: #6ee7b7;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >Flyway naming convention:
+              <strong>V&#123;version&#125;__&#123;description&#125;.sql</strong>
+              — two underscores between version and description.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            04
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Add Flyway config in application.properties</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Add the following properties to your
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >application.properties</code
+            >
+            file to configure Flyway and prevent Hibernate from interfering.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >application.properties</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#546e7a; font-style:italic;"># This tells Hibernate not to interfere with Flyway</span>
+<span style="color:#82aaff;">spring.jpa.hibernate.ddl-auto</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">validate</span>
+
+<span style="color:#546e7a; font-style:italic;"># Optional: specifically tell Flyway where to look</span>
+<span style="color:#82aaff;">spring.flyway.locations</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">classpath:db/migration</span>
+<span style="color:#82aaff;">spring.flyway.enabled</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">true</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

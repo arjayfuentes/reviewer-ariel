@@ -1,0 +1,65 @@
+/* Syntax highlighting */
+.kw {
+  color: #c792ea;
+}
+.fn {
+  color: #82aaff;
+}
+.str {
+  color: #c3e88d;
+}
+.op {
+  color: #89ddff;
+}
+.cls {
+  color: #ffcb6b;
+}
+.cmd {
+  color: #3ecf8e;
+}
+.cm {
+  color: #546e7a;
+  font-style: italic;
+}
+.path {
+  color: #f7941d;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+.d1 {
+  animation-delay: 0.05s;
+}
+.d2 {
+  animation-delay: 0.1s;
+}
+.d3 {
+  animation-delay: 0.15s;
+}
+.d4 {
+  animation-delay: 0.2s;
+}
+.d5 {
+  animation-delay: 0.25s;
+}
+.d6 {
+  animation-delay: 0.3s;
+}
+.d7 {
+  animation-delay: 0.35s;
+}
+.d8 {
+  animation-delay: 0.4s;
+}

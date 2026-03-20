@@ -1,0 +1,746 @@
+<!-- eslint-setup.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #4b32c3, #9b6dff);
+          box-shadow: 0 8px 24px rgba(75, 50, 195, 0.3);
+        "
+      >
+        🔍
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          <span class="text-[#9b6dff]">ESLint</span> Setup Guide
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Angular + VS Code — From Installation to Verification
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-10">
+      <!-- ================================================================ -->
+      <!-- PART 1 — INSTALLATION -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #9b6dff, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(155, 109, 255, 0.1);
+              color: #9b6dff;
+              border: 1px solid rgba(155, 109, 255, 0.25);
+            "
+          >
+            Part 1 — Installation
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #9b6dff, transparent)"
+          ></div>
+        </div>
+
+        <div class="flex flex-col gap-7">
+          <!-- Step 1 -->
+          <div
+            class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+              >
+                01
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Install the ESLint Extension in VS Code</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Open VS Code and press
+                <kbd
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Ctrl+Shift+X</kbd
+                >
+                to open the Extensions panel. Search for <strong>ESLint</strong> and install the one
+                published by Microsoft.
+              </p>
+
+              <!-- Extension ID -->
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+                  style="background: #0f1117; color: #546e7a"
+                >
+                  Extension ID
+                </div>
+                <pre
+                  class="px-4 py-3 font-mono text-sm"
+                ><span style="color:#82aaff;">dbaeumer.vscode-eslint</span>  <span style="color:#546e7a;">(Microsoft)</span></pre>
+              </div>
+
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Alternatively, use the Quick Open shortcut. Press
+                <kbd
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Ctrl+P</kbd
+                >
+                and paste:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >VS Code Quick Open</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#3ecf8e;">ext install</span> dbaeumer.vscode-eslint</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+              >
+                02
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Add ESLint to Your Angular Project</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Open a terminal inside your Angular project folder and run:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >bash</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#3ecf8e;">ng add</span> &#64;angular-eslint/schematics</pre>
+              </div>
+
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                This command automatically does the following:
+              </p>
+
+              <!-- What it does -->
+              <div
+                class="rounded-xl border border-[#1e2230] overflow-hidden"
+                style="background: #0a0c10"
+              >
+                <div class="divide-y divide-[#1e2230]">
+                  <div class="flex items-center gap-3 px-4 py-3 text-sm">
+                    <span style="color: #3ecf8e" class="flex-shrink-0">✓</span>
+                    <span class="text-slate-400">Installs all required ESLint packages</span>
+                  </div>
+                  <div class="flex items-center gap-3 px-4 py-3 text-sm">
+                    <span style="color: #3ecf8e" class="flex-shrink-0">✓</span>
+                    <span class="text-slate-400"
+                      >Creates an
+                      <code
+                        class="font-mono text-xs px-1.5 py-0.5 rounded"
+                        style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                        >.eslintrc.json</code
+                      >
+                      (or
+                      <code
+                        class="font-mono text-xs px-1.5 py-0.5 rounded"
+                        style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                        >eslint.config.js</code
+                      >) in your project root</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3 px-4 py-3 text-sm">
+                    <span style="color: #3ecf8e" class="flex-shrink-0">✓</span>
+                    <span class="text-slate-400"
+                      >Updates
+                      <code
+                        class="font-mono text-xs px-1.5 py-0.5 rounded"
+                        style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                        >angular.json</code
+                      >
+                      to wire up the lint target</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+              >
+                03
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Configure VS Code to Auto-Fix on Save</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Press
+                <kbd
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Ctrl+Shift+P</kbd
+                >, type <strong>Open User Settings JSON</strong>, and press Enter. Add the following
+                lines inside the JSON object:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >settings.json</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+                ><span style="color:#c3e88d;">"editor.codeActionsOnSave"</span><span style="color:#89ddff;">:</span> &#123;
+  <span style="color:#c3e88d;">"source.fixAll.eslint"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"explicit"</span>
+&#125;,
+<span style="color:#c3e88d;">"eslint.validate"</span><span style="color:#89ddff;">:</span> [
+  <span style="color:#c3e88d;">"javascript"</span>,
+  <span style="color:#c3e88d;">"typescript"</span>,
+  <span style="color:#c3e88d;">"html"</span>
+]</pre>
+              </div>
+
+              <div
+                class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+                style="
+                  background: rgba(62, 207, 142, 0.07);
+                  border: 1px solid rgba(62, 207, 142, 0.2);
+                  color: #6ee7b7;
+                "
+              >
+                <span class="flex-shrink-0">💡</span>
+                <span
+                  >This tells VS Code to run ESLint automatically every time you save a file.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- PART 2 — TESTING -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #f7941d, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(247, 148, 29, 0.1);
+              color: #f7941d;
+              border: 1px solid rgba(247, 148, 29, 0.25);
+            "
+          >
+            Part 2 — Testing ESLint Works
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #f7941d, transparent)"
+          ></div>
+        </div>
+
+        <div class="flex flex-col gap-7">
+          <!-- Method 1 -->
+          <div
+            class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+              >
+                M1
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Method 1 — Run from the Terminal</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                In your project terminal, run:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >bash</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#3ecf8e;">ng lint</span></pre>
+              </div>
+
+              <p class="text-sm text-slate-400 font-light">What to expect:</p>
+
+              <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+                <div
+                  class="grid grid-cols-3 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117; color: #546e7a"
+                >
+                  <span>Status</span>
+                  <span>Meaning</span>
+                  <span>Detail</span>
+                </div>
+                <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+                  <div class="grid grid-cols-3 px-4 py-3 text-sm items-center">
+                    <span class="font-mono font-bold" style="color: #3ecf8e">OK</span>
+                    <span class="text-slate-400">All files pass linting</span>
+                    <span class="text-slate-500 text-xs">No issues found</span>
+                  </div>
+                  <div class="grid grid-cols-3 px-4 py-3 text-sm items-center">
+                    <span class="font-mono font-bold" style="color: #f7941d">!</span>
+                    <span class="text-slate-400">List of errors/warnings</span>
+                    <span class="text-slate-500 text-xs">File path, line, rule name</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+                style="
+                  background: rgba(62, 207, 142, 0.07);
+                  border: 1px solid rgba(62, 207, 142, 0.2);
+                  color: #6ee7b7;
+                "
+              >
+                <span class="flex-shrink-0">💡</span>
+                <span
+                  >Run
+                  <code
+                    class="font-mono text-xs px-1.5 py-0.5 rounded"
+                    style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                    >ng lint --fix</code
+                  >
+                  to automatically fix safe errors.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Method 2 -->
+          <div
+            class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+              >
+                M2
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Method 2 — Trigger a Warning in the Editor</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Since you already have this rule in your config:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >.eslintrc.json</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#c3e88d;">"&#64;typescript-eslint/no-unused-vars"</span><span style="color:#89ddff;">:</span> <span style="color:#c3e88d;">"warn"</span></pre>
+              </div>
+
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Open any
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >.ts</code
+                >
+                file (e.g.
+                <code
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                  >app.component.ts</code
+                >) and add this inside a method:
+              </p>
+
+              <div
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+                style="background: #0a0c10"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117"
+                >
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                    >app.component.ts</span
+                  >
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed"
+                ><span style="color:#82aaff;">ngOnInit</span>() &#123;
+  <span style="color:#89ddff;">const</span> <span style="color:#ffcb6b;">unusedVariable</span> = <span style="color:#c3e88d;">'hello'</span>;  <span style="color:#546e7a;">// ESLint should warn here</span>
+&#125;</pre>
+              </div>
+
+              <p class="text-sm text-slate-400 font-light">What to look for:</p>
+              <div
+                class="rounded-xl border border-[#1e2230] overflow-hidden"
+                style="background: #0a0c10"
+              >
+                <div class="divide-y divide-[#1e2230]">
+                  <div class="flex items-center gap-3 px-4 py-3 text-sm">
+                    <span class="text-yellow-400 flex-shrink-0">〰️</span>
+                    <span class="text-slate-400"
+                      >A yellow squiggly underline appears under
+                      <code class="font-mono text-xs" style="color: #ffcb6b"
+                        >unusedVariable</code
+                      ></span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3 px-4 py-3 text-sm">
+                    <span class="text-yellow-400 flex-shrink-0">💬</span>
+                    <span class="text-slate-400"
+                      >Hovering over it shows:
+                      <em style="color: #f7941d"
+                        >'unusedVariable' is assigned a value but never used</em
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Method 3 -->
+          <div
+            class="fade-up d6 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+            onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+            onmouseleave="this.style.borderColor = '#252a38'"
+          >
+            <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+              >
+                M3
+              </div>
+              <span class="font-semibold text-base tracking-tight"
+                >Method 3 — Check the Problems Panel</span
+              >
+            </div>
+            <div class="px-6 py-5 flex flex-col gap-4">
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                Press
+                <kbd
+                  class="font-mono text-xs px-1.5 py-0.5 rounded"
+                  style="
+                    background: rgba(255, 255, 255, 0.07);
+                    border: 1px solid #252a38;
+                    color: #c3e88d;
+                  "
+                  >Ctrl+Shift+M</kbd
+                >
+                to open the Problems panel at the bottom of VS Code. It shows all ESLint warnings
+                and errors across your entire project in real time.
+              </p>
+
+              <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+                <div
+                  class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0f1117; color: #546e7a"
+                >
+                  <span>Column</span>
+                  <span>What it shows</span>
+                </div>
+                <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+                  <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                    <span class="font-semibold text-slate-300">Description</span>
+                    <span class="text-slate-400">The ESLint rule that was violated</span>
+                  </div>
+                  <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                    <span class="font-semibold text-slate-300">File / Line</span>
+                    <span class="text-slate-400">Exact location of the issue</span>
+                  </div>
+                  <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                    <span class="font-semibold text-slate-300">Severity</span>
+                    <span class="text-slate-400">
+                      <span style="color: #dd4c39">Error (red)</span> or
+                      <span style="color: #f7941d">Warning (yellow)</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- TROUBLESHOOTING -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #dd4c39, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(221, 76, 57, 0.1);
+              color: #dd4c39;
+              border: 1px solid rgba(221, 76, 57, 0.25);
+            "
+          >
+            Troubleshooting
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #dd4c39, transparent)"
+          ></div>
+        </div>
+
+        <div class="fade-up d7 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+          <div class="rounded-xl overflow-hidden border border-[#1e2230] m-4">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Problem</span>
+              <span>Fix</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-start gap-4">
+                <span class="text-slate-300 font-medium">No squiggles in editor</span>
+                <span class="text-slate-400"
+                  >Check ESLint Output (<kbd
+                    class="font-mono text-xs px-1 rounded"
+                    style="
+                      background: rgba(255, 255, 255, 0.07);
+                      border: 1px solid #252a38;
+                      color: #c3e88d;
+                    "
+                    >Ctrl+Shift+U</kbd
+                  >), restart VS Code
+                </span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-start gap-4">
+                <span class="text-slate-300 font-medium">ng lint command not found</span>
+                <span class="text-slate-400"
+                  >Run
+                  <code
+                    class="font-mono text-xs px-1.5 py-0.5 rounded"
+                    style="background: rgba(62, 207, 142, 0.1); color: #3ecf8e"
+                    >ng add &#64;angular-eslint/schematics</code
+                  >
+                  first</span
+                >
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-start gap-4">
+                <span class="text-slate-300 font-medium">ESLint errors on HTML templates</span>
+                <span class="text-slate-400"
+                  >Add
+                  <code
+                    class="font-mono text-xs px-1.5 py-0.5 rounded"
+                    style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                    >"html"</code
+                  >
+                  to
+                  <code
+                    class="font-mono text-xs px-1.5 py-0.5 rounded"
+                    style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+                    >eslint.validate</code
+                  >
+                  in settings.json</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- QUICK REFERENCE -->
+      <!-- ================================================================ -->
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #3ecf8e, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(62, 207, 142, 0.1);
+              color: #3ecf8e;
+              border: 1px solid rgba(62, 207, 142, 0.25);
+            "
+          >
+            Quick Reference
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #3ecf8e, transparent)"
+          ></div>
+        </div>
+
+        <div class="fade-up d8 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-loose overflow-x-auto"
+            ><span style="color:#546e7a;"># Install ESLint in Angular project</span>
+<span style="color:#3ecf8e;">ng add</span> &#64;angular-eslint/schematics
+
+<span style="color:#546e7a;"># Run linter across whole project</span>
+<span style="color:#3ecf8e;">ng lint</span>
+
+<span style="color:#546e7a;"># Auto-fix safe errors</span>
+<span style="color:#3ecf8e;">ng lint</span> --fix
+
+<span style="color:#546e7a;"># Lint a specific file</span>
+<span style="color:#3ecf8e;">npx eslint</span> src/app/app.component.ts</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

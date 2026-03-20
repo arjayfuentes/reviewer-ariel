@@ -1,0 +1,364 @@
+<!-- maven-guide.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #c33b25, #f7941d);
+          box-shadow: 0 8px 24px rgba(195, 59, 37, 0.3);
+        "
+      >
+        🪶
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Using <span class="text-[#f7941d]">Maven</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Build lifecycle, phases and running Spring Boot with Maven
+        </p>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex flex-col gap-7">
+      <!-- Syntax -->
+      <div
+        class="fade-up d1 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(247,148,29,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(247, 148, 29, 0.15); color: #f7941d"
+          >
+            ⌨️
+          </div>
+          <span class="font-semibold text-base tracking-tight">Maven Wrapper Syntax</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#3ecf8e;">mvnw</span> <span style="color:#89ddff;">[options]</span> <span style="color:#ffcb6b;">[&lt;goal(s)&gt;]</span> <span style="color:#c792ea;">[&lt;phase(s)&gt;]</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Phase -->
+      <div
+        class="fade-up d2 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(221,76,57,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(221, 76, 57, 0.15); color: #dd4c39"
+          >
+            01
+          </div>
+          <span class="font-semibold text-base tracking-tight">Clean Phase</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            The clean lifecycle removes all build files from the
+            <code
+              class="font-mono text-xs px-1.5 py-0.5 rounded"
+              style="background: rgba(247, 148, 29, 0.1); color: #f7941d"
+              >target</code
+            >
+            folder.
+          </p>
+
+          <!-- Clean phases table -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="px-4 py-2.5 border-b border-[#1e2230] text-xs font-semibold uppercase tracking-wider"
+              style="background: #0f1117; color: #546e7a"
+            >
+              mvnw phases
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #dd4c39"></span>
+                <span class="font-mono text-sm" style="color: #c3e88d">clean</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #dd4c39"></span>
+                <span class="font-mono text-sm" style="color: #c3e88d">default</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #dd4c39"></span>
+                <span class="font-mono text-sm" style="color: #c3e88d">site</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Command -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#3ecf8e;">./mvnw</span> clean</pre>
+          </div>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(221, 76, 57, 0.07);
+              border: 1px solid rgba(221, 76, 57, 0.2);
+              color: #fca5a5;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span>Removes all build files from the <strong>target</strong> folder.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Default Phase -->
+      <div
+        class="fade-up d3 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(91,138,240,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(91, 138, 240, 0.15); color: #5b8af0"
+          >
+            02
+          </div>
+          <span class="font-semibold text-base tracking-tight">Default Phase</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            The default lifecycle handles building and deploying your project.
+          </p>
+
+          <!-- Default phases table -->
+          <div class="rounded-xl overflow-hidden border border-[#1e2230]">
+            <div
+              class="grid grid-cols-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117; color: #546e7a"
+            >
+              <span>Phase</span>
+              <span>Description</span>
+            </div>
+            <div class="divide-y divide-[#1e2230]" style="background: #0a0c10">
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                <span class="font-mono" style="color: #c3e88d">compile</span>
+                <span class="text-slate-400 text-xs">compiles code into bytecode</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                <span class="font-mono" style="color: #c3e88d">test</span>
+                <span class="text-slate-400 text-xs">runs unit tests</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                <span class="font-mono" style="color: #c3e88d">package</span>
+                <span class="text-slate-400 text-xs">creates a jar or war file</span>
+              </div>
+              <div class="grid grid-cols-2 px-4 py-3 text-sm items-center">
+                <span class="font-mono" style="color: #c3e88d">verify</span>
+                <span class="text-slate-400 text-xs">runs checks &amp; integration tests</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Command -->
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#3ecf8e;">./mvnw</span> compile</pre>
+          </div>
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(91, 138, 240, 0.07);
+              border: 1px solid rgba(91, 138, 240, 0.2);
+              color: #8ba8e8;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span>Creates build files in the <strong>target</strong> folder.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maven Plugin -->
+      <div
+        class="fade-up d4 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(62,207,142,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(62, 207, 142, 0.15); color: #3ecf8e"
+          >
+            03
+          </div>
+          <span class="font-semibold text-base tracking-tight">Maven Plugin — Run Spring Boot</span>
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Use the Spring Boot Maven plugin to run your application directly.
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#3ecf8e;">./mvnw</span> spring-boot:run</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Running with Config -->
+      <div
+        class="fade-up d5 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+        onmouseenter="this.style.borderColor = 'rgba(155,109,255,0.3)'"
+        onmouseleave="this.style.borderColor = '#252a38'"
+      >
+        <div class="flex items-center gap-4 px-6 py-5 border-b border-[#252a38]">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+            style="background: rgba(155, 109, 255, 0.15); color: #9b6dff"
+          >
+            04
+          </div>
+          <span class="font-semibold text-base tracking-tight"
+            >Run with Config — Set Server Port</span
+          >
+        </div>
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <p class="text-sm text-slate-400 leading-relaxed font-light">
+            Override configuration like server port directly from the Maven command line. Two ways
+            to do this:
+          </p>
+
+          <!-- Option 1 -->
+          <p class="text-xs font-semibold uppercase tracking-widest" style="color: #9b6dff">
+            Option 1 — Environment Variable (PowerShell)
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                >powershell</span
+              >
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#ffcb6b;">$env:SERVER_PORT</span><span style="color:#89ddff;">=</span><span style="color:#c3e88d;">8383</span>; <span style="color:#3ecf8e;">./mvnw</span> spring-boot:run</pre>
+          </div>
+
+          <!-- Option 2 -->
+          <p class="text-xs font-semibold uppercase tracking-widest" style="color: #9b6dff">
+            Option 2 — Spring Boot Run Arguments
+          </p>
+          <div
+            class="rounded-xl overflow-hidden border border-[#1e2230]"
+            style="background: #0a0c10"
+          >
+            <div
+              class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+              style="background: #0f1117"
+            >
+              <div class="flex gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500 uppercase tracking-wider">bash</span>
+            </div>
+            <pre
+              class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto"
+            ><span style="color:#3ecf8e;">./mvnw</span> spring-boot:run <span style="color:#c3e88d;">"-Dspring-boot.run.arguments=--server.port=8383"</span></pre>
+          </div>
+
+          <div
+            class="flex gap-3 rounded-xl px-4 py-3 text-sm"
+            style="
+              background: rgba(155, 109, 255, 0.07);
+              border: 1px solid rgba(155, 109, 255, 0.2);
+              color: #c4b5fd;
+            "
+          >
+            <span class="flex-shrink-0">💡</span>
+            <span
+              >Both options override the server port without touching
+              <strong>application.properties</strong>.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

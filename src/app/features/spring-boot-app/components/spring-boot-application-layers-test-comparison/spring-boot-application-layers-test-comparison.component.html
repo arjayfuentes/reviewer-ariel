@@ -1,0 +1,1196 @@
+<!-- app-compare.component.html -->
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-[1400px] mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #dd4c39, #3ecf8e);
+          box-shadow: 0 8px 24px rgba(221, 76, 57, 0.3);
+        "
+      >
+        ⚖️
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Code vs <span class="text-[#3ecf8e]">Tests</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Side-by-side comparison of each layer and its test
+        </p>
+        <a
+          href="https://github.com/arjayfuentes/reserba-backend"
+          target="_blank"
+          class="inline-flex items-center gap-2 mt-2 text-xs font-mono transition-colors duration-200"
+          style="color: #546e7a"
+          onmouseenter="this.style.color = '#c3e88d'"
+          onmouseleave="this.style.color = '#546e7a'"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+          arjayfuentes/reserba-backend
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-12">
+      <!-- ================================================================ -->
+      <!-- CONTROLLER vs CONTROLLER TEST -->
+      <!-- ================================================================ -->
+      <section class="fade-up d1">
+        <!-- Section title -->
+        <div class="flex items-center gap-4 mb-4">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #dd4c39, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(221, 76, 57, 0.1);
+              color: #dd4c39;
+              border: 1px solid rgba(221, 76, 57, 0.25);
+            "
+          >
+            01 — Controller Layer
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #dd4c39, transparent)"
+          ></div>
+        </div>
+
+        <!-- Side by side grid -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          <!-- Left: ItemController -->
+          <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#252a38]">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full" style="background: #dd4c39"></span>
+                <span class="font-mono text-sm font-semibold text-slate-300"
+                  >ItemController.java</span
+                >
+              </div>
+              <span
+                class="font-mono text-xs px-2.5 py-1 rounded-lg"
+                style="
+                  background: rgba(221, 76, 57, 0.1);
+                  color: #dd4c39;
+                  border: 1px solid rgba(221, 76, 57, 0.2);
+                "
+                >&#64;RestController</span
+              >
+            </div>
+            <div
+              class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+              style="background: #0a0c10"
+            >
+              <div
+                class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                style="background: #0f1117"
+              >
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                  >ItemController.java</span
+                >
+              </div>
+              <pre
+                class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+              ><span style="color:#546e7a;">package com.rjproj.reserba.controller;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.config.ItemConfig;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.service.ItemService;
+<span style="color:#c792ea;">import</span> lombok.RequiredArgsConstructor;
+<span style="color:#c792ea;">import</span> org.springframework.http.HttpStatus;
+<span style="color:#c792ea;">import</span> org.springframework.http.ResponseEntity;
+<span style="color:#c792ea;">import</span> org.springframework.web.bind.annotation.*;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.Map;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;RestController</span>
+<span style="color:#c792ea;">&#64;RequestMapping</span>(<span style="color:#c3e88d;">"/api/v1/items"</span>)
+<span style="color:#c792ea;">&#64;RequiredArgsConstructor</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemController</span> &#123;
+
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemService</span> itemService;
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemConfig</span> itemConfig;
+
+    <span style="color:#c792ea;">&#64;GetMapping</span>(path=<span style="color:#c3e88d;">"/hello"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">String</span> <span style="color:#82aaff;">helloWorld</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#c3e88d;">"Hello World Reserba "</span> + itemConfig.<span style="color:#82aaff;">getName</span>() + <span style="color:#c3e88d;">" "</span> + itemConfig.<span style="color:#82aaff;">getValue</span>();
+    &#125;
+
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/&#123;id&#125;"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">getItem</span>(<span style="color:#c792ea;">&#64;PathVariable</span>(value=<span style="color:#c3e88d;">"id"</span>) <span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getItem</span>(id));
+    &#125;
+
+    <span style="color:#c792ea;">&#64;GetMapping</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt;&gt; <span style="color:#82aaff;">getItems</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getItems</span>());
+    &#125;
+
+    <span style="color:#c792ea;">&#64;PostMapping</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">saveItem</span>(<span style="color:#c792ea;">&#64;RequestBody</span> <span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">status</span>(<span style="color:#ffcb6b;">HttpStatus</span>.CREATED).<span style="color:#82aaff;">body</span>(itemService.<span style="color:#82aaff;">saveItem</span>(itemDto));
+    &#125;
+
+    <span style="color:#c792ea;">&#64;PutMapping</span>(<span style="color:#c3e88d;">"/&#123;id&#125;"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">updateItem</span>(<span style="color:#c792ea;">&#64;PathVariable</span>(value=<span style="color:#c3e88d;">"id"</span>) <span style="color:#ffcb6b;">UUID</span> id, <span style="color:#c792ea;">&#64;RequestBody</span> <span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">updateItem</span>(id, itemDto));
+    &#125;
+
+    <span style="color:#c792ea;">&#64;DeleteMapping</span>(<span style="color:#c3e88d;">"/&#123;id&#125;"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">Void</span>&gt; <span style="color:#82aaff;">deleteItem</span>(<span style="color:#c792ea;">&#64;PathVariable</span>(value=<span style="color:#c3e88d;">"id"</span>) <span style="color:#ffcb6b;">UUID</span> id) &#123;
+        itemService.<span style="color:#82aaff;">deleteItem</span>(id);
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">noContent</span>().<span style="color:#82aaff;">build</span>();
+    &#125;
+
+    <span style="color:#546e7a;">// --------------------- NON CRUD -------------------------</span>
+    <span style="color:#546e7a;">// Returns items filtered by one or more categories</span>
+    <span style="color:#546e7a;">// Uses GET with repeated query params: ?category=Electronics&amp;category=Clothing</span>
+    <span style="color:#546e7a;">// Changed from POST /filterItemsByCategories — no verbs in URLs, GET is correct for filtering</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/filter"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt;&gt; <span style="color:#82aaff;">filterByCategories</span>(
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; categories
+    ) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">filterItemsByCategories</span>(categories));
+    &#125;
+
+    <span style="color:#546e7a;">// Returns a distinct list of all category names</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/categories</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/categories"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt;&gt; <span style="color:#82aaff;">getCategories</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getCategories</span>());
+    &#125;
+
+    <span style="color:#546e7a;">// Returns the total price sum for a single category</span>
+    <span style="color:#546e7a;">// Changed from /getSumPriceOfCategory — no verbs, kebab-case, resource-style URL</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/categories/&#123;category&#125;/price-sum</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/categories/&#123;category&#125;/price-sum"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">BigDecimal</span>&gt; <span style="color:#82aaff;">getSumPriceOfCategory</span>(
+            <span style="color:#c792ea;">&#64;PathVariable</span>(name = <span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">String</span> category
+    ) &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getSumPriceOfCategory</span>(category));
+    &#125;
+
+    <span style="color:#546e7a;">// Returns a map of every category and its total price sum</span>
+    <span style="color:#546e7a;">// Changed from /getSumPriceOfCategories — no verbs, kebab-case, resource-style URL</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/categories/price-summary</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/categories/price-summary"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">Map</span>&lt;<span style="color:#ffcb6b;">String</span>, <span style="color:#ffcb6b;">BigDecimal</span>&gt;&gt; <span style="color:#82aaff;">getSumPriceOfCategories</span>() &#123;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">getSumPriceOfCategories</span>());
+    &#125;
+
+    <span style="color:#546e7a;">// Search items by name keyword (case-insensitive, partial match)</span>
+    <span style="color:#546e7a;">// Merged into /search — having a separate /searchItemByName endpoint is redundant</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/search?name=mouse</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/search?name=mouse&amp;category=Electronics&amp;minPrice=10.00</span>
+    <span style="color:#c792ea;">&#64;GetMapping</span>(<span style="color:#c3e88d;">"/search"</span>)
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ResponseEntity</span>&lt;<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt;&gt; <span style="color:#82aaff;">searchItems</span>(
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"name"</span>, required = <span style="color:#89ddff;">false</span>) <span style="color:#ffcb6b;">String</span> name,
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"minPrice"</span>, defaultValue = <span style="color:#c3e88d;">"0"</span>) <span style="color:#ffcb6b;">BigDecimal</span> minPrice,
+            <span style="color:#c792ea;">&#64;RequestParam</span>(name = <span style="color:#c3e88d;">"category"</span>, required = <span style="color:#89ddff;">false</span>) <span style="color:#ffcb6b;">String</span> category
+    ) &#123;
+        <span style="color:#546e7a;">// If a name is provided, delegate to name search</span>
+        <span style="color:#546e7a;">// Otherwise delegate to price+category search</span>
+        <span style="color:#89ddff;">if</span> (name != <span style="color:#89ddff;">null</span> &amp;&amp; !name.<span style="color:#82aaff;">isEmpty</span>()) &#123;
+            <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">searchItemByName</span>(name));
+        &#125;
+        <span style="color:#89ddff;">return</span> <span style="color:#ffcb6b;">ResponseEntity</span>.<span style="color:#82aaff;">ok</span>(itemService.<span style="color:#82aaff;">searchItems</span>(minPrice, category));
+    &#125;
+&#125;</pre>
+            </div>
+          </div>
+
+          <!-- Right: ItemControllerTest -->
+          <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#252a38]">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full" style="background: #3ecf8e"></span>
+                <span class="font-mono text-sm font-semibold text-slate-300"
+                  >ItemControllerTest.java</span
+                >
+              </div>
+              <span
+                class="font-mono text-xs px-2.5 py-1 rounded-lg"
+                style="
+                  background: rgba(62, 207, 142, 0.1);
+                  color: #3ecf8e;
+                  border: 1px solid rgba(62, 207, 142, 0.2);
+                "
+                >&#64;WebMvcTest</span
+              >
+            </div>
+            <div
+              class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+              style="background: #0a0c10"
+            >
+              <div
+                class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                style="background: #0f1117"
+              >
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                  >ItemControllerTest.java</span
+                >
+              </div>
+              <pre
+                class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+              ><span style="color:#546e7a;">package com.rjproj.reserba.controller;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.config.ItemConfig;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.service.ItemService;
+<span style="color:#c792ea;">import</span> org.junit.jupiter.api.BeforeEach;
+<span style="color:#c792ea;">import</span> org.junit.jupiter.api.Test;
+<span style="color:#c792ea;">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span style="color:#c792ea;">import</span> org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+<span style="color:#c792ea;">import</span> org.springframework.test.context.bean.override.mockito.MockitoBean;
+<span style="color:#c792ea;">import</span> org.springframework.http.MediaType;
+<span style="color:#c792ea;">import</span> org.springframework.test.web.servlet.MockMvc;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.Map;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+<span style="color:#c792ea;">import static</span> org.mockito.ArgumentMatchers.any;
+<span style="color:#c792ea;">import static</span> org.mockito.ArgumentMatchers.eq;
+<span style="color:#c792ea;">import static</span> org.mockito.Mockito.*;
+<span style="color:#c792ea;">import static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+<span style="color:#c792ea;">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+<span style="color:#546e7a;">// &#64;WebMvcTest loads ONLY the web layer (controllers, filters, MockMvc).</span>
+<span style="color:#546e7a;">// It does NOT load services, repositories, or the database.</span>
+<span style="color:#546e7a;">// This makes it fast and focused purely on testing the controller behavior.</span>
+<span style="color:#c792ea;">&#64;WebMvcTest</span>(<span style="color:#ffcb6b;">ItemController</span>.class)
+<span style="color:#89ddff;">class</span> <span style="color:#ffcb6b;">ItemControllerTest</span> &#123;
+
+    <span style="color:#546e7a;">// MockMvc lets us simulate real HTTP requests (GET, POST, PUT, DELETE)</span>
+    <span style="color:#546e7a;">// without actually starting a server — it's like a fake browser for tests</span>
+    <span style="color:#c792ea;">&#64;Autowired</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">MockMvc</span> mockMvc;
+
+    <span style="color:#546e7a;">// &#64;MockitoBean replaces the real ItemService with a fake (mock) version</span>
+    <span style="color:#546e7a;">// so we control exactly what it returns without touching any real business logic</span>
+    <span style="color:#c792ea;">&#64;MockitoBean</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemService</span> itemService;
+
+    <span style="color:#546e7a;">// &#64;MockitoBean also replaces ItemConfig with a fake so we can control</span>
+    <span style="color:#546e7a;">// what getName() and getValue() return in the hello endpoint test</span>
+    <span style="color:#c792ea;">&#64;MockitoBean</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemConfig</span> itemConfig;
+
+    <span style="color:#546e7a;">// Shared test data — created fresh before each test via &#64;BeforeEach</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">UUID</span> itemId;
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemDto</span> itemDto;
+
+    <span style="color:#546e7a;">// &#64;BeforeEach runs before every test method</span>
+    <span style="color:#546e7a;">// We set up a reusable itemId and itemDto so we don't repeat this in every test</span>
+    <span style="color:#c792ea;">&#64;BeforeEach</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">setUp</span>() &#123;
+        itemId = <span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>();
+        itemDto = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(
+                itemId.<span style="color:#82aaff;">toString</span>(), <span style="color:#c3e88d;">"Test Item"</span>, <span style="color:#c3e88d;">"Test Description"</span>,
+                <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"9.99"</span>), <span style="color:#c3e88d;">"http://example.com/image.png"</span>, <span style="color:#c3e88d;">"Test Category"</span>
+        );
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/hello</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">helloWorld_shouldReturnGreetingWithConfigValues</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// Arrange: tell the mock config what values to return when the controller calls them</span>
+        <span style="color:#82aaff;">when</span>(itemConfig.<span style="color:#82aaff;">getName</span>()).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#c3e88d;">"Reserba"</span>);
+        <span style="color:#82aaff;">when</span>(itemConfig.<span style="color:#82aaff;">getValue</span>()).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#c3e88d;">"42"</span>);
+
+        <span style="color:#546e7a;">// Act &amp; Assert: perform a GET request and verify the response string</span>
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items/hello"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">content</span>().<span style="color:#82aaff;">string</span>(<span style="color:#c3e88d;">"Hello World Reserba Reserba 42"</span>));
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/&#123;id&#125;</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getItem_whenItemExists_shouldReturnOkWithItem</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// Arrange: tell the mock service to return our test itemDto when getItem is called</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">getItem</span>(itemId)).<span style="color:#82aaff;">thenReturn</span>(itemDto);
+
+        <span style="color:#546e7a;">// Act &amp; Assert: perform GET with the itemId in the URL path</span>
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items/&#123;id&#125;"</span>, itemId))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                <span style="color:#546e7a;">// jsonPath checks specific fields inside the JSON response body</span>
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.id"</span>).<span style="color:#82aaff;">value</span>(itemId.<span style="color:#82aaff;">toString</span>()))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.name"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Test Item"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.description"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Test Description"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.price"</span>).<span style="color:#82aaff;">value</span>(9.99))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.category"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Test Category"</span>));
+
+        <span style="color:#546e7a;">// Verify the controller actually delegated to the service with the correct id</span>
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">getItem</span>(itemId);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// GET /api/v1/items</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getItems_shouldReturnOkWithListOfItems</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// Arrange: create a second item so we can verify a list is returned</span>
+        <span style="color:#ffcb6b;">ItemDto</span> secondItem = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>().<span style="color:#82aaff;">toString</span>(),
+                <span style="color:#c3e88d;">"Second Item"</span>, <span style="color:#c3e88d;">"Second Description"</span>,
+                <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"19.99"</span>), <span style="color:#c3e88d;">"http://example.com/image2.png"</span>, <span style="color:#c3e88d;">"Second Category"</span>);
+
+        <span style="color:#546e7a;">// Tell the mock service to return both items as a list</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">getItems</span>()).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(itemDto, secondItem));
+
+        <span style="color:#546e7a;">// Act &amp; Assert: perform GET and verify the JSON array contains 2 items</span>
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.length()"</span>).<span style="color:#82aaff;">value</span>(2))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$[0].name"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Test Item"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$[1].name"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Second Item"</span>));
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">getItems</span>();
+    &#125;
+
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getItems_whenNoItems_shouldReturnEmptyList</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// Arrange: simulate the service returning an empty list</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">getItems</span>()).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>());
+
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.length()"</span>).<span style="color:#82aaff;">value</span>(0));
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// POST /api/v1/items</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">saveItem_whenValidRequest_shouldReturnCreatedWithItem</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// Arrange: id is null — the database assigns it</span>
+        <span style="color:#ffcb6b;">String</span> requestBody = <span style="color:#c3e88d;">"""
+                &#123;
+                    "id": null, "name": "New Item",
+                    "description": "New Description",
+                    "price": 5.99,
+                    "imageUrl": "http://example.com/new.png",
+                    "category": "New Category"
+                &#125;"""</span>;
+
+        <span style="color:#546e7a;">// any(ItemDto.class) means "match any ItemDto"</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">saveItem</span>(<span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">ItemDto</span>.class))).<span style="color:#82aaff;">thenReturn</span>(itemDto);
+
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">post</span>(<span style="color:#c3e88d;">"/api/v1/items"</span>)
+                        .<span style="color:#82aaff;">contentType</span>(<span style="color:#ffcb6b;">MediaType</span>.APPLICATION_JSON)
+                        .<span style="color:#82aaff;">content</span>(requestBody))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isCreated</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.id"</span>).<span style="color:#82aaff;">value</span>(itemId.<span style="color:#82aaff;">toString</span>()))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.name"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Test Item"</span>));
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">saveItem</span>(<span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">ItemDto</span>.class));
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// PUT /api/v1/items/&#123;id&#125;</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">updateItem_whenItemExists_shouldReturnOkWithUpdatedItem</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// .formatted(itemId) injects the actual UUID into the JSON string</span>
+        <span style="color:#ffcb6b;">String</span> requestBody = <span style="color:#c3e88d;">"""
+                &#123;
+                    "id": "%s", "name": "Updated Item",
+                    "description": "Updated Description",
+                    "price": 14.99,
+                    "imageUrl": "http://example.com/updated.png",
+                    "category": "Updated Category"
+                &#125;"""</span>.<span style="color:#82aaff;">formatted</span>(itemId);
+
+        <span style="color:#ffcb6b;">ItemDto</span> updatedDto = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(itemId.<span style="color:#82aaff;">toString</span>(), <span style="color:#c3e88d;">"Updated Item"</span>, <span style="color:#c3e88d;">"Updated Description"</span>,
+                <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"14.99"</span>), <span style="color:#c3e88d;">"http://example.com/updated.png"</span>, <span style="color:#c3e88d;">"Updated Category"</span>);
+
+        <span style="color:#546e7a;">// eq(itemId) = exact match; any(ItemDto.class) = any body</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">updateItem</span>(<span style="color:#82aaff;">eq</span>(itemId), <span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">ItemDto</span>.class))).<span style="color:#82aaff;">thenReturn</span>(updatedDto);
+
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">put</span>(<span style="color:#c3e88d;">"/api/v1/items/&#123;id&#125;"</span>, itemId)
+                        .<span style="color:#82aaff;">contentType</span>(<span style="color:#ffcb6b;">MediaType</span>.APPLICATION_JSON)
+                        .<span style="color:#82aaff;">content</span>(requestBody))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.name"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Updated Item"</span>));
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">updateItem</span>(<span style="color:#82aaff;">eq</span>(itemId), <span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">ItemDto</span>.class));
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// DELETE /api/v1/items/&#123;id&#125;</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">deleteItem_whenItemExists_shouldReturnNoContent</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// deleteItem returns void, so we use doNothing() to stub it</span>
+        <span style="color:#82aaff;">doNothing</span>().<span style="color:#82aaff;">when</span>(itemService).<span style="color:#82aaff;">deleteItem</span>(itemId);
+
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">delete</span>(<span style="color:#c3e88d;">"/api/v1/items/&#123;id&#125;"</span>, itemId))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isNoContent</span>());
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">deleteItem</span>(itemId);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/filter?category=Electronics&amp;category=Clothing</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">filterByCategories_whenMatchExists_shouldReturnFilteredItems</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#ffcb6b;">ItemDto</span> electronicsItem = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>().<span style="color:#82aaff;">toString</span>(),
+                <span style="color:#c3e88d;">"Wireless Mouse"</span>, <span style="color:#c3e88d;">"Ergonomic"</span>, <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"29.99"</span>), <span style="color:#c3e88d;">"url"</span>, <span style="color:#c3e88d;">"Electronics"</span>);
+
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">filterItemsByCategories</span>(<span style="color:#82aaff;">any</span>())).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(electronicsItem));
+
+        <span style="color:#546e7a;">// pass categories as repeated query params</span>
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items/filter"</span>)
+                        .<span style="color:#82aaff;">param</span>(<span style="color:#c3e88d;">"category"</span>, <span style="color:#c3e88d;">"Electronics"</span>)
+                        .<span style="color:#82aaff;">param</span>(<span style="color:#c3e88d;">"category"</span>, <span style="color:#c3e88d;">"Clothing"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.length()"</span>).<span style="color:#82aaff;">value</span>(1))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$[0].name"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Wireless Mouse"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$[0].category"</span>).<span style="color:#82aaff;">value</span>(<span style="color:#c3e88d;">"Electronics"</span>));
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">filterItemsByCategories</span>(<span style="color:#82aaff;">any</span>());
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// GET /api/v1/items/search</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">searchItems_whenNameProvided_shouldDelegateToNameSearch</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// when name is provided, the controller delegates to searchItemByName</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">searchItemByName</span>(<span style="color:#c3e88d;">"mouse"</span>)).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(itemDto));
+
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items/search"</span>)
+                        .<span style="color:#82aaff;">param</span>(<span style="color:#c3e88d;">"name"</span>, <span style="color:#c3e88d;">"mouse"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.length()"</span>).<span style="color:#82aaff;">value</span>(1));
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">searchItemByName</span>(<span style="color:#c3e88d;">"mouse"</span>);
+    &#125;
+
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">searchItems_whenNameNotProvided_shouldDelegateToPriceAndCategorySearch</span>() <span style="color:#89ddff;">throws</span> <span style="color:#ffcb6b;">Exception</span> &#123;
+        <span style="color:#546e7a;">// when name is absent, the controller delegates to searchItems(price, category)</span>
+        <span style="color:#82aaff;">when</span>(itemService.<span style="color:#82aaff;">searchItems</span>(<span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">BigDecimal</span>.class), <span style="color:#82aaff;">eq</span>(<span style="color:#c3e88d;">"Electronics"</span>)))
+                .<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(itemDto));
+
+        mockMvc.<span style="color:#82aaff;">perform</span>(<span style="color:#82aaff;">get</span>(<span style="color:#c3e88d;">"/api/v1/items/search"</span>)
+                        .<span style="color:#82aaff;">param</span>(<span style="color:#c3e88d;">"minPrice"</span>, <span style="color:#c3e88d;">"50.00"</span>)
+                        .<span style="color:#82aaff;">param</span>(<span style="color:#c3e88d;">"category"</span>, <span style="color:#c3e88d;">"Electronics"</span>))
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">status</span>().<span style="color:#82aaff;">isOk</span>())
+                .<span style="color:#82aaff;">andExpect</span>(<span style="color:#82aaff;">jsonPath</span>(<span style="color:#c3e88d;">"$.length()"</span>).<span style="color:#82aaff;">value</span>(1));
+
+        <span style="color:#82aaff;">verify</span>(itemService).<span style="color:#82aaff;">searchItems</span>(<span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">BigDecimal</span>.class), <span style="color:#82aaff;">eq</span>(<span style="color:#c3e88d;">"Electronics"</span>));
+    &#125;
+&#125;</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SERVICE vs SERVICE TEST -->
+      <!-- ================================================================ -->
+      <section class="fade-up d2">
+        <div class="flex items-center gap-4 mb-4">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #5b8af0, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(91, 138, 240, 0.1);
+              color: #5b8af0;
+              border: 1px solid rgba(91, 138, 240, 0.25);
+            "
+          >
+            02 — Service Layer
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #5b8af0, transparent)"
+          ></div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          <!-- Left: ItemService -->
+          <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#252a38]">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full" style="background: #5b8af0"></span>
+                <span class="font-mono text-sm font-semibold text-slate-300">ItemService.java</span>
+              </div>
+              <span
+                class="font-mono text-xs px-2.5 py-1 rounded-lg"
+                style="
+                  background: rgba(91, 138, 240, 0.1);
+                  color: #5b8af0;
+                  border: 1px solid rgba(91, 138, 240, 0.2);
+                "
+                >&#64;Service</span
+              >
+            </div>
+            <div
+              class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+              style="background: #0a0c10"
+            >
+              <div
+                class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                style="background: #0f1117"
+              >
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                  >ItemService.java</span
+                >
+              </div>
+              <pre
+                class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+              ><span style="color:#546e7a;">package com.rjproj.reserba.service;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.exception.ItemNotFoundException;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.mapper.ItemMapper;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.repository.ItemRepository;
+<span style="color:#c792ea;">import</span> lombok.RequiredArgsConstructor;
+<span style="color:#c792ea;">import</span> org.jspecify.annotations.Nullable;
+<span style="color:#c792ea;">import</span> org.springframework.stereotype.Service;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.Map;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+<span style="color:#c792ea;">import</span> java.util.stream.Collectors;
+
+<span style="color:#c792ea;">&#64;Service</span>
+<span style="color:#c792ea;">&#64;RequiredArgsConstructor</span>
+<span style="color:#89ddff;">public class</span> <span style="color:#ffcb6b;">ItemService</span> &#123;
+
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemRepository</span> itemRepository;
+    <span style="color:#89ddff;">private final</span> <span style="color:#ffcb6b;">ItemMapper</span> itemMapper;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">getItem</span>(<span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#ffcb6b;">Item</span> item = itemRepository.<span style="color:#82aaff;">findById</span>(id)
+                .<span style="color:#82aaff;">orElseThrow</span>(() -&gt; <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(id));
+
+        <span style="color:#89ddff;">return</span> itemMapper.<span style="color:#82aaff;">mapToDto</span>(item);
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">getItems</span>() &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>)
+                .<span style="color:#82aaff;">toList</span>();
+
+<span style="color:#546e7a;">//        return items.stream()</span>
+<span style="color:#546e7a;">//                .map(item -> itemMapper.mapToDto(item))</span>
+<span style="color:#546e7a;">//                .toList();</span>
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">saveItem</span>(<span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#ffcb6b;">Item</span> newItem = itemMapper.<span style="color:#82aaff;">mapToEntity</span>(itemDto);
+        <span style="color:#ffcb6b;">Item</span> savedItem = itemRepository.<span style="color:#82aaff;">save</span>(newItem);
+        <span style="color:#89ddff;">return</span> itemMapper.<span style="color:#82aaff;">mapToDto</span>(savedItem);
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">ItemDto</span> <span style="color:#82aaff;">updateItem</span>(<span style="color:#ffcb6b;">UUID</span> id, <span style="color:#ffcb6b;">ItemDto</span> itemDto) &#123;
+        <span style="color:#ffcb6b;">Item</span> existingItem = itemRepository.<span style="color:#82aaff;">findById</span>(id)
+                .<span style="color:#82aaff;">orElseThrow</span>(() -&gt; <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(id));
+
+        itemMapper.<span style="color:#82aaff;">updateEntityFromDto</span>(itemDto, existingItem);
+        <span style="color:#ffcb6b;">Item</span> updatedItem = itemRepository.<span style="color:#82aaff;">save</span>(existingItem);
+        <span style="color:#89ddff;">return</span> itemMapper.<span style="color:#82aaff;">mapToDto</span>(updatedItem);
+    &#125;
+
+    <span style="color:#89ddff;">public void</span> <span style="color:#82aaff;">deleteItem</span>(<span style="color:#ffcb6b;">UUID</span> id) &#123;
+        <span style="color:#ffcb6b;">Item</span> item = itemRepository.<span style="color:#82aaff;">findById</span>(id)
+                .<span style="color:#82aaff;">orElseThrow</span>(() -&gt; <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemNotFoundException</span>(id));
+
+        itemRepository.<span style="color:#82aaff;">delete</span>(item);
+    &#125;
+
+    <span style="color:#546e7a;">// --------------------- NON CRUD -------------------------</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">filterItemsByCategories</span>(<span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; categories) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">filter</span>(item -&gt; categories.<span style="color:#82aaff;">contains</span>(item.<span style="color:#82aaff;">getCategory</span>()))
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>).<span style="color:#82aaff;">toList</span>();
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; <span style="color:#82aaff;">getCategories</span>() &#123;
+        <span style="color:#89ddff;">return</span> itemRepository.<span style="color:#82aaff;">findAllCategories</span>();
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">BigDecimal</span> <span style="color:#82aaff;">getSumPriceOfCategory</span>(<span style="color:#ffcb6b;">String</span> category) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">filter</span>(item -&gt; category.<span style="color:#82aaff;">equals</span>(item.<span style="color:#82aaff;">getCategory</span>()))
+                .<span style="color:#82aaff;">map</span>(<span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getPrice</span>)
+                .<span style="color:#82aaff;">reduce</span>(<span style="color:#ffcb6b;">BigDecimal</span>.ZERO, <span style="color:#ffcb6b;">BigDecimal</span>::<span style="color:#82aaff;">add</span>);
+<span style="color:#546e7a;">//        return items.stream()</span>
+<span style="color:#546e7a;">//                .filter(item -> category.equals(item.getCategory()))</span>
+<span style="color:#546e7a;">//                .mapToDouble(Item::getPrice)</span>
+<span style="color:#546e7a;">//                .sum();</span>
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">Map</span>&lt;<span style="color:#ffcb6b;">String</span>, <span style="color:#ffcb6b;">BigDecimal</span>&gt; <span style="color:#82aaff;">getSumPriceOfCategories</span>() &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findAll</span>();
+        <span style="color:#ffcb6b;">Map</span>&lt;<span style="color:#ffcb6b;">String</span>, <span style="color:#ffcb6b;">BigDecimal</span>&gt; totals = items.stream()
+                .<span style="color:#82aaff;">collect</span>(<span style="color:#ffcb6b;">Collectors</span>.<span style="color:#82aaff;">groupingBy</span>(
+                        <span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getCategory</span>,
+                        <span style="color:#ffcb6b;">Collectors</span>.<span style="color:#82aaff;">reducing</span>(
+                                <span style="color:#ffcb6b;">BigDecimal</span>.ZERO,
+                                <span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getPrice</span>,
+                                <span style="color:#ffcb6b;">BigDecimal</span>::<span style="color:#82aaff;">add</span>
+                        )
+                        <span style="color:#546e7a;">// Collectors.summingDouble(Product::getPrice)  // if double</span>
+                ));
+        <span style="color:#89ddff;">return</span> totals;
+    &#125;
+
+    <span style="color:#546e7a;">// ---------------------</span>
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">searchItemByName</span>(<span style="color:#ffcb6b;">String</span> name) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findByNameContainingIgnoreCase</span>(name);
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>).<span style="color:#82aaff;">toList</span>();
+    &#125;
+
+    <span style="color:#89ddff;">public</span> <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; <span style="color:#82aaff;">searchItems</span>(<span style="color:#ffcb6b;">BigDecimal</span> price, <span style="color:#ffcb6b;">String</span> category) &#123;
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; items = itemRepository.<span style="color:#82aaff;">findByCategoryAndPriceLessThanEqual</span>(category, price);
+
+        <span style="color:#89ddff;">return</span> items.stream()
+                .<span style="color:#82aaff;">map</span>(itemMapper::<span style="color:#82aaff;">mapToDto</span>).<span style="color:#82aaff;">toList</span>();
+    &#125;
+&#125;</pre>
+            </div>
+          </div>
+
+          <!-- Right: ItemServiceTest -->
+          <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#252a38]">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full" style="background: #3ecf8e"></span>
+                <span class="font-mono text-sm font-semibold text-slate-300"
+                  >ItemServiceTest.java</span
+                >
+              </div>
+              <span
+                class="font-mono text-xs px-2.5 py-1 rounded-lg"
+                style="
+                  background: rgba(62, 207, 142, 0.1);
+                  color: #3ecf8e;
+                  border: 1px solid rgba(62, 207, 142, 0.2);
+                "
+                >&#64;ExtendWith(MockitoExtension)</span
+              >
+            </div>
+            <div
+              class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+              style="background: #0a0c10"
+            >
+              <div
+                class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                style="background: #0f1117"
+              >
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                  >ItemServiceTest.java</span
+                >
+              </div>
+              <pre
+                class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+              ><span style="color:#546e7a;">package com.rjproj.reserba.service;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.dto.ItemDto;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.exception.ItemNotFoundException;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.mapper.ItemMapper;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.repository.ItemRepository;
+<span style="color:#c792ea;">import</span> org.junit.jupiter.api.Test;
+<span style="color:#c792ea;">import</span> org.junit.jupiter.api.extension.ExtendWith;
+<span style="color:#c792ea;">import</span> org.mockito.InjectMocks;
+<span style="color:#c792ea;">import</span> org.mockito.Mock;
+<span style="color:#c792ea;">import</span> org.mockito.junit.jupiter.MockitoExtension;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.Map;
+<span style="color:#c792ea;">import</span> java.util.Optional;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+<span style="color:#c792ea;">import static</span> org.assertj.core.api.Assertions.assertThat;
+<span style="color:#c792ea;">import static</span> org.assertj.core.api.Assertions.assertThatThrownBy;
+<span style="color:#c792ea;">import static</span> org.mockito.Mockito.*;
+
+<span style="color:#546e7a;">// &#64;ExtendWith(MockitoExtension.class) activates Mockito for this test class</span>
+<span style="color:#546e7a;">// It processes &#64;Mock and &#64;InjectMocks annotations automatically</span>
+<span style="color:#c792ea;">&#64;ExtendWith</span>(<span style="color:#ffcb6b;">MockitoExtension</span>.class)
+<span style="color:#89ddff;">class</span> <span style="color:#ffcb6b;">ItemServiceTest</span> &#123;
+
+    <span style="color:#546e7a;">// Mockito creates a fake ItemRepository — no real database is used</span>
+    <span style="color:#c792ea;">&#64;Mock</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemRepository</span> itemRepository;
+
+    <span style="color:#546e7a;">// Mockito creates a fake ItemMapper — no real mapping logic runs</span>
+    <span style="color:#c792ea;">&#64;Mock</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemMapper</span> itemMapper;
+
+    <span style="color:#546e7a;">// Mockito injects the mocks above into the real ItemService we are testing</span>
+    <span style="color:#c792ea;">&#64;InjectMocks</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemService</span> itemService;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// getItem</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getItem_whenIdExists_shouldReturnItemDto</span>() &#123;
+        <span style="color:#ffcb6b;">UUID</span> id = <span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>();
+        <span style="color:#ffcb6b;">Item</span> itemEntity = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+        <span style="color:#ffcb6b;">ItemDto</span> expectedDto = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(id.<span style="color:#82aaff;">toString</span>(), <span style="color:#c3e88d;">"Espresso"</span>, <span style="color:#c3e88d;">"Strong coffee"</span>,
+                <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"3.50"</span>), <span style="color:#c3e88d;">"url"</span>, <span style="color:#c3e88d;">"Drinks"</span>);
+
+        <span style="color:#546e7a;">// Tell the mock repository: when findById is called, return the entity</span>
+        <span style="color:#82aaff;">when</span>(itemRepository.<span style="color:#82aaff;">findById</span>(id)).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">Optional</span>.<span style="color:#82aaff;">of</span>(itemEntity));
+        <span style="color:#546e7a;">// Tell the mock mapper: when mapToDto is called, return our expected DTO</span>
+        <span style="color:#82aaff;">when</span>(itemMapper.<span style="color:#82aaff;">mapToDto</span>(itemEntity)).<span style="color:#82aaff;">thenReturn</span>(expectedDto);
+
+        <span style="color:#ffcb6b;">ItemDto</span> result = itemService.<span style="color:#82aaff;">getItem</span>(id);
+
+        assertThat(result).isNotNull();
+        assertThat(result.id()).<span style="color:#82aaff;">isEqualTo</span>(id.<span style="color:#82aaff;">toString</span>());
+        assertThat(result.name()).<span style="color:#82aaff;">isEqualTo</span>(<span style="color:#c3e88d;">"Espresso"</span>);
+
+        <span style="color:#546e7a;">// Verify the chain of command — did the service call the right methods?</span>
+        <span style="color:#82aaff;">verify</span>(itemRepository).<span style="color:#82aaff;">findById</span>(id);
+        <span style="color:#82aaff;">verify</span>(itemMapper).<span style="color:#82aaff;">mapToDto</span>(itemEntity);
+    &#125;
+
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getItem_whenIdDoesNotExist_shouldThrowItemNotFoundException</span>() &#123;
+        <span style="color:#ffcb6b;">UUID</span> id = <span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>();
+        <span style="color:#546e7a;">// Simulate the database finding nothing for this id</span>
+        <span style="color:#82aaff;">when</span>(itemRepository.<span style="color:#82aaff;">findById</span>(id)).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">Optional</span>.<span style="color:#82aaff;">empty</span>());
+
+        <span style="color:#546e7a;">// Verify the service throws our custom exception when the item is not found</span>
+        <span style="color:#82aaff;">assertThatThrownBy</span>(() -&gt; itemService.<span style="color:#82aaff;">getItem</span>(id))
+                .<span style="color:#82aaff;">isInstanceOf</span>(<span style="color:#ffcb6b;">ItemNotFoundException</span>.class);
+
+        <span style="color:#546e7a;">// IMPORTANT: Verify the service stopped early</span>
+        <span style="color:#546e7a;">// Since no item was found, the mapper should NEVER be called</span>
+        <span style="color:#82aaff;">verify</span>(itemRepository).<span style="color:#82aaff;">findById</span>(id);
+        <span style="color:#82aaff;">verifyNoInteractions</span>(itemMapper);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// getItems</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getItems_whenItemsExist_shouldReturnListOfItemDtos</span>() &#123;
+        <span style="color:#546e7a;">// Use mock(Item.class) instead of new Item() so Mockito can distinguish</span>
+        <span style="color:#546e7a;">// between the two instances — plain new Item() objects with no fields set</span>
+        <span style="color:#546e7a;">// look identical to Mockito and cause the wrong stub to be matched</span>
+        <span style="color:#ffcb6b;">Item</span> item1 = <span style="color:#82aaff;">mock</span>(<span style="color:#ffcb6b;">Item</span>.class);
+        <span style="color:#ffcb6b;">Item</span> item2 = <span style="color:#82aaff;">mock</span>(<span style="color:#ffcb6b;">Item</span>.class);
+        <span style="color:#ffcb6b;">ItemDto</span> dto1 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>().<span style="color:#82aaff;">toString</span>(), <span style="color:#c3e88d;">"Item 1"</span>, <span style="color:#c3e88d;">"Desc 1"</span>, <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"10.00"</span>), <span style="color:#c3e88d;">"url1"</span>, <span style="color:#c3e88d;">"Cat1"</span>);
+        <span style="color:#ffcb6b;">ItemDto</span> dto2 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>().<span style="color:#82aaff;">toString</span>(), <span style="color:#c3e88d;">"Item 2"</span>, <span style="color:#c3e88d;">"Desc 2"</span>, <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"20.00"</span>), <span style="color:#c3e88d;">"url2"</span>, <span style="color:#c3e88d;">"Cat2"</span>);
+
+        <span style="color:#82aaff;">when</span>(itemRepository.<span style="color:#82aaff;">findAll</span>()).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(item1, item2));
+        <span style="color:#82aaff;">when</span>(itemMapper.<span style="color:#82aaff;">mapToDto</span>(item1)).<span style="color:#82aaff;">thenReturn</span>(dto1);
+        <span style="color:#82aaff;">when</span>(itemMapper.<span style="color:#82aaff;">mapToDto</span>(item2)).<span style="color:#82aaff;">thenReturn</span>(dto2);
+
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">ItemDto</span>&gt; result = itemService.<span style="color:#82aaff;">getItems</span>();
+
+        <span style="color:#546e7a;">// containsExactlyInAnyOrder because list order is not guaranteed</span>
+        assertThat(result).<span style="color:#82aaff;">hasSize</span>(2);
+        assertThat(result).<span style="color:#82aaff;">extracting</span>(<span style="color:#ffcb6b;">ItemDto</span>::name)
+                .<span style="color:#82aaff;">containsExactlyInAnyOrder</span>(<span style="color:#c3e88d;">"Item 1"</span>, <span style="color:#c3e88d;">"Item 2"</span>);
+
+        <span style="color:#546e7a;">// Verify that findAll was called once and mapper was called for each item</span>
+        <span style="color:#82aaff;">verify</span>(itemRepository).<span style="color:#82aaff;">findAll</span>();
+        <span style="color:#82aaff;">verify</span>(itemMapper).<span style="color:#82aaff;">mapToDto</span>(item1);
+        <span style="color:#82aaff;">verify</span>(itemMapper).<span style="color:#82aaff;">mapToDto</span>(item2);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// saveItem</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">saveItem_shouldReturnSavedItemDto</span>() &#123;
+        <span style="color:#ffcb6b;">ItemDto</span> inputDto = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(<span style="color:#89ddff;">null</span>, <span style="color:#c3e88d;">"Espresso Machine"</span>, <span style="color:#c3e88d;">"Professional grade"</span>,
+                <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"599.99"</span>), <span style="color:#c3e88d;">"http://image.url"</span>, <span style="color:#c3e88d;">"Appliances"</span>);
+
+        <span style="color:#ffcb6b;">Item</span> itemEntity = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+        <span style="color:#ffcb6b;">Item</span> savedEntity = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+        <span style="color:#ffcb6b;">ItemDto</span> expectedDto = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">ItemDto</span>(<span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>().<span style="color:#82aaff;">toString</span>(), <span style="color:#c3e88d;">"Espresso Machine"</span>,
+                <span style="color:#c3e88d;">"Professional grade"</span>, <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"599.99"</span>), <span style="color:#c3e88d;">"http://image.url"</span>, <span style="color:#c3e88d;">"Appliances"</span>);
+
+        <span style="color:#82aaff;">when</span>(itemMapper.<span style="color:#82aaff;">mapToEntity</span>(inputDto)).<span style="color:#82aaff;">thenReturn</span>(itemEntity);
+        <span style="color:#82aaff;">when</span>(itemRepository.<span style="color:#82aaff;">save</span>(itemEntity)).<span style="color:#82aaff;">thenReturn</span>(savedEntity);
+        <span style="color:#82aaff;">when</span>(itemMapper.<span style="color:#82aaff;">mapToDto</span>(savedEntity)).<span style="color:#82aaff;">thenReturn</span>(expectedDto);
+
+        <span style="color:#ffcb6b;">ItemDto</span> result = itemService.<span style="color:#82aaff;">saveItem</span>(inputDto);
+
+        assertThat(result.id()).<span style="color:#82aaff;">isNotNull</span>();
+        assertThat(result.name()).<span style="color:#82aaff;">isEqualTo</span>(<span style="color:#c3e88d;">"Espresso Machine"</span>);
+
+        <span style="color:#546e7a;">// Verify the three-step save process was followed</span>
+        <span style="color:#82aaff;">verify</span>(itemMapper).<span style="color:#82aaff;">mapToEntity</span>(inputDto);   <span style="color:#546e7a;">// Step 1: Convert DTO to entity</span>
+        <span style="color:#82aaff;">verify</span>(itemRepository).<span style="color:#82aaff;">save</span>(itemEntity);    <span style="color:#546e7a;">// Step 2: Persist the entity</span>
+        <span style="color:#82aaff;">verify</span>(itemMapper).<span style="color:#82aaff;">mapToDto</span>(savedEntity);   <span style="color:#546e7a;">// Step 3: Convert saved entity back to DTO</span>
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// deleteItem</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">deleteItem_whenIdDoesNotExist_shouldThrowAndNeverDelete</span>() &#123;
+        <span style="color:#ffcb6b;">UUID</span> id = <span style="color:#ffcb6b;">UUID</span>.<span style="color:#82aaff;">randomUUID</span>();
+        <span style="color:#82aaff;">when</span>(itemRepository.<span style="color:#82aaff;">findById</span>(id)).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">Optional</span>.<span style="color:#82aaff;">empty</span>());
+
+        <span style="color:#82aaff;">assertThatThrownBy</span>(() -&gt; itemService.<span style="color:#82aaff;">deleteItem</span>(id))
+                .<span style="color:#82aaff;">isInstanceOf</span>(<span style="color:#ffcb6b;">ItemNotFoundException</span>.class);
+
+        <span style="color:#546e7a;">// Crucial safety check: verify delete was NEVER called</span>
+        <span style="color:#546e7a;">// We must not delete something that doesn't exist</span>
+        <span style="color:#82aaff;">verify</span>(itemRepository).<span style="color:#82aaff;">findById</span>(id);
+        <span style="color:#82aaff;">verify</span>(itemRepository, <span style="color:#82aaff;">never</span>()).<span style="color:#82aaff;">delete</span>(<span style="color:#82aaff;">any</span>(<span style="color:#ffcb6b;">Item</span>.class));
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// getSumPriceOfCategory</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">getSumPriceOfCategory_whenItemsExist_shouldReturnCorrectSum</span>() &#123;
+        <span style="color:#ffcb6b;">Item</span> e1 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>(); e1.<span style="color:#82aaff;">setCategory</span>(<span style="color:#c3e88d;">"Electronics"</span>); e1.<span style="color:#82aaff;">setPrice</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"29.99"</span>));
+        <span style="color:#ffcb6b;">Item</span> e2 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>(); e2.<span style="color:#82aaff;">setCategory</span>(<span style="color:#c3e88d;">"Electronics"</span>); e2.<span style="color:#82aaff;">setPrice</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"89.99"</span>));
+        <span style="color:#ffcb6b;">Item</span> c1 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>(); c1.<span style="color:#82aaff;">setCategory</span>(<span style="color:#c3e88d;">"Clothing"</span>); c1.<span style="color:#82aaff;">setPrice</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"19.99"</span>));
+
+        <span style="color:#82aaff;">when</span>(itemRepository.<span style="color:#82aaff;">findAll</span>()).<span style="color:#82aaff;">thenReturn</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(e1, e2, c1));
+
+        <span style="color:#ffcb6b;">BigDecimal</span> result = itemService.<span style="color:#82aaff;">getSumPriceOfCategory</span>(<span style="color:#c3e88d;">"Electronics"</span>);
+
+        <span style="color:#546e7a;">// 29.99 + 89.99 = 119.98</span>
+        assertThat(result).<span style="color:#82aaff;">isEqualByComparingTo</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"119.98"</span>));
+        <span style="color:#82aaff;">verify</span>(itemRepository).<span style="color:#82aaff;">findAll</span>();
+    &#125;
+&#125;</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- REPOSITORY vs REPOSITORY TEST -->
+      <!-- ================================================================ -->
+      <section class="fade-up d3">
+        <div class="flex items-center gap-4 mb-4">
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to right, #3ecf8e, transparent)"
+          ></div>
+          <span
+            class="font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+            style="
+              background: rgba(62, 207, 142, 0.1);
+              color: #3ecf8e;
+              border: 1px solid rgba(62, 207, 142, 0.25);
+            "
+          >
+            03 — Repository Layer
+          </span>
+          <div
+            class="h-px flex-1"
+            style="background: linear-gradient(to left, #3ecf8e, transparent)"
+          ></div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          <!-- Left: ItemRepository -->
+          <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#252a38]">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full" style="background: #3ecf8e"></span>
+                <span class="font-mono text-sm font-semibold text-slate-300"
+                  >ItemRepository.java</span
+                >
+              </div>
+              <span
+                class="font-mono text-xs px-2.5 py-1 rounded-lg"
+                style="
+                  background: rgba(62, 207, 142, 0.1);
+                  color: #3ecf8e;
+                  border: 1px solid rgba(62, 207, 142, 0.2);
+                "
+                >&#64;Repository</span
+              >
+            </div>
+            <div
+              class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+              style="background: #0a0c10"
+            >
+              <div
+                class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                style="background: #0f1117"
+              >
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                  >ItemRepository.java</span
+                >
+              </div>
+              <pre
+                class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+              ><span style="color:#546e7a;">package com.rjproj.reserba.repository;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> org.springframework.data.jpa.repository.JpaRepository;
+<span style="color:#c792ea;">import</span> org.springframework.data.jpa.repository.Query;
+<span style="color:#c792ea;">import</span> org.springframework.data.repository.query.Param;
+<span style="color:#c792ea;">import</span> org.springframework.stereotype.Repository;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import</span> java.util.UUID;
+
+<span style="color:#c792ea;">&#64;Repository</span>
+<span style="color:#89ddff;">public interface</span> <span style="color:#ffcb6b;">ItemRepository</span> <span style="color:#89ddff;">extends</span> <span style="color:#ffcb6b;">JpaRepository</span>&lt;<span style="color:#ffcb6b;">Item</span>, <span style="color:#ffcb6b;">UUID</span>&gt; &#123;
+
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">findByCategoryAndPriceLessThanEqual</span>(<span style="color:#ffcb6b;">String</span> category, <span style="color:#ffcb6b;">BigDecimal</span> price);
+
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">findByNameContainingIgnoreCase</span>(<span style="color:#ffcb6b;">String</span> name);
+
+    <span style="color:#546e7a;">// JPQL version</span>
+    <span style="color:#c792ea;">&#64;Query</span>(<span style="color:#c3e88d;">"SELECT DISTINCT i.category FROM Item i WHERE i.category IS NOT NULL"</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; <span style="color:#82aaff;">findAllCategories</span>();
+
+    <span style="color:#546e7a;">// Native query version — uses actual table name and column name instead of entity/field</span>
+    <span style="color:#c792ea;">&#64;Query</span>(value = <span style="color:#c3e88d;">"SELECT DISTINCT category FROM item WHERE category IS NOT NULL"</span>, nativeQuery = <span style="color:#89ddff;">true</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; <span style="color:#82aaff;">findAllCategoriesNative</span>();
+
+    <span style="color:#c792ea;">&#64;Query</span>(<span style="color:#c3e88d;">"SELECT i FROM Item i WHERE "</span> +
+            <span style="color:#c3e88d;">"LOWER(i.name) LIKE LOWER(CONCAT('%', :name, '%')) "</span> +
+            <span style="color:#c3e88d;">"AND i.category = :category"</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">findByNameAndCategory</span>(<span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"name"</span>) <span style="color:#ffcb6b;">String</span> name, <span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">String</span> category);
+
+    <span style="color:#c792ea;">&#64;Query</span>(<span style="color:#c3e88d;">"SELECT i FROM Item i WHERE "</span> +
+            <span style="color:#c3e88d;">"(:name IS NULL OR LOWER(i.name) LIKE LOWER(CONCAT('%', :name, '%'))) "</span> +
+            <span style="color:#c3e88d;">"AND (:category IS NULL OR i.category = :category)"</span>)
+    <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; <span style="color:#82aaff;">searchItems</span>(<span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"name"</span>) <span style="color:#ffcb6b;">String</span> name, <span style="color:#c792ea;">&#64;Param</span>(<span style="color:#c3e88d;">"category"</span>) <span style="color:#ffcb6b;">String</span> category);
+&#125;</pre>
+            </div>
+          </div>
+
+          <!-- Right: ItemRepositoryTest -->
+          <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#252a38]">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full" style="background: #9b6dff"></span>
+                <span class="font-mono text-sm font-semibold text-slate-300"
+                  >ItemRepositoryTest.java</span
+                >
+              </div>
+              <span
+                class="font-mono text-xs px-2.5 py-1 rounded-lg"
+                style="
+                  background: rgba(155, 109, 255, 0.1);
+                  color: #9b6dff;
+                  border: 1px solid rgba(155, 109, 255, 0.2);
+                "
+                >&#64;DataJpaTest</span
+              >
+            </div>
+            <div
+              class="rounded-xl overflow-hidden border border-[#1e2230] m-4"
+              style="background: #0a0c10"
+            >
+              <div
+                class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                style="background: #0f1117"
+              >
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-wider"
+                  >ItemRepositoryTest.java</span
+                >
+              </div>
+              <pre
+                class="px-4 py-4 font-mono text-xs leading-relaxed overflow-x-auto"
+              ><span style="color:#546e7a;">package com.rjproj.reserba.repository;</span>
+
+<span style="color:#c792ea;">import</span> com.rjproj.reserba.model.Item;
+<span style="color:#c792ea;">import</span> org.junit.jupiter.api.BeforeEach;
+<span style="color:#c792ea;">import</span> org.junit.jupiter.api.Test;
+<span style="color:#c792ea;">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span style="color:#c792ea;">import</span> org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+<span style="color:#c792ea;">import</span> org.springframework.test.context.TestPropertySource;
+<span style="color:#c792ea;">import</span> java.math.BigDecimal;
+<span style="color:#c792ea;">import</span> java.util.List;
+<span style="color:#c792ea;">import static</span> org.assertj.core.api.Assertions.assertThat;
+
+<span style="color:#546e7a;">// &#64;DataJpaTest spins up a lightweight Spring context that loads ONLY the JPA layer</span>
+<span style="color:#546e7a;">// (repositories, entities). It does NOT load controllers or services.</span>
+<span style="color:#546e7a;">// It automatically uses an in-memory H2 database instead of your real PostgreSQL database.</span>
+<span style="color:#c792ea;">&#64;DataJpaTest</span>
+<span style="color:#c792ea;">&#64;TestPropertySource</span>(properties = &#123;
+        <span style="color:#546e7a;">// Disable Flyway because our migration scripts use PostgreSQL-specific functions</span>
+        <span style="color:#546e7a;">// (like gen_random_uuid()) that H2 does not understand</span>
+        <span style="color:#c3e88d;">"spring.flyway.enabled=false"</span>,
+        <span style="color:#546e7a;">// Instead, let Hibernate build the schema directly from our &#64;Entity classes</span>
+        <span style="color:#546e7a;">// "create-drop" means: create tables before tests, drop them after tests finish</span>
+        <span style="color:#c3e88d;">"spring.jpa.hibernate.ddl-auto=create-drop"</span>
+&#125;)
+<span style="color:#89ddff;">class</span> <span style="color:#ffcb6b;">ItemRepositoryTest</span> &#123;
+
+    <span style="color:#546e7a;">// Spring injects the real ItemRepository backed by the in-memory H2 database</span>
+    <span style="color:#c792ea;">&#64;Autowired</span>
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">ItemRepository</span> itemRepository;
+
+    <span style="color:#89ddff;">private</span> <span style="color:#ffcb6b;">Item</span> electronics1, electronics2, clothing1;
+
+    <span style="color:#546e7a;">// &#64;BeforeEach runs before EVERY single test method</span>
+    <span style="color:#546e7a;">// This ensures each test starts with a clean, known set of data</span>
+    <span style="color:#c792ea;">&#64;BeforeEach</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">setUp</span>() &#123;
+        <span style="color:#546e7a;">// Wipe the database clean so previous test data doesn't bleed into this test</span>
+        itemRepository.<span style="color:#82aaff;">deleteAll</span>();
+
+        electronics1 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+        electronics1.<span style="color:#82aaff;">setName</span>(<span style="color:#c3e88d;">"Wireless Mouse"</span>);
+        electronics1.<span style="color:#82aaff;">setDescription</span>(<span style="color:#c3e88d;">"Ergonomic wireless mouse"</span>);
+        electronics1.<span style="color:#82aaff;">setPrice</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"29.99"</span>));
+        electronics1.<span style="color:#82aaff;">setImageUrl</span>(<span style="color:#c3e88d;">"http://example.com/mouse.png"</span>);
+        electronics1.<span style="color:#82aaff;">setCategory</span>(<span style="color:#c3e88d;">"Electronics"</span>);
+
+        electronics2 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+        electronics2.<span style="color:#82aaff;">setName</span>(<span style="color:#c3e88d;">"Mechanical Keyboard"</span>);
+        electronics2.<span style="color:#82aaff;">setDescription</span>(<span style="color:#c3e88d;">"RGB mechanical keyboard"</span>);
+        electronics2.<span style="color:#82aaff;">setPrice</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"89.99"</span>));
+        electronics2.<span style="color:#82aaff;">setImageUrl</span>(<span style="color:#c3e88d;">"http://example.com/keyboard.png"</span>);
+        electronics2.<span style="color:#82aaff;">setCategory</span>(<span style="color:#c3e88d;">"Electronics"</span>);
+
+        clothing1 = <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">Item</span>();
+        clothing1.<span style="color:#82aaff;">setName</span>(<span style="color:#c3e88d;">"Blue T-Shirt"</span>);
+        clothing1.<span style="color:#82aaff;">setDescription</span>(<span style="color:#c3e88d;">"Comfortable cotton t-shirt"</span>);
+        clothing1.<span style="color:#82aaff;">setPrice</span>(<span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"19.99"</span>));
+        clothing1.<span style="color:#82aaff;">setImageUrl</span>(<span style="color:#c3e88d;">"http://example.com/tshirt.png"</span>);
+        clothing1.<span style="color:#82aaff;">setCategory</span>(<span style="color:#c3e88d;">"Clothing"</span>);
+
+        <span style="color:#546e7a;">// Save all three items to the in-memory H2 database at once</span>
+        itemRepository.<span style="color:#82aaff;">saveAll</span>(<span style="color:#ffcb6b;">List</span>.<span style="color:#82aaff;">of</span>(electronics1, electronics2, clothing1));
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// findByCategoryAndPriceLessThanEqual</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">findByCategoryAndPriceLessThanEqual_whenMatchExists_shouldReturnItems</span>() &#123;
+        <span style="color:#546e7a;">// Search for Electronics items priced at $50 or less</span>
+        <span style="color:#546e7a;">// Only "Wireless Mouse" ($29.99) qualifies — "Mechanical Keyboard" ($89.99) does not</span>
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; result = itemRepository
+                .<span style="color:#82aaff;">findByCategoryAndPriceLessThanEqual</span>(<span style="color:#c3e88d;">"Electronics"</span>, <span style="color:#89ddff;">new</span> <span style="color:#ffcb6b;">BigDecimal</span>(<span style="color:#c3e88d;">"50.00"</span>));
+
+        assertThat(result).<span style="color:#82aaff;">hasSize</span>(1);
+        assertThat(result.<span style="color:#82aaff;">get</span>(0).<span style="color:#82aaff;">getName</span>()).<span style="color:#82aaff;">isEqualTo</span>(<span style="color:#c3e88d;">"Wireless Mouse"</span>);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// findAllCategories</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">findAllCategories_shouldReturnDistinctCategories</span>() &#123;
+        <span style="color:#546e7a;">// We have 2 Electronics and 1 Clothing item, but DISTINCT means</span>
+        <span style="color:#546e7a;">// "Electronics" should only appear once in the result</span>
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">String</span>&gt; categories = itemRepository.<span style="color:#82aaff;">findAllCategories</span>();
+
+        assertThat(categories)
+                .<span style="color:#82aaff;">hasSize</span>(2)
+                .<span style="color:#82aaff;">containsExactlyInAnyOrder</span>(<span style="color:#c3e88d;">"Electronics"</span>, <span style="color:#c3e88d;">"Clothing"</span>);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// findByNameAndCategory</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">findByNameAndCategory_whenMatchExists_shouldReturnItems</span>() &#123;
+        <span style="color:#546e7a;">// "mouse" is in "Wireless Mouse" AND it belongs to "Electronics" — match!</span>
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; result = itemRepository.<span style="color:#82aaff;">findByNameAndCategory</span>(<span style="color:#c3e88d;">"mouse"</span>, <span style="color:#c3e88d;">"Electronics"</span>);
+
+        assertThat(result).<span style="color:#82aaff;">hasSize</span>(1);
+        assertThat(result.<span style="color:#82aaff;">get</span>(0).<span style="color:#82aaff;">getName</span>()).<span style="color:#82aaff;">isEqualTo</span>(<span style="color:#c3e88d;">"Wireless Mouse"</span>);
+    &#125;
+
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">findByNameAndCategory_isCaseInsensitiveForName</span>() &#123;
+        <span style="color:#546e7a;">// Searching with uppercase "MOUSE" should still find "Wireless Mouse"</span>
+        <span style="color:#546e7a;">// because the query uses LOWER() on both sides</span>
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; result = itemRepository.<span style="color:#82aaff;">findByNameAndCategory</span>(<span style="color:#c3e88d;">"MOUSE"</span>, <span style="color:#c3e88d;">"Electronics"</span>);
+
+        assertThat(result).<span style="color:#82aaff;">hasSize</span>(1);
+        assertThat(result.<span style="color:#82aaff;">get</span>(0).<span style="color:#82aaff;">getName</span>()).<span style="color:#82aaff;">isEqualTo</span>(<span style="color:#c3e88d;">"Wireless Mouse"</span>);
+    &#125;
+
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#546e7a;">// searchItems</span>
+    <span style="color:#546e7a;">// Both name and category are optional (nullable) — if null, filter is skipped</span>
+    <span style="color:#546e7a;">// -------------------------------------------------------------------------</span>
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">searchItems_whenOnlyCategoryProvided_shouldFilterByCategoryOnly</span>() &#123;
+        <span style="color:#546e7a;">// Only category filter active: name is null so it is ignored</span>
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; result = itemRepository.<span style="color:#82aaff;">searchItems</span>(<span style="color:#89ddff;">null</span>, <span style="color:#c3e88d;">"Electronics"</span>);
+
+        assertThat(result).<span style="color:#82aaff;">hasSize</span>(2);
+        assertThat(result).<span style="color:#82aaff;">extracting</span>(<span style="color:#ffcb6b;">Item</span>::<span style="color:#82aaff;">getName</span>)
+                .<span style="color:#82aaff;">containsExactlyInAnyOrder</span>(<span style="color:#c3e88d;">"Wireless Mouse"</span>, <span style="color:#c3e88d;">"Mechanical Keyboard"</span>);
+    &#125;
+
+    <span style="color:#c792ea;">&#64;Test</span>
+    <span style="color:#89ddff;">void</span> <span style="color:#82aaff;">searchItems_whenBothParamsNull_shouldReturnAllItems</span>() &#123;
+        <span style="color:#546e7a;">// Both filters are null — no filtering at all, so all 3 items are returned</span>
+        <span style="color:#ffcb6b;">List</span>&lt;<span style="color:#ffcb6b;">Item</span>&gt; result = itemRepository.<span style="color:#82aaff;">searchItems</span>(<span style="color:#89ddff;">null</span>, <span style="color:#89ddff;">null</span>);
+
+        assertThat(result).<span style="color:#82aaff;">hasSize</span>(3);
+    &#125;
+&#125;</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix PrimeNG accordion with Tailwind */
+.p-accordioncontent {
+  overflow: hidden;
+  transition: height 0.2s ease;
+}
+
+/* Override PrimeNG theme tokens for menubar */
+:root {
+  --p-menubar-item-focus-background: #132845 !important;
+  --p-menubar-item-active-background: #132845 !important;
+  --p-menubar-item-focus-color: #ffffff !important;
+  --p-menubar-item-active-color: #ffffff !important;
+  --p-menubar-background: #1e3a5f !important;
+  --p-menubar-item-color: #ffffff !important;
+  --p-menubar-item-hover-background: #132845 !important;
+  --p-menubar-item-hover-color: #ffffff !important;
+}
+
+/* Menubar background */
+.menubar-wrapper .p-menubar {
+  background-color: #245391 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  padding: 0.5rem 1.5rem !important;
+}
+
+/* Menu item text */
+.menubar-wrapper .p-menubar-item-link span {
+  color: #ffffff !important;
+}
+
+/* Menu item icon */
+.menubar-wrapper .p-menubar-item-link .p-menubar-item-icon {
+  color: #ffffff !important;
+}
+
+
+/* Red accordion */
+.accordion-red {
+  --p-accordion-header-background: #5c0a0a;
+  --p-accordion-header-color: #ffffff;
+  --p-accordion-header-hover-background: #4a0808;
+  --p-accordion-header-hover-color: #ffffff;
+  --p-accordion-header-active-background: #6e0f0f;
+  --p-accordion-header-active-color: #ffffff;
+  --p-accordion-header-active-hover-background: #3d0606;
+  --p-accordion-header-active-hover-color: #ffffff;
+}
+
+/* Blue accordion */
+.accordion-blue {
+  --p-accordion-header-background: #1e3a5f;
+  --p-accordion-header-color: #ffffff;
+  --p-accordion-header-hover-background: #132845;
+  --p-accordion-header-hover-color: #ffffff;
+  --p-accordion-header-active-background: #132845;
+  --p-accordion-header-active-color: #ffffff;
+  --p-accordion-header-active-hover-background: #0a1a2e;
+  --p-accordion-header-active-hover-color: #ffffff;
+}
+
+/* Green accordion */
+.accordion-green {
+  --p-accordion-header-background: #064e1e;
+  --p-accordion-header-color: #ffffff;
+  --p-accordion-header-hover-background: #053d18;
+  --p-accordion-header-hover-color: #ffffff;
+  --p-accordion-header-active-background: #075c23;
+  --p-accordion-header-active-color: #ffffff;
+  --p-accordion-header-active-hover-background: #032e12;
+  --p-accordion-header-active-hover-color: #ffffff;
+}
+
+.p-accordioncontent-content {
+  padding: 0 !important;
+}
