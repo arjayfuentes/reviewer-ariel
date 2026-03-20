@@ -1,0 +1,47 @@
+<div class="ej-container">
+  <!-- Sidebar -->
+  <aside class="ej-sidebar">
+    <p class="sidebar-label">Chapters</p>
+    <button
+      *ngFor="let chapter of chapters"
+      class="sidebar-btn"
+      [class.active]="chapter.id === activeChapterId()"
+      (click)="selectChapter(chapter.id)"
+    >
+      {{ chapter.title }}
+    </button>
+  </aside>
+
+  <!-- Main content -->
+  <main class="ej-main">
+    <h2 class="chapter-title">{{ activeChapter().title }}</h2>
+    <p class="chapter-desc">{{ activeChapter().desc }}</p>
+
+    <div *ngFor="let bullet of activeChapter().bullets; let i = index" class="bullet-card">
+      <!-- Card header -->
+      <div
+        class="bullet-header"
+        (click)="toggleBullet(bulletKey(activeChapter().id, i))"
+        [attr.aria-expanded]="isBulletOpen(bulletKey(activeChapter().id, i))"
+      >
+        <span
+          class="bullet-tag"
+          [class.tag-good]="bullet.tag === 'good'"
+          [class.tag-avoid]="bullet.tag === 'avoid'"
+        >
+          {{ bullet.tag === 'good' ? 'do' : 'avoid' }}
+        </span>
+        <span class="bullet-label">{{ bullet.label }}</span>
+        <span class="chevron" [class.open]="isBulletOpen(bulletKey(activeChapter().id, i))">▶</span>
+      </div>
+
+      <!-- Expandable body -->
+      <div class="bullet-body" [class.open]="isBulletOpen(bulletKey(activeChapter().id, i))">
+        <div class="code-block">
+          <pre><code>{{ bullet.code }}</code></pre>
+        </div>
+        <p class="bullet-explanation">{{ bullet.explain }}</p>
+      </div>
+    </div>
+  </main>
+</div>
