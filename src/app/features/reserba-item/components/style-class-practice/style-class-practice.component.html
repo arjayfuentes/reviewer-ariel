@@ -1,0 +1,66 @@
+<div
+  class="style-panel panel-view bg-white rounded-xl shadow-lg border border-gray-200 p-6 flex flex-col gap-4 max-w-sm"
+>
+  <!-- Theme Header -->
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Theme:</span>
+      <strong class="text-sm text-gray-800">{{ activeTheme }}</strong>
+    </div>
+    <button
+      (click)="toggleTheme()"
+      class="bg-gray-800 hover:bg-gray-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition"
+    >
+      Toggle Dark Mode
+    </button>
+  </div>
+
+  <!-- Radio Buttons -->
+  <div class="flex gap-4">
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="radio"
+        name="themeGroup"
+        value="light"
+        [checked]="activeTheme === 'light'"
+        (change)="activeTheme = 'light'"
+        class="accent-blue-500"
+      />
+      <span class="text-sm text-gray-700">Light</span>
+    </label>
+
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="radio"
+        name="themeGroup"
+        value="dark"
+        [checked]="activeTheme === 'dark'"
+        (change)="activeTheme = 'dark'"
+        class="accent-blue-500"
+      />
+      <span class="text-sm text-gray-700">Dark</span>
+    </label>
+  </div>
+
+  <!-- NG Style / NG Class previews -->
+  <div class="flex flex-col gap-2">
+    <p [ngStyle]="themeStyles" class="text-xs font-semibold px-3 py-2 rounded-lg">NG STYLE</p>
+    <p [ngClass]="themeClass" class="text-xs font-semibold px-3 py-2 rounded-lg">NG CLASS</p>
+  </div>
+
+  <!-- Focus Input -->
+  <div class="flex gap-2">
+    <input
+      #nameInput
+      type="text"
+      placeholder="Type something..."
+      class="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+    />
+    <button
+      (click)="focusInput()"
+      class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold px-3 py-2 rounded-lg transition"
+    >
+      Focus
+    </button>
+  </div>
+</div>

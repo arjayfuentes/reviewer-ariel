@@ -1,0 +1,80 @@
+<div class="form-panel">
+  <form
+    [formGroup]="itemForm"
+    (ngSubmit)="onSubmit()"
+    class="bg-white rounded-xl shadow-lg p-6 flex flex-row gap-4 items-end w-full"
+  >
+    <div class="form-group flex flex-col gap-1">
+      <h3 class="text-sm font-bold uppercase tracking-widest text-blue-900">
+        Add New Item / Edit Item
+      </h3>
+      <label for="name" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+        >Name</label
+      >
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        class="border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+      />
+    </div>
+
+    <div class="form-group flex flex-col gap-1">
+      <label for="description" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+        >Description</label
+      >
+      <input
+        id="description"
+        type="text"
+        formControlName="description"
+        class="border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+      />
+    </div>
+
+    <div class="form-group flex flex-col gap-1">
+      <label for="price" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+        >Price</label
+      >
+      <input
+        id="price"
+        type="number"
+        formControlName="price"
+        class="border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+      />
+    </div>
+
+    <div class="form-group flex flex-col gap-1">
+      <label for="imageUrl" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+        >Image URL</label
+      >
+      <input
+        id="imageUrl"
+        type="text"
+        formControlName="imageUrl"
+        class="border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+      />
+    </div>
+
+    <div class="form-group flex flex-col gap-1">
+      <label for="category" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+        >Category</label
+      >
+      <select
+        id="category"
+        formControlName="category"
+        class="border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-700 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition cursor-pointer"
+      >
+        <option value="" disabled>Select a category</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="itemForm.invalid"
+      class="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold text-sm px-6 py-2.5 rounded-lg shadow transition shrink-0"
+    >
+      Submit
+    </button>
+  </form>
+</div>

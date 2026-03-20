@@ -4,6 +4,7 @@ import { AngularTutorialListComponent } from './features/angular-tutorials/compo
 import { JavaTutorialListComponent } from './features/java-tutorials/components/java-tutorial-list/java-tutorial-list.component';
 import { SpringBootApplicationListComponent } from './features/spring-boot-app/components/spring-boot-application-list/spring-boot-application-list.component';
 import { PdfViewerComponent } from './features/reviewer-files/components/pdf-viewer/pdf-viewer.component';
+import { ReserbaItemComponent } from './features/reserba-item/components/reserba-item/reserba-item.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular-tutorials', pathMatch: 'full' },
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'spring-boot-app', component: SpringBootApplicationListComponent },
   { path: 'angular-setup', component: AngularSetupListComponent },
   { path: 'pdf-viewer', component: PdfViewerComponent },
+  { path: 'reserba-item', component: ReserbaItemComponent },
 ];

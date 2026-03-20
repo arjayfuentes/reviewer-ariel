@@ -1,0 +1,40 @@
+<div class="bg-white rounded-lg shadow-lg border border-gray-200 p-4 flex flex-col gap-3">
+  <h3 class="text-sm font-bold uppercase tracking-widest text-blue-900">Selected Item</h3>
+
+  <div class="flex items-center gap-6 overflow-x-auto">
+    <div class="flex flex-col gap-0.5 shrink-0">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Name</span>
+      <span class="text-sm font-bold text-gray-900">{{ selectedItem?.name || 'None' }}</span>
+    </div>
+
+    <div class="w-px h-8 bg-gray-200 shrink-0"></div>
+
+    <div class="flex flex-col gap-0.5 shrink-0">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">ID</span>
+      <span class="text-xs text-gray-400 font-mono">{{ selectedItem?.id }}</span>
+    </div>
+
+    <div class="w-px h-8 bg-gray-200 shrink-0"></div>
+
+    <div class="flex flex-col gap-0.5 shrink-0">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Price</span>
+      <span class="text-sm font-bold text-blue-600">{{
+        selectedItem?.price | currency: 'EUR'
+      }}</span>
+    </div>
+
+    <div class="w-px h-8 bg-gray-200 shrink-0"></div>
+
+    <div class="flex flex-col gap-0.5 shrink-0">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Description</span>
+      <span class="text-xs text-gray-500">{{ selectedItem?.description }}</span>
+    </div>
+
+    <div class="w-px h-8 bg-gray-200 shrink-0"></div>
+
+    <div class="flex flex-col gap-0.5 shrink-0">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Image URL</span>
+      <span class="text-xs text-gray-400 truncate max-w-[150px]">{{ selectedItem?.imageUrl }}</span>
+    </div>
+  </div>
+</div>
