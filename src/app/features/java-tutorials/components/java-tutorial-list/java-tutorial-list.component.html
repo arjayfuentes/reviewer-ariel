@@ -1,38 +1,40 @@
-<p-accordion [value]="['0']" [multiple]="true">
-  <p-accordion-panel value="0">
-    <p-accordion-header>Create a Spring Boot App</p-accordion-header>
-    <p-accordion-content>
-      <app-spring-boot-create-app></app-spring-boot-create-app>
-    </p-accordion-content>
-  </p-accordion-panel>
-  <p-accordion-panel value="1">
-    <p-accordion-header>Running Config in Intellij for Spring Boot</p-accordion-header>
-    <p-accordion-content>
-      <app-spring-boot-config></app-spring-boot-config>
-    </p-accordion-content>
-  </p-accordion-panel>
-  <p-accordion-panel value="2">
-    <p-accordion-header>Creating Docker for Database</p-accordion-header>
-    <p-accordion-content>
-      <app-spring-boot-database-docker></app-spring-boot-database-docker>
-    </p-accordion-content>
-  </p-accordion-panel>
-  <p-accordion-panel value="3">
-    <p-accordion-header>Connect Database in Intellij</p-accordion-header>
-    <p-accordion-content>
-      <app-spring-boot-database-connect-intellij></app-spring-boot-database-connect-intellij>
-    </p-accordion-content>
-  </p-accordion-panel>
-  <p-accordion-panel value="4">
-    <p-accordion-header>Add Flyway Migration</p-accordion-header>
-    <p-accordion-content>
-      <app-spring-boot-flyway></app-spring-boot-flyway>
-    </p-accordion-content>
-  </p-accordion-panel>
-  <p-accordion-panel value="5">
-    <p-accordion-header>Maven</p-accordion-header>
-    <p-accordion-content>
-      <app-maven-tutorial></app-maven-tutorial>
-    </p-accordion-content>
-  </p-accordion-panel>
-</p-accordion>
+<div class="accordion-green">
+  <p-accordion [value]="['0']" [multiple]="true">
+    <p-accordion-panel value="0">
+      <p-accordion-header>Create a Spring Boot App</p-accordion-header>
+      <p-accordion-content>
+        <app-spring-boot-create-app></app-spring-boot-create-app>
+      </p-accordion-content>
+    </p-accordion-panel>
+    <p-accordion-panel value="1">
+      <p-accordion-header>Running Config in Intellij for Spring Boot</p-accordion-header>
+      <p-accordion-content>
+        <app-spring-boot-config></app-spring-boot-config>
+      </p-accordion-content>
+    </p-accordion-panel>
+    <p-accordion-panel value="2">
+      <p-accordion-header>Creating Docker for Database</p-accordion-header>
+      <p-accordion-content>
+        <app-spring-boot-database-docker></app-spring-boot-database-docker>
+      </p-accordion-content>
+    </p-accordion-panel>
+    <p-accordion-panel value="3">
+      <p-accordion-header>Connect Database in Intellij</p-accordion-header>
+      <p-accordion-content>
+        <app-spring-boot-database-connect-intellij></app-spring-boot-database-connect-intellij>
+      </p-accordion-content>
+    </p-accordion-panel>
+    <p-accordion-panel value="4">
+      <p-accordion-header>Add Flyway Migration</p-accordion-header>
+      <p-accordion-content>
+        <app-spring-boot-flyway></app-spring-boot-flyway>
+      </p-accordion-content>
+    </p-accordion-panel>
+    <p-accordion-panel value="5">
+      <p-accordion-header>Maven</p-accordion-header>
+      <p-accordion-content>
+        <app-maven-tutorial></app-maven-tutorial>
+      </p-accordion-content>
+    </p-accordion-panel>
+  </p-accordion>
+</div>
