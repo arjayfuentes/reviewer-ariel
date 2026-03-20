@@ -1,6 +1,6 @@
 <div class="viewer-wrapper">
   <div class="stored-list" *ngIf="storedPdfs.length">
-    <p class="stored-label">Saved PDFs</p>
+    <p class="stored-label">Reviewer PDFs</p>
     <div class="pdf-chips">
       <button
         *ngFor="let pdf of storedPdfs"
@@ -11,23 +11,6 @@
         <i class="pi pi-file-pdf"></i> {{ pdf }}
       </button>
     </div>
-  </div>
-
-  <div class="divider">or upload your own</div>
-
-  <div class="upload-bar">
-    <label for="pdf-upload" class="upload-btn"> <i class="pi pi-upload"></i> Upload PDF </label>
-    <input
-      id="pdf-upload"
-      type="file"
-      accept=".pdf"
-      (change)="onFileSelected($event)"
-      style="display: none"
-    />
-    <span class="file-name">{{ fileName || 'No file selected' }}</span>
-    <span *ngIf="totalPages > 0" class="page-count">
-      {{ totalPages }} page{{ totalPages > 1 ? 's' : '' }}
-    </span>
   </div>
 
   <div *ngIf="errorMessage" class="error-msg">
