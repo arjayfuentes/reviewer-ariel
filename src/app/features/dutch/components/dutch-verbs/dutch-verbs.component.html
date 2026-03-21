@@ -1,0 +1,253 @@
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #7c2d12, #4a1a08);
+          box-shadow: 0 8px 24px rgba(124, 45, 18, 0.4);
+        "
+      >
+        🔤
+      </div>
+      <div class="flex-1">
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          100 Most Common <span style="color: #fb923c">Dutch Verbs</span>
+        </h1>
+        <p class="text-slate-500 text-sm">With conjugation and example sentences for work</p>
+      </div>
+      <!-- Counter -->
+      <div
+        style="
+          background: rgba(251, 146, 60, 0.1);
+          border: 1px solid rgba(251, 146, 60, 0.3);
+          border-radius: 10px;
+          padding: 0.5rem 1rem;
+          text-align: center;
+        "
+      >
+        <p style="font-size: 1.5rem; font-weight: 700; color: #fb923c; margin: 0; line-height: 1">
+          {{ filteredVerbs.length }}
+        </p>
+        <p
+          style="
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin: 0;
+            font-family: monospace;
+            text-transform: uppercase;
+          "
+        >
+          {{ searchQuery ? 'results' : 'verbs' }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div
+      class="mb-6"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #13161e;
+        border: 1px solid #252a38;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+      "
+    >
+      <i class="pi pi-search" style="color: #64748b; font-size: 0.9rem"></i>
+      <input
+        type="text"
+        placeholder="Search English, Dutch, conjugation, or sentence..."
+        [(ngModel)]="searchQuery"
+        style="
+          flex: 1;
+          border: none;
+          background: transparent;
+          font-size: 0.875rem;
+          color: #e2e8f0;
+          outline: none;
+        "
+      />
+      <button
+        *ngIf="searchQuery"
+        (click)="searchQuery = ''"
+        style="background: none; border: none; color: #64748b; cursor: pointer; font-size: 0.8rem"
+      >
+        ✕ clear
+      </button>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+      <!-- Table head -->
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 48px 1fr 1fr 1.2fr 1.4fr;
+          background: linear-gradient(135deg, #7c2d12, #4a1a08);
+          border-bottom: 1px solid #252a38;
+        "
+      >
+        <div style="padding: 0.6rem 0.75rem; text-align: center">
+          <span
+            style="
+              font-size: 0.72rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              font-family: monospace;
+              color: #94a3b8;
+            "
+            >#</span
+          >
+        </div>
+        <div style="padding: 0.6rem 1.25rem; border-left: 1px solid rgba(255, 255, 255, 0.1)">
+          <span
+            style="
+              font-size: 0.72rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              font-family: monospace;
+              color: #94a3b8;
+            "
+            >🇬🇧 English</span
+          >
+        </div>
+        <div style="padding: 0.6rem 1.25rem; border-left: 1px solid rgba(255, 255, 255, 0.1)">
+          <span
+            style="
+              font-size: 0.72rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              font-family: monospace;
+              color: #94a3b8;
+            "
+            >🇳🇱 Dutch</span
+          >
+        </div>
+        <div style="padding: 0.6rem 1.25rem; border-left: 1px solid rgba(255, 255, 255, 0.1)">
+          <span
+            style="
+              font-size: 0.72rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              font-family: monospace;
+              color: #94a3b8;
+            "
+            >📚 Conjugation</span
+          >
+        </div>
+        <div style="padding: 0.6rem 1.25rem; border-left: 1px solid rgba(255, 255, 255, 0.1)">
+          <span
+            style="
+              font-size: 0.72rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              font-family: monospace;
+              color: #94a3b8;
+            "
+            >💬 Example Sentence</span
+          >
+        </div>
+      </div>
+
+      <!-- Table rows -->
+      <div
+        *ngFor="let verb of filteredVerbs; let i = index"
+        style="
+          display: grid;
+          grid-template-columns: 48px 1fr 1fr 1.2fr 1.4fr;
+          border-bottom: 1px solid #1e2230;
+          transition: background 0.1s;
+        "
+        [style.background]="i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)'"
+        class="verb-row"
+      >
+        <!-- Number -->
+        <div
+          style="
+            padding: 0.85rem 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <span
+            style="font-size: 0.72rem; color: #64748b; font-family: monospace; font-weight: 600"
+          >
+            {{ verb.number }}
+          </span>
+        </div>
+
+        <!-- English -->
+        <div
+          style="
+            padding: 0.85rem 1.25rem;
+            border-left: 1px solid #1e2230;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <span style="font-size: 0.875rem; color: #e2e8f0; font-weight: 500">
+            {{ verb.english }}
+          </span>
+        </div>
+
+        <!-- Dutch -->
+        <div
+          style="
+            padding: 0.85rem 1.25rem;
+            border-left: 1px solid #1e2230;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <span style="font-size: 0.875rem; font-weight: 700; color: #fb923c">
+            {{ verb.dutch }}
+          </span>
+        </div>
+
+        <!-- Conjugation -->
+        <div
+          style="
+            padding: 0.85rem 1.25rem;
+            border-left: 1px solid #1e2230;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <span
+            style="font-size: 0.78rem; color: #94a3b8; font-family: monospace; line-height: 1.5"
+          >
+            {{ verb.conjugation }}
+          </span>
+        </div>
+
+        <!-- Example sentence -->
+        <div
+          style="
+            padding: 0.85rem 1.25rem;
+            border-left: 1px solid #1e2230;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <span style="font-size: 0.82rem; color: #cbd5e1; font-style: italic; line-height: 1.6">
+            {{ verb.sentence }}
+          </span>
+        </div>
+      </div>
+
+      <!-- No results -->
+      <div
+        *ngIf="filteredVerbs.length === 0"
+        style="padding: 3rem; text-align: center; color: #64748b; font-size: 0.875rem"
+      >
+        <i class="pi pi-search" style="font-size: 2rem; display: block; margin-bottom: 0.75rem"></i>
+        No verbs found for "{{ searchQuery }}"
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.verb-row:hover {
+  background: rgba(251, 146, 60, 0.04) !important;
+}
+
+@media (max-width: 768px) {
+  div[style*="grid-template-columns: 48px 1fr 1fr 1.2fr 1.4fr"] {
+    grid-template-columns: 40px 1fr 1fr !important;
+  }
+
+  div[style*="border-left: 1px solid #1e2230"]:nth-child(4),
+  div[style*="border-left: 1px solid #1e2230"]:nth-child(5) {
+    display: none !important;
+  }
+}
