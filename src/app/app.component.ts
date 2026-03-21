@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
     { label: 'Angular Setup', icon: 'pi pi-envelope', routerLink: '/angular-setup' },
     { label: 'Best Practices', icon: 'pi pi-file-pdf', routerLink: '/best-practices' },
     { label: 'App Study', icon: 'pi pi-file-pdf', routerLink: '/app-study' },
+    { label: 'SDLC', icon: 'pi pi-file-pdf', routerLink: '/sdlc' },
   ];
 
   private readonly extraItems: MenuItem[] = [
