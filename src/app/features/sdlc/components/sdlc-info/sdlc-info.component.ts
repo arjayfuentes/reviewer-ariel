@@ -57,7 +57,7 @@ Every software project — no matter how big or small — goes through some form
       title: 'Agile Methodology',
       icon: '⚡',
       color: 'section-purple',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'What is Agile?',
@@ -95,7 +95,7 @@ In practice: Most enterprise software teams use Agile with some Waterfall elemen
       title: 'Scrum Framework',
       icon: '🏉',
       color: 'section-green',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'What is Scrum?',
@@ -134,7 +134,7 @@ Sprint rules:
       title: 'Agile Ceremonies',
       icon: '📅',
       color: 'section-teal',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'Sprint Planning',
@@ -233,7 +233,7 @@ This is NOT a commitment ceremony — the team is just preparing items so Sprint
       title: 'Story Points & Estimation',
       icon: '📊',
       color: 'section-orange',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'What are Story Points?',
@@ -292,7 +292,7 @@ Important caveats:
       title: 'User Stories',
       icon: '📝',
       color: 'section-yellow',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'What is a User Story?',
@@ -369,7 +369,7 @@ If an item doesn't meet the DoD — it is NOT done, regardless of what the devel
       title: 'Kanban',
       icon: '📋',
       color: 'section-indigo',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'What is Kanban?',
@@ -413,7 +413,7 @@ Scrumban: Many teams blend both — using Kanban's visual board and WIP limits w
       title: 'CI/CD & DevOps',
       icon: '🔧',
       color: 'section-red',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'Continuous Integration (CI)',
@@ -487,7 +487,7 @@ hotfix/TICKET-789-payment-crash`,
       title: 'Code Review & Pull Requests',
       icon: '👀',
       color: 'section-teal',
-      expanded: false,
+      expanded: true,
       items: [
         {
           title: 'What is a Pull Request (PR)?',

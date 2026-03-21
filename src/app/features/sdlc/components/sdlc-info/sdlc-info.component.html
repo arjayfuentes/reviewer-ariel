@@ -31,7 +31,6 @@
         <div
           class="flex items-center justify-between px-6 py-4 cursor-pointer border-b border-[#252a38]"
           [ngStyle]="{ background: getSectionGradient(section.color) }"
-          (click)="toggleSection(section)"
         >
           <div class="flex items-center gap-3">
             <span class="text-xl">{{ section.icon }}</span>
@@ -44,7 +43,7 @@
         </div>
 
         <!-- Items -->
-        <div *ngIf="section.expanded" class="flex flex-col divide-y divide-[#1e2230]">
+        <div class="flex flex-col divide-y divide-[#1e2230]">
           <div
             *ngFor="let item of section.items; let i = index"
             class="px-6 py-6 flex flex-col gap-3"
