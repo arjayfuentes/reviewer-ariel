@@ -56,6 +56,8 @@ export class AppComponent implements OnInit {
 
       { label: 'PDF Viewer', icon: 'pi pi-file-pdf', routerLink: '/pdf-viewer' },
       { label: 'Reserba Item', icon: 'pi pi-file-pdf', routerLink: '/reserba-item' },
+      { label: 'Project Code', icon: 'pi pi-file-pdf', routerLink: '/project-code' },
+      { label: 'Miyembro Code', icon: 'pi pi-file-pdf', routerLink: '/miyembro-code' },
     ];
   }
 }

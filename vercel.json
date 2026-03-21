@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npx ng build --configuration production",
+  "outputDirectory": "dist/reserba-ui/browser",
+  "framework": "angular",
+  "env": {
+    "GITHUB_TOKEN": "@github_token"
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

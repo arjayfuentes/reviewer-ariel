@@ -1,0 +1,122 @@
+<div class="viewer-wrapper">
+  <div class="sidebar">
+    <div class="repo-header">
+      <div class="repo-info">
+        <i class="pi pi-github"></i>
+        <div>
+          <p class="repo-name">config-server</p>
+          <!-- ← change to repo name -->
+          <p class="repo-owner">miyembro</p>
+        </div>
+      </div>
+      <a [href]="getGithubUrl()" target="_blank" class="repo-link" title="Open in GitHub">
+        <i class="pi pi-external-link"></i>
+      </a>
+    </div>
+
+    <div class="tree-controls">
+      <div class="search-box">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          placeholder="Search files..."
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+        />
+      </div>
+      <div class="tree-actions">
+        <button class="tree-action-btn" (click)="expandAll()" title="Expand all">
+          <i class="pi pi-plus"></i>
+        </button>
+        <button class="tree-action-btn" (click)="collapseAll()" title="Collapse all">
+          <i class="pi pi-minus"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="tree-loading" *ngIf="isLoadingTree">
+      <i class="pi pi-spin pi-spinner"></i> Loading tree...
+    </div>
+
+    <div class="file-tree" *ngIf="!isLoadingTree">
+      <ng-container
+        *ngTemplateOutlet="treeTemplate; context: { nodes: filteredTree, depth: 0 }"
+      ></ng-container>
+    </div>
+  </div>
+
+  <div class="code-panel">
+    <div class="code-toolbar" *ngIf="selectedFile">
+      <div class="file-path">
+        <i
+          class="pi node-icon"
+          [ngClass]="getFileIcon(selectedFile)"
+          [style.color]="getFileIconColor(selectedFile)"
+        ></i>
+        <span class="file-title">{{ selectedFile.path }}</span>
+      </div>
+      <div class="toolbar-actions">
+        <span class="lang-badge">{{ getLanguageLabel(selectedFile.name) }}</span>
+        <a [href]="getFileGithubUrl()" target="_blank" class="github-link-btn">
+          <i class="pi pi-external-link"></i> GitHub
+        </a>
+        <button class="copy-btn" (click)="copyCode()">
+          <i class="pi" [ngClass]="copied ? 'pi-check' : 'pi-copy'"></i>
+          {{ copied ? 'Copied!' : 'Copy' }}
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="isLoadingFile" class="state-box">
+      <i class="pi pi-spin pi-spinner"></i> Loading file...
+    </div>
+
+    <div *ngIf="errorMessage && !isLoadingFile" class="state-box error">
+      <i class="pi pi-exclamation-triangle"></i> {{ errorMessage }}
+    </div>
+
+    <pre *ngIf="highlightedCode && !isLoadingFile"><code [innerHTML]="highlightedCode"></code></pre>
+
+    <div *ngIf="!selectedFile && !isLoadingFile && !errorMessage" class="state-box empty">
+      <i class="pi pi-github"></i>
+      <p>Select a file from the tree to view its contents</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #treeTemplate let-nodes="nodes" let-depth="depth">
+  <div *ngFor="let node of nodes">
+    <div
+      class="tree-node"
+      [class.active]="selectedFile?.path === node.path"
+      [class.is-folder]="node.type === 'folder'"
+      [style.padding-left]="depth * 16 + 8 + 'px'"
+      (click)="node.type === 'folder' ? toggleFolder(node) : loadFile(node)"
+    >
+      <svg
+        *ngIf="node.type === 'folder'"
+        class="folder-arrow"
+        [class.rotated]="node.expanded"
+        viewBox="0 0 6 10"
+        fill="none"
+      >
+        <path d="M1 1l4 4-4 4" />
+      </svg>
+      <span *ngIf="node.type === 'file'" class="folder-arrow-placeholder"></span>
+
+      <i
+        class="pi node-icon"
+        [ngClass]="getFileIcon(node)"
+        [style.color]="getFileIconColor(node)"
+      ></i>
+
+      <span class="node-name">{{ node.name }}</span>
+    </div>
+
+    <ng-container *ngIf="node.type === 'folder' && node.expanded && node.children.length">
+      <ng-container
+        *ngTemplateOutlet="treeTemplate; context: { nodes: node.children, depth: depth + 1 }"
+      ></ng-container>
+    </ng-container>
+  </div>
+</ng-template>

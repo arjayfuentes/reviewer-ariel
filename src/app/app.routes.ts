@@ -6,6 +6,8 @@ import { SpringBootApplicationListComponent } from './features/spring-boot-app/c
 import { PdfViewerComponent } from './features/reviewer-files/components/pdf-viewer/pdf-viewer.component';
 import { ReserbaItemComponent } from './features/reserba-item/components/reserba-item/reserba-item.component';
 import { BestPracticesListComponent } from './features/best-practices/components/best-practices-list/best-practices-list.component';
+import { ProjectCodeListComponent } from './features/project-code/components/project-code-list/project-code-list.component';
+import { MiyembroCodeListComponent } from './features/miyembro-code/components/miyembro-code-list/miyembro-code-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular-tutorials', pathMatch: 'full' },
@@ -16,4 +18,6 @@ export const routes: Routes = [
   { path: 'pdf-viewer', component: PdfViewerComponent },
   { path: 'reserba-item', component: ReserbaItemComponent },
   { path: 'best-practices', component: BestPracticesListComponent },
+  { path: 'project-code', component: ProjectCodeListComponent },
+  { path: 'miyembro-code', component: MiyembroCodeListComponent },
 ];
