@@ -85,17 +85,17 @@ export class ProjectCodeReserbaBackEndComponent implements OnInit {
       const parts = item.path.split('/');
       const name = parts[parts.length - 1];
       const parentPath = parts.slice(0, -1).join('/');
-      const isRoot = parentPath === ''; // ← only root folders expanded
+      const isRoot = parentPath === '';
 
       const node: TreeNode = {
         name,
         path: item.path,
         type: item.type === 'tree' ? 'folder' : 'file',
         children: [],
-        expanded: isRoot, // ← root open, nested folders closed
+        expanded: isRoot,
         download_url:
           item.type === 'blob'
-            ? `https://raw.githubusercontent.com/${this.OWNER}/${this.REPO}/${this.BRANCH}/${item.path}`
+            ? `https://api.github.com/repos/${this.OWNER}/${this.REPO}/contents/${item.path}?ref=${this.BRANCH}` // ← changed
             : undefined,
       };
 
@@ -145,22 +145,28 @@ export class ProjectCodeReserbaBackEndComponent implements OnInit {
     this.errorMessage = '';
     this.highlightedCode = '';
 
-    this.http.get(node.download_url, { responseType: 'text' }).subscribe({
-      next: (content) => {
-        this.rawCode = content;
-        const lang = this.detectLanguage(node.name);
-        try {
-          this.highlightedCode = hljs.highlight(content, { language: lang }).value;
-        } catch {
-          this.highlightedCode = hljs.highlightAuto(content).value;
-        }
-        this.isLoadingFile = false;
+    // ← changed: GitHub API returns base64 encoded content
+    this.http.get<any>(node.download_url).subscribe({
+      next: (response) => {
+        const base64 = response.content.replace(/\n/g, '');
+        this.rawCode = atob(base64);
+        this.applyHighlight(node.name);
       },
       error: () => {
         this.errorMessage = `Could not load ${node.name}`;
         this.isLoadingFile = false;
       },
     });
+  }
+
+  private applyHighlight(filename: string): void {
+    const lang = this.detectLanguage(filename);
+    try {
+      this.highlightedCode = hljs.highlight(this.rawCode, { language: lang }).value;
+    } catch {
+      this.highlightedCode = hljs.highlightAuto(this.rawCode).value;
+    }
+    this.isLoadingFile = false;
   }
 
   copyCode(): void {
@@ -200,22 +206,14 @@ export class ProjectCodeReserbaBackEndComponent implements OnInit {
     const ext = node.name.split('.').pop()?.toLowerCase();
     switch (ext) {
       case 'java':
-        return 'pi-file-code';
       case 'ts':
-        return 'pi-file-code';
       case 'html':
-        return 'pi-file-code';
       case 'css':
-        return 'pi-file-code';
       case 'xml':
-        return 'pi-file-code';
       case 'yml':
       case 'yaml':
-        return 'pi-file-code';
       case 'json':
-        return 'pi-file-code';
       case 'properties':
-        return 'pi-file-code';
       case 'sql':
         return 'pi-file-code';
       case 'md':
@@ -228,31 +226,20 @@ export class ProjectCodeReserbaBackEndComponent implements OnInit {
   getFileIconColor(node: TreeNode): string {
     if (node.type === 'folder') return '#e3b341';
     const ext = node.name.split('.').pop()?.toLowerCase();
-    switch (ext) {
-      case 'java':
-        return '#f89b29';
-      case 'ts':
-        return '#3178c6';
-      case 'html':
-        return '#e34c26';
-      case 'css':
-        return '#563d7c';
-      case 'xml':
-        return '#f16529';
-      case 'yml':
-      case 'yaml':
-        return '#cb171e';
-      case 'json':
-        return '#cbcb41';
-      case 'properties':
-        return '#6db33f';
-      case 'sql':
-        return '#336791';
-      case 'md':
-        return '#083fa1';
-      default:
-        return '#6b7280';
-    }
+    const colors: Record<string, string> = {
+      java: '#f89b29',
+      ts: '#3178c6',
+      html: '#e34c26',
+      css: '#563d7c',
+      xml: '#f16529',
+      yml: '#cb171e',
+      yaml: '#cb171e',
+      json: '#cbcb41',
+      properties: '#6db33f',
+      sql: '#336791',
+      md: '#083fa1',
+    };
+    return colors[ext ?? ''] ?? '#6b7280';
   }
 
   getLanguageLabel(filename: string): string {
