@@ -1,0 +1,218 @@
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #134e4a, #062e2b);
+          box-shadow: 0 8px 24px rgba(19, 78, 74, 0.4);
+        "
+      >
+        🇳🇱
+      </div>
+      <div class="flex-1">
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Dutch <span style="color: #2dd4bf">Work Vocabulary</span>
+        </h1>
+        <p class="text-slate-500 text-sm">
+          {{ totalWords }} words & phrases commonly used at work — with example sentences
+        </p>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div
+      class="mb-6"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #13161e;
+        border: 1px solid #252a38;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+      "
+    >
+      <i class="pi pi-search" style="color: #64748b; font-size: 0.9rem"></i>
+      <input
+        type="text"
+        placeholder="Search English, Dutch, or sentence..."
+        [(ngModel)]="searchQuery"
+        style="
+          flex: 1;
+          border: none;
+          background: transparent;
+          font-size: 0.875rem;
+          color: #e2e8f0;
+          outline: none;
+        "
+      />
+      <span *ngIf="searchQuery" style="font-size: 0.75rem; color: #64748b">
+        {{ filteredTotal }} results
+      </span>
+    </div>
+
+    <!-- Categories -->
+    <div class="flex flex-col gap-6">
+      <div
+        *ngFor="let cat of categories"
+        class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden"
+      >
+        <!-- Category header -->
+        <div
+          class="flex items-center justify-between px-6 py-4 cursor-pointer border-b border-[#252a38]"
+          [style.background]="'linear-gradient(135deg, ' + cat.colorBg + ', transparent)'"
+          (click)="toggleCategory(cat)"
+        >
+          <div class="flex items-center gap-3">
+            <span class="text-xl">{{ cat.icon }}</span>
+            <span class="font-semibold text-base tracking-tight">{{ cat.name }}</span>
+            <span
+              class="text-xs px-2 py-0.5 rounded-full font-mono"
+              [style.background]="cat.colorBg"
+              [style.color]="cat.color"
+            >
+              {{ getFiltered(cat.words).length }} words
+            </span>
+          </div>
+          <i
+            class="pi text-sm"
+            [ngClass]="cat.expanded ? 'pi-chevron-up' : 'pi-chevron-down'"
+            style="color: #64748b"
+          ></i>
+        </div>
+
+        <!-- Table -->
+        <div *ngIf="cat.expanded" class="overflow-x-auto">
+          <table style="width: 100%; border-collapse: collapse">
+            <!-- Table head -->
+            <thead>
+              <tr style="background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid #1e2230">
+                <th
+                  style="
+                    text-align: left;
+                    padding: 0.6rem 1.5rem;
+                    font-size: 0.72rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    font-family: monospace;
+                    color: #64748b;
+                    width: 22%;
+                  "
+                >
+                  🇬🇧 English
+                </th>
+                <th
+                  style="
+                    text-align: left;
+                    padding: 0.6rem 1.5rem;
+                    font-size: 0.72rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    font-family: monospace;
+                    color: #64748b;
+                    width: 22%;
+                    border-left: 1px solid #1e2230;
+                  "
+                >
+                  🇳🇱 Dutch
+                </th>
+                <th
+                  style="
+                    text-align: left;
+                    padding: 0.6rem 1.5rem;
+                    font-size: 0.72rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    font-family: monospace;
+                    color: #64748b;
+                    border-left: 1px solid #1e2230;
+                  "
+                >
+                  💬 Sample Sentence (Dutch)
+                </th>
+              </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody>
+              <tr
+                *ngFor="let word of getFiltered(cat.words); let i = index"
+                [style.background]="i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)'"
+                style="border-bottom: 1px solid #1e2230; transition: background 0.1s"
+                class="table-row-hover"
+              >
+                <!-- English -->
+                <td style="padding: 0.85rem 1.5rem; vertical-align: top">
+                  <div style="display: flex; align-items: flex-start; gap: 0.6rem">
+                    <div
+                      style="
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 5px;
+                        flex-shrink: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.65rem;
+                        font-weight: 700;
+                        font-family: monospace;
+                        margin-top: 1px;
+                      "
+                      [style.background]="cat.colorBg"
+                      [style.color]="cat.color"
+                    >
+                      {{ i + 1 }}
+                    </div>
+                    <span style="font-size: 0.875rem; color: #e2e8f0; font-weight: 500">
+                      {{ word.english }}
+                    </span>
+                  </div>
+                </td>
+
+                <!-- Dutch -->
+                <td
+                  style="
+                    padding: 0.85rem 1.5rem;
+                    vertical-align: top;
+                    border-left: 1px solid #1e2230;
+                  "
+                >
+                  <span style="font-size: 0.875rem; font-weight: 600" [style.color]="cat.color">
+                    {{ word.dutch }}
+                  </span>
+                </td>
+
+                <!-- Sample sentence -->
+                <td
+                  style="
+                    padding: 0.85rem 1.5rem;
+                    vertical-align: top;
+                    border-left: 1px solid #1e2230;
+                  "
+                >
+                  <span
+                    style="font-size: 0.85rem; color: #94a3b8; font-style: italic; line-height: 1.6"
+                  >
+                    {{ word.sentence }}
+                  </span>
+                </td>
+              </tr>
+
+              <!-- No results -->
+              <tr *ngIf="getFiltered(cat.words).length === 0">
+                <td
+                  colspan="3"
+                  style="padding: 2rem; text-align: center; color: #64748b; font-size: 0.875rem"
+                >
+                  No results for "{{ searchQuery }}"
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { MiyembroCodeListComponent } from './features/miyembro-code/components/m
 import { IntroListComponent } from './features/intro/components/intro-list/intro-list.component';
 import { AppStudyListComponent } from './features/app-study/components/app-study-list/app-study-list.component';
 import { SdlcListComponent } from './features/sdlc/components/sdlc-list/sdlc-list.component';
+import { DutchListComponent } from './features/dutch/components/dutch-list/dutch-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular-tutorials', pathMatch: 'full' },
@@ -26,4 +27,5 @@ export const routes: Routes = [
   { path: 'intro', component: IntroListComponent },
   { path: 'app-study', component: AppStudyListComponent },
   { path: 'sdlc', component: SdlcListComponent },
+  { path: 'dutch', component: DutchListComponent },
 ];
