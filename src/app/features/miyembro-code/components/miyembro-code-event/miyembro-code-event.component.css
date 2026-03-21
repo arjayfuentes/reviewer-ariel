@@ -1,0 +1,301 @@
+.viewer-wrapper {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #30363d;
+  background: #161b22;
+  overflow: hidden;
+}
+
+.repo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #30363d;
+  background: #0d1117;
+}
+
+.repo-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #e6edf3;
+}
+
+.repo-info .pi { font-size: 1.1rem; color: #e6edf3; }
+
+.repo-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e6edf3;
+  margin: 0;
+}
+
+.repo-owner {
+  font-size: 0.72rem;
+  color: #8b949e;
+  margin: 0;
+}
+
+.repo-link {
+  color: #8b949e;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.repo-link:hover { color: #e6edf3; }
+
+/* ── Tree controls ── */
+.tree-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+}
+
+.search-box i { color: #8b949e; font-size: 0.8rem; }
+
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.82rem;
+  color: #e6edf3;
+  outline: none;
+}
+
+.search-box input::placeholder { color: #8b949e; }
+
+.tree-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tree-action-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #8b949e;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tree-action-btn:hover { background: #21262d; color: #e6edf3; }
+
+/* ── File tree ── */
+.file-tree {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.4rem 0;
+}
+
+.file-tree::-webkit-scrollbar { width: 4px; }
+.file-tree::-webkit-scrollbar-track { background: transparent; }
+.file-tree::-webkit-scrollbar-thumb { background: #30363d; border-radius: 2px; }
+
+.tree-node {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-top: 0.22rem;
+  padding-bottom: 0.22rem;
+  padding-right: 0.75rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: #c9d1d9;
+  transition: background 0.1s;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.tree-node:hover { background: #21262d; }
+
+.tree-node.active {
+  background: #1f3147;
+  color: #79c0ff;
+}
+
+/* ── Folder arrow — SVG triangle like GitHub ── */
+.folder-arrow {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  color: #8b949e;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.folder-arrow.rotated {
+  transform: rotate(90deg);
+  color: #c9d1d9;
+}
+
+.tree-node:hover .folder-arrow { color: #c9d1d9; }
+.tree-node.active .folder-arrow { color: #79c0ff; }
+
+.folder-arrow-placeholder {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.node-icon { font-size: 0.82rem; flex-shrink: 0; }
+.node-name { overflow: hidden; text-overflow: ellipsis; flex: 1; }
+
+.tree-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+/* ── Code panel ── */
+.code-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #30363d;
+  background: #161b22;
+  flex-wrap: wrap;
+}
+
+.file-path {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-title {
+  font-size: 0.8rem;
+  color: #8b949e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-badge {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  background: #1f3147;
+  color: #79c0ff;
+  border-radius: 999px;
+  border: 1px solid #1f6feb;
+}
+
+.github-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: #c9d1d9;
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.github-link-btn:hover { background: #30363d; border-color: #8b949e; }
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #010101;
+  color: #c9d1d9;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.copy-btn:hover { background: #238636; border-color: #2ea043; color: #fff; }
+
+pre {
+  flex: 1;
+  margin: 0;
+  padding: 1.5rem;
+  overflow: auto;
+  background: #0d1117;
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+pre::-webkit-scrollbar { width: 6px; height: 6px; }
+pre::-webkit-scrollbar-track { background: transparent; }
+pre::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+
+pre code { background: transparent; color: #c9d1d9; }
+
+.state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 0.75rem;
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.state-box.empty i { font-size: 3rem; color: #30363d; }
+.state-box.error { color: #f85149; flex-direction: row; }
