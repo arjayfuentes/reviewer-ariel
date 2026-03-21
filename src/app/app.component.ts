@@ -52,9 +52,10 @@ export class AppComponent implements OnInit {
         icon: 'pi pi-envelope',
         routerLink: '/angular-setup', // ← add this
       },
+      { label: 'Best Practices', icon: 'pi pi-file-pdf', routerLink: '/best-practices' },
+
       { label: 'PDF Viewer', icon: 'pi pi-file-pdf', routerLink: '/pdf-viewer' },
       { label: 'Reserba Item', icon: 'pi pi-file-pdf', routerLink: '/reserba-item' },
-      { label: 'Best Practices', icon: 'pi pi-file-pdf', routerLink: '/best-practices' },
     ];
   }
 }

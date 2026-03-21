@@ -1,1 +1,148 @@
-<p>best-practices-angular works!</p>
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #dd0031, #c3002f);
+          box-shadow: 0 8px 24px rgba(221, 0, 49, 0.3);
+        "
+      >
+        🅰️
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Angular <span style="color: #dd0031">Best Practices</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Modern Angular patterns and best practices with code examples
+        </p>
+      </div>
+    </div>
+
+    <!-- Sections -->
+    <div class="flex flex-col gap-5">
+      <div
+        *ngFor="let section of sections"
+        class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden"
+      >
+        <!-- Section Header -->
+        <div
+          class="flex items-center justify-between px-6 py-4 cursor-pointer border-b border-[#252a38]"
+          [ngStyle]="{ background: getSectionGradient(section.color) }"
+          (click)="toggleSection(section)"
+        >
+          <div class="flex items-center gap-3">
+            <i class="pi text-lg" [ngClass]="section.icon"></i>
+            <span class="font-semibold text-base tracking-tight">{{ section.title }}</span>
+          </div>
+          <i
+            class="pi text-sm"
+            [ngClass]="section.expanded ? 'pi-chevron-up' : 'pi-chevron-down'"
+          ></i>
+        </div>
+
+        <!-- Practices -->
+        <div *ngIf="section.expanded" class="flex flex-col divide-y divide-[#1e2230]">
+          <div
+            *ngFor="let practice of section.practices; let i = index"
+            class="px-6 py-6 flex flex-col gap-4"
+          >
+            <!-- Practice Title -->
+            <div class="flex items-center gap-3">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold flex-shrink-0"
+                [ngStyle]="{
+                  background: getAccentBg(section.color),
+                  color: getAccentColor(section.color),
+                }"
+              >
+                {{ (i + 1).toString().padStart(2, '0') }}
+              </div>
+              <span class="font-semibold text-base text-slate-100">{{ practice.title }}</span>
+            </div>
+
+            <!-- Short Explanation -->
+            <p class="text-sm text-slate-400 leading-relaxed font-light pl-11">
+              {{ practice.explanation }}
+            </p>
+
+            <!-- Detail -->
+            <div *ngIf="practice.detail" class="pl-11">
+              <div
+                class="rounded-xl px-5 py-4 flex flex-col gap-2"
+                style="background: rgba(255, 255, 255, 0.03); border: 1px solid #1e2230"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="pi pi-book text-xs" style="color: #64748b"></i>
+                  <span class="text-xs uppercase tracking-wider font-mono" style="color: #64748b">
+                    In depth
+                  </span>
+                </div>
+                <p
+                  *ngFor="let line of practice.detail!.trim().split('\n')"
+                  class="text-sm leading-relaxed m-0"
+                  style="color: #94a3b8"
+                >
+                  {{ line }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Code Examples -->
+            <div *ngIf="practice.code" class="flex flex-col gap-3 pl-11">
+              <!-- Bad -->
+              <div
+                *ngIf="practice.code.bad"
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #1a0a0a"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs uppercase tracking-wider" style="color: #f87171">
+                    ✕ bad practice
+                  </span>
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto m-0"
+                  style="background: #0d0608"
+                ><code [innerHTML]="highlightAuto(practice.code.bad)"></code></pre>
+              </div>
+
+              <!-- Good -->
+              <div
+                *ngIf="practice.code.good"
+                class="rounded-xl overflow-hidden border border-[#1e2230]"
+              >
+                <div
+                  class="flex items-center justify-between px-4 py-2.5 border-b border-[#1e2230]"
+                  style="background: #0a1a0e"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="font-mono text-xs uppercase tracking-wider" style="color: #4ade80">
+                    ✓ good practice
+                  </span>
+                </div>
+                <pre
+                  class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto m-0"
+                  style="background: #060d08"
+                ><code [innerHTML]="highlightAuto(practice.code.good)"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

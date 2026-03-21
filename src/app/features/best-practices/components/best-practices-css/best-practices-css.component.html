@@ -5,18 +5,18 @@
       <div
         class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
         style="
-          background: linear-gradient(135deg, #f89b29, #ff6640);
-          box-shadow: 0 8px 24px rgba(248, 155, 41, 0.3);
+          background: linear-gradient(135deg, #2965f1, #264de4);
+          box-shadow: 0 8px 24px rgba(41, 101, 241, 0.3);
         "
       >
-        ☕
+        🎨
       </div>
       <div>
         <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
-          Effective <span style="color: #f89b29">Java</span>
+          CSS <span style="color: #2965f1">Best Practices</span>
         </h1>
         <p class="text-slate-500 text-sm font-normal">
-          Key best practices from Joshua Bloch's Effective Java with code examples
+          Modern CSS patterns for scalable, maintainable, and performant stylesheets
         </p>
       </div>
     </div>
@@ -68,7 +68,7 @@
               {{ practice.explanation }}
             </p>
 
-            <!-- Detail — expanded explanation -->
+            <!-- Detail -->
             <div *ngIf="practice.detail" class="pl-11">
               <div
                 class="rounded-xl px-5 py-4 flex flex-col gap-2"
@@ -113,7 +113,7 @@
                 <pre
                   class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto m-0"
                   style="background: #0d0608"
-                ><code [innerHTML]="highlight(practice.code.bad)"></code></pre>
+                ><code [innerHTML]="highlightAuto(practice.code.bad)"></code></pre>
               </div>
 
               <!-- Good -->
@@ -137,7 +137,7 @@
                 <pre
                   class="px-4 py-4 font-mono text-sm leading-relaxed overflow-x-auto m-0"
                   style="background: #060d08"
-                ><code [innerHTML]="highlight(practice.code.good)"></code></pre>
+                ><code [innerHTML]="highlightAuto(practice.code.good)"></code></pre>
               </div>
             </div>
           </div>
