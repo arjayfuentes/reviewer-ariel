@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx ng build --configuration production",
+  "buildCommand": "echo \"export const environment = { production: true, apiUrl: 'http://localhost:8080/api/v1/items', githubToken: '$GITHUB_TOKEN' };\" > src/environments/environment.prod.ts && npx ng build --configuration production",
   "outputDirectory": "dist/reserba-ui/browser",
   "framework": "angular",
   "rewrites": [
