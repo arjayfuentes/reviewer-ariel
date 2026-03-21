@@ -8,6 +8,7 @@ import { ReserbaItemComponent } from './features/reserba-item/components/reserba
 import { BestPracticesListComponent } from './features/best-practices/components/best-practices-list/best-practices-list.component';
 import { ProjectCodeListComponent } from './features/project-code/components/project-code-list/project-code-list.component';
 import { MiyembroCodeListComponent } from './features/miyembro-code/components/miyembro-code-list/miyembro-code-list.component';
+import { IntroListComponent } from './features/intro/components/intro-list/intro-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular-tutorials', pathMatch: 'full' },
@@ -20,4 +21,5 @@ export const routes: Routes = [
   { path: 'best-practices', component: BestPracticesListComponent },
   { path: 'project-code', component: ProjectCodeListComponent },
   { path: 'miyembro-code', component: MiyembroCodeListComponent },
+  { path: 'intro', component: IntroListComponent },
 ];

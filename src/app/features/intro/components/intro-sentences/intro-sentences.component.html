@@ -1,0 +1,85 @@
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #1e3a5f, #0f2040);
+          box-shadow: 0 8px 24px rgba(30, 58, 95, 0.4);
+        "
+      >
+        👤
+      </div>
+      <div class="flex-1">
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Ariel <span style="color: #60a5fa">Fuentes</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">Medior Full-stack Developer — Experlogix</p>
+      </div>
+
+      <!-- Language toggle -->
+      <button
+        class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all"
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid #252a38"
+        (click)="toggleLanguage()"
+      >
+        <span>{{ activeLanguage === 'english' ? '🇬🇧 English' : '🇳🇱 Nederlands' }}</span>
+        <i class="pi pi-arrows-h text-xs" style="color: #64748b"></i>
+      </button>
+    </div>
+
+    <!-- Sections -->
+    <div class="flex flex-col gap-5">
+      <div
+        *ngFor="let section of sections"
+        class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden"
+      >
+        <!-- Section Header -->
+        <div
+          class="flex items-center justify-between px-6 py-4 cursor-pointer border-b border-[#252a38]"
+          [ngStyle]="{ background: getSectionGradient(section.color) }"
+          (click)="toggleSection(section)"
+        >
+          <div class="flex items-center gap-3">
+            <span class="text-xl">{{ section.icon }}</span>
+            <span class="font-semibold text-base tracking-tight">{{ section.title }}</span>
+          </div>
+          <i
+            class="pi text-sm"
+            [ngClass]="section.expanded ? 'pi-chevron-up' : 'pi-chevron-down'"
+          ></i>
+        </div>
+
+        <!-- Content -->
+        <div *ngIf="section.expanded" class="px-6 py-6">
+          <div
+            class="rounded-xl px-5 py-4"
+            style="background: rgba(255, 255, 255, 0.03); border: 1px solid #1e2230"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs">{{ activeLanguage === 'english' ? '🇬🇧' : '🇳🇱' }}</span>
+              <span class="text-xs uppercase tracking-wider font-mono" style="color: #64748b">
+                {{ activeLanguage === 'english' ? 'English' : 'Nederlands' }}
+              </span>
+            </div>
+            <div class="flex flex-col gap-3">
+              <p
+                *ngFor="
+                  let paragraph of (activeLanguage === 'english'
+                    ? section.english
+                    : section.dutch
+                  ).split('\n\n')
+                "
+                class="text-sm leading-relaxed m-0"
+                style="color: #94a3b8"
+              >
+                {{ paragraph }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
