@@ -1,3 +1,50 @@
-pre code {
-  background: transparent !important;
+.side-by-side {
+  display: flex;
+  gap: 0;
+  width: 70%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #1e2230;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.lang-card {
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.lang-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1e2230;
+}
+
+.lang-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: monospace;
+  color: #64748b;
+}
+
+.lang-divider {
+  width: 1px;
+  background: #1e2230;
+  flex-shrink: 0;
+}
+
+/* ── Mobile — stack vertically ── */
+@media (max-width: 768px) {
+  .side-by-side {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .lang-divider {
+    width: 100%;
+    height: 1px;
+  }
 }

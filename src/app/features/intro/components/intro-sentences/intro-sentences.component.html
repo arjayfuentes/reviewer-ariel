@@ -11,22 +11,12 @@
       >
         👤
       </div>
-      <div class="flex-1">
+      <div>
         <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
           Ariel <span style="color: #60a5fa">Fuentes</span>
         </h1>
         <p class="text-slate-500 text-sm font-normal">Medior Full-stack Developer — Experlogix</p>
       </div>
-
-      <!-- Language toggle -->
-      <button
-        class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all"
-        style="background: rgba(255, 255, 255, 0.05); border: 1px solid #252a38"
-        (click)="toggleLanguage()"
-      >
-        <span>{{ activeLanguage === 'english' ? '🇬🇧 English' : '🇳🇱 Nederlands' }}</span>
-        <i class="pi pi-arrows-h text-xs" style="color: #64748b"></i>
-      </button>
     </div>
 
     <!-- Sections -->
@@ -51,31 +41,44 @@
           ></i>
         </div>
 
-        <!-- Content -->
+        <!-- Content — side by side -->
         <div *ngIf="section.expanded" class="px-6 py-6">
-          <div
-            class="rounded-xl px-5 py-4"
-            style="background: rgba(255, 255, 255, 0.03); border: 1px solid #1e2230"
-          >
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-xs">{{ activeLanguage === 'english' ? '🇬🇧' : '🇳🇱' }}</span>
-              <span class="text-xs uppercase tracking-wider font-mono" style="color: #64748b">
-                {{ activeLanguage === 'english' ? 'English' : 'Nederlands' }}
-              </span>
+          <div class="side-by-side">
+            <!-- English -->
+            <div class="lang-card">
+              <div class="lang-header">
+                <span>🇬🇧</span>
+                <span class="lang-label">English</span>
+              </div>
+              <div class="flex flex-col gap-3">
+                <p
+                  *ngFor="let paragraph of section.english.split('\n\n')"
+                  class="text-sm leading-relaxed m-0"
+                  style="color: #94a3b8"
+                >
+                  {{ paragraph }}
+                </p>
+              </div>
             </div>
-            <div class="flex flex-col gap-3">
-              <p
-                *ngFor="
-                  let paragraph of (activeLanguage === 'english'
-                    ? section.english
-                    : section.dutch
-                  ).split('\n\n')
-                "
-                class="text-sm leading-relaxed m-0"
-                style="color: #94a3b8"
-              >
-                {{ paragraph }}
-              </p>
+
+            <!-- Divider -->
+            <div class="lang-divider"></div>
+
+            <!-- Dutch -->
+            <div class="lang-card">
+              <div class="lang-header">
+                <span>🇳🇱</span>
+                <span class="lang-label">Nederlands</span>
+              </div>
+              <div class="flex flex-col gap-3">
+                <p
+                  *ngFor="let paragraph of section.dutch.split('\n\n')"
+                  class="text-sm leading-relaxed m-0"
+                  style="color: #94a3b8"
+                >
+                  {{ paragraph }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
