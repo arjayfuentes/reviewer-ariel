@@ -15,7 +15,7 @@ import { TreeNode } from '../../models/tree-node.model';
 export class MiyembroCodeDeploymentComponent implements OnInit {
   // ← change
 
-  readonly OWNER = 'miyembro';
+  readonly OWNER = 'arjayfuentes';
   readonly REPO = 'xtra_miyembro_deployment_files'; // ← change
   readonly BRANCH = 'main';
 
