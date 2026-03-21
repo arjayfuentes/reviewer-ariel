@@ -8,6 +8,7 @@ import { MiyembroCodeGatewayComponent } from '../miyembro-code-gateway/miyembro-
 import { MiyembroCodeUiComponent } from '../miyembro-code-ui/miyembro-code-ui.component';
 import { MiyembroCodeMemberComponent } from '../miyembro-code-member/miyembro-code-member.component';
 import { MiyembroCodeOrganizationComponent } from '../miyembro-code-organization/miyembro-code-organization.component';
+import { MiyembroCodeDeploymentComponent } from '../miyembro-code-deployment/miyembro-code-deployment.component';
 
 @Component({
   selector: 'app-miyembro-code-list',
@@ -21,6 +22,7 @@ import { MiyembroCodeOrganizationComponent } from '../miyembro-code-organization
     MiyembroCodeUiComponent,
     MiyembroCodeMemberComponent,
     MiyembroCodeOrganizationComponent,
+    MiyembroCodeDeploymentComponent,
   ],
   templateUrl: './miyembro-code-list.component.html',
   styleUrl: './miyembro-code-list.component.css',
