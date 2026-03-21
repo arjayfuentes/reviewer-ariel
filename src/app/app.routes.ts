@@ -9,6 +9,7 @@ import { BestPracticesListComponent } from './features/best-practices/components
 import { ProjectCodeListComponent } from './features/project-code/components/project-code-list/project-code-list.component';
 import { MiyembroCodeListComponent } from './features/miyembro-code/components/miyembro-code-list/miyembro-code-list.component';
 import { IntroListComponent } from './features/intro/components/intro-list/intro-list.component';
+import { AppStudyListComponent } from './features/app-study/components/app-study-list/app-study-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular-tutorials', pathMatch: 'full' },
@@ -22,4 +23,5 @@ export const routes: Routes = [
   { path: 'project-code', component: ProjectCodeListComponent },
   { path: 'miyembro-code', component: MiyembroCodeListComponent },
   { path: 'intro', component: IntroListComponent },
+  { path: 'app-study', component: AppStudyListComponent },
 ];

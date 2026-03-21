@@ -3,6 +3,16 @@
     <ng-template #start>
       <img src="images/java-angular-logo.png" alt="Logo" style="height: 40px; width: auto" />
     </ng-template>
+
+    <ng-template #end>
+      <p-button
+        [icon]="showExtraMenus ? 'pi pi-eye-slash' : 'pi pi-eye'"
+        [label]="showExtraMenus ? 'Hide Menus' : 'Show Menus'"
+        severity="secondary"
+        [text]="true"
+        (onClick)="toggleExtraMenus()"
+      />
+    </ng-template>
   </p-menubar>
 </div>
 

@@ -1,0 +1,105 @@
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #3b0764, #1e0336);
+          box-shadow: 0 8px 24px rgba(59, 7, 100, 0.4);
+        "
+      >
+        🛠️
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Technical <span style="color: #c084fc">Questions</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Key questions to ask when joining a new project — English & Nederlands
+        </p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+      <!-- Table header -->
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 160px 1fr 1fr;
+          background: linear-gradient(135deg, #3b0764, #1e0336);
+          border-bottom: 1px solid #252a38;
+        "
+      >
+        <div class="px-4 py-3">
+          <span class="text-xs uppercase tracking-wider font-mono text-slate-300">Topic</span>
+        </div>
+        <div class="px-6 py-3 flex items-center gap-2" style="border-left: 1px solid #1e2230">
+          <span>🇬🇧</span>
+          <span class="text-xs uppercase tracking-wider font-mono text-slate-300">English</span>
+        </div>
+        <div class="px-6 py-3 flex items-center gap-2" style="border-left: 1px solid #1e2230">
+          <span>🇳🇱</span>
+          <span class="text-xs uppercase tracking-wider font-mono text-slate-300">Nederlands</span>
+        </div>
+      </div>
+
+      <!-- Table rows -->
+      <div
+        *ngFor="let question of questions; let i = index"
+        style="
+          display: grid;
+          grid-template-columns: 160px 1fr 1fr;
+          border-bottom: 1px solid #1e2230;
+        "
+        [style.background]="i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)'"
+      >
+        <!-- Topic badge -->
+        <div
+          class="px-4 py-5"
+          style="
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 1.25rem;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 0.4rem;
+              text-align: center;
+            "
+          >
+            <span style="font-size: 1.4rem">{{ topicIcons[question.topic] }}</span>
+            <span
+              class="text-xs font-semibold px-2 py-0.5 rounded-full"
+              [style.background]="topicBgs[question.topic]"
+              [style.color]="topicColors[question.topic]"
+              style="font-size: 0.68rem; white-space: nowrap"
+            >
+              {{ question.topic }}
+            </span>
+          </div>
+        </div>
+
+        <!-- English -->
+        <div class="px-6 py-5" style="border-left: 1px solid #1e2230">
+          <span style="font-size: 0.875rem; line-height: 1.7; color: #e2e8f0">
+            {{ question.english }}
+          </span>
+        </div>
+
+        <!-- Dutch -->
+        <div class="px-6 py-5" style="border-left: 1px solid #1e2230">
+          <span style="font-size: 0.875rem; line-height: 1.7; color: #94a3b8">
+            {{ question.dutch }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

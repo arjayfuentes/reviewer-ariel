@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { AngularTutorialListComponent } from './features/angular-tutorials/components/angular-tutorial-list/angular-tutorial-list.component';
 import { JavaTutorialListComponent } from './features/java-tutorials/components/java-tutorial-list/java-tutorial-list.component';
@@ -24,41 +24,49 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
   title = 'reserba-ui';
-  public myUnusedVariable = 'Hello';
+  showExtraMenus = true;
+  private router = inject(Router);
+  private previousRoute: string = '';
 
   items: MenuItem[] | undefined;
 
-  ngOnInit() {
-    const unusedVariable = 'hello'; // ESLint should warn on this
-    const x = { a: 1, b: 2, c: 3 };
-    this.items = [
-      {
-        label: 'Angular Tutorials',
-        icon: 'pi pi-home',
-        routerLink: '/angular-tutorials', // ← add this
-      },
-      {
-        label: 'SpringBoot Tutorials',
-        icon: 'pi pi-star',
-        routerLink: '/java-tutorials', // ← add this
-      },
-      {
-        label: 'SpringBoot App',
-        icon: 'pi pi-envelope',
-        routerLink: '/spring-boot-app', // ← add this
-      },
-      {
-        label: 'Angular Setup',
-        icon: 'pi pi-envelope',
-        routerLink: '/angular-setup', // ← add this
-      },
-      { label: 'Best Practices', icon: 'pi pi-file-pdf', routerLink: '/best-practices' },
+  private readonly baseItems: MenuItem[] = [
+    { label: 'Angular Tutorials', icon: 'pi pi-home', routerLink: '/angular-tutorials' },
+    { label: 'SpringBoot Tutorials', icon: 'pi pi-star', routerLink: '/java-tutorials' },
+    { label: 'SpringBoot App', icon: 'pi pi-envelope', routerLink: '/spring-boot-app' },
+    { label: 'Angular Setup', icon: 'pi pi-envelope', routerLink: '/angular-setup' },
+    { label: 'Best Practices', icon: 'pi pi-file-pdf', routerLink: '/best-practices' },
+    { label: 'App Study', icon: 'pi pi-file-pdf', routerLink: '/app-study' },
+  ];
 
-      { label: 'PDF Viewer', icon: 'pi pi-file-pdf', routerLink: '/pdf-viewer' },
-      { label: 'Reserba Item', icon: 'pi pi-file-pdf', routerLink: '/reserba-item' },
-      { label: 'Project Code', icon: 'pi pi-file-pdf', routerLink: '/project-code' },
-      { label: 'Miyembro Code', icon: 'pi pi-file-pdf', routerLink: '/miyembro-code' },
-      { label: 'Intro', icon: 'pi pi-file-pdf', routerLink: '/intro' },
-    ];
+  private readonly extraItems: MenuItem[] = [
+    { label: 'PDF Viewer', icon: 'pi pi-file-pdf', routerLink: '/pdf-viewer' },
+    { label: 'Reserba Item', icon: 'pi pi-file-pdf', routerLink: '/reserba-item' },
+    { label: 'Project Code', icon: 'pi pi-file-pdf', routerLink: '/project-code' },
+    { label: 'Miyembro Code', icon: 'pi pi-file-pdf', routerLink: '/miyembro-code' },
+    { label: 'Intro', icon: 'pi pi-file-pdf', routerLink: '/intro' },
+  ];
+
+  ngOnInit() {
+    this.buildMenu();
+  }
+
+  toggleExtraMenus() {
+    this.showExtraMenus = !this.showExtraMenus;
+    this.buildMenu();
+    if (!this.showExtraMenus) {
+      this.previousRoute = this.router.url; // save current route before leaving
+      this.router.navigate([this.baseItems[0].routerLink]);
+    } else {
+      if (this.previousRoute) {
+        this.router.navigate([this.previousRoute]);
+      }
+    }
+  }
+
+  private buildMenu() {
+    this.items = this.showExtraMenus
+      ? [...this.baseItems, ...this.extraItems]
+      : [...this.baseItems];
   }
 }

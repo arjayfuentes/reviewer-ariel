@@ -1,0 +1,130 @@
+<div class="min-h-screen px-6 py-12 bg-[#0d0f14] text-slate-200">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-start gap-5 mb-7 pb-2 border-b border-[#252a38]">
+      <div
+        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+        style="
+          background: linear-gradient(135deg, #1e3a5f, #0f2040);
+          box-shadow: 0 8px 24px rgba(30, 58, 95, 0.4);
+        "
+      >
+        📋
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight leading-tight mb-1">
+          Cheat Sheet <span style="color: #60a5fa">Studying App</span>
+        </h1>
+        <p class="text-slate-500 text-sm font-normal">
+          Key questions to ask when joining a new project
+        </p>
+      </div>
+    </div>
+
+    <!-- Sections -->
+    <div class="flex flex-col gap-5">
+      <div
+        *ngFor="let section of sections"
+        class="bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden"
+      >
+        <!-- Section Header -->
+        <div
+          class="flex items-center justify-between px-6 py-4 cursor-pointer border-b border-[#252a38]"
+          [ngStyle]="{ background: getSectionGradient(section.color) }"
+          (click)="toggleSection(section)"
+        >
+          <div class="flex items-center gap-3">
+            <span class="text-xl">{{ section.icon }}</span>
+            <span class="font-semibold text-base tracking-tight">{{ section.title }}</span>
+          </div>
+          <i
+            class="pi text-sm"
+            [ngClass]="section.expanded ? 'pi-chevron-up' : 'pi-chevron-down'"
+          ></i>
+        </div>
+
+        <!-- Items -->
+        <div *ngIf="section.expanded" class="flex flex-col divide-y divide-[#1e2230]">
+          <div
+            *ngFor="let item of section.items; let i = index"
+            class="px-6 py-5 flex flex-col gap-2"
+          >
+            <!-- Question -->
+            <div class="flex items-start gap-3">
+              <div
+                class="w-7 h-7 rounded-lg flex items-center justify-center font-mono text-xs font-bold flex-shrink-0 mt-0.5"
+                [ngStyle]="{
+                  background: getAccentBg(section.color),
+                  color: getAccentColor(section.color),
+                }"
+              >
+                Q
+              </div>
+              <span class="font-semibold text-sm text-slate-100"> "{{ item.question }}" </span>
+            </div>
+
+            <!-- Answer -->
+            <div class="flex items-start gap-3 pl-10">
+              <span class="text-sm leading-relaxed" style="color: #94a3b8">
+                {{ item.answer }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions Table -->
+    <div class="mt-8 bg-[#13161e] border border-[#252a38] rounded-2xl overflow-hidden">
+      <!-- Table Header -->
+      <div
+        class="px-6 py-4 border-b border-[#252a38]"
+        style="background: linear-gradient(135deg, #1e1b4b, #0f0d2b)"
+      >
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🚀</span>
+          <span class="font-semibold text-base tracking-tight">Actions to Take on Day One</span>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr style="background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid #1e2230">
+              <th
+                class="text-left px-6 py-3 text-xs uppercase tracking-wider font-mono"
+                style="color: #64748b; width: 35%"
+              >
+                Action
+              </th>
+              <th
+                class="text-left px-6 py-3 text-xs uppercase tracking-wider font-mono"
+                style="color: #64748b"
+              >
+                Goal
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let item of actions; let i = index"
+              class="border-b border-[#1e2230]"
+              [style.background]="i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)'"
+            >
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-2 h-2 rounded-full flex-shrink-0" style="background: #818cf8"></div>
+                  <span class="text-sm font-semibold text-slate-100">{{ item.action }}</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm" style="color: #94a3b8">
+                {{ item.goal }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

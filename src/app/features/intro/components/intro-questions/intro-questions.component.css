@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .border-l {
+    border-left: none;
+    border-top: 1px solid #1e2230;
+  }
+}
